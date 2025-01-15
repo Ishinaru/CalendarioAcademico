@@ -3,16 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\e_dvplima\\Documents\\C#\\CalendarioAcademico\\CalendarioAcad\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{4F72C135-14F6-4221-9B95-A20C4A339AF4}|APITests\\APITests.csproj|c:\\users\\e_dvplima\\documents\\c#\\calendarioacademico\\calendarioacad\\apitests\\mstestsettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4F72C135-14F6-4221-9B95-A20C4A339AF4}|APITests\\APITests.csproj|solutionrelative:apitests\\mstestsettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{69422400-D624-445A-8561-A8C719CAED9D}|API.Tests\\API.Tests.csproj|c:\\users\\e_dvplima\\documents\\c#\\calendarioacademico\\calendarioacad\\api.tests\\api.tests.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{69422400-D624-445A-8561-A8C719CAED9D}|API.Tests\\API.Tests.csproj|solutionrelative:api.tests\\api.tests.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{69422400-D624-445A-8561-A8C719CAED9D}|API.Tests\\API.Tests.csproj|c:\\users\\e_dvplima\\documents\\c#\\calendarioacademico\\calendarioacad\\api.tests\\services\\calendario\\calendarioservicetests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{69422400-D624-445A-8561-A8C719CAED9D}|API.Tests\\API.Tests.csproj|solutionrelative:api.tests\\services\\calendario\\calendarioservicetests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{01EF6A0F-1F36-40E3-8252-1347B8252BF8}|API\\API.csproj|c:\\users\\e_dvplima\\documents\\c#\\calendarioacademico\\calendarioacad\\api\\services\\calendarios\\calendarioservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{01EF6A0F-1F36-40E3-8252-1347B8252BF8}|API\\API.csproj|solutionrelative:api\\services\\calendarios\\calendarioservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{01EF6A0F-1F36-40E3-8252-1347B8252BF8}|API\\API.csproj|c:\\users\\e_dvplima\\documents\\c#\\calendarioacademico\\calendarioacad\\api\\services\\calendarios\\icalendariointerface.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{01EF6A0F-1F36-40E3-8252-1347B8252BF8}|API\\API.csproj|solutionrelative:api\\services\\calendarios\\icalendariointerface.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{01EF6A0F-1F36-40E3-8252-1347B8252BF8}|API\\API.csproj|c:\\users\\e_dvplima\\documents\\c#\\calendarioacademico\\calendarioacad\\api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
@@ -78,32 +78,32 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "MSTestSettings.cs",
-              "DocumentMoniker": "C:\\Users\\e_dvplima\\Documents\\C#\\CalendarioAcademico\\CalendarioAcad\\APITests\\MSTestSettings.cs",
-              "RelativeDocumentMoniker": "APITests\\MSTestSettings.cs",
-              "ToolTip": "C:\\Users\\e_dvplima\\Documents\\C#\\CalendarioAcademico\\CalendarioAcad\\APITests\\MSTestSettings.cs",
-              "RelativeToolTip": "APITests\\MSTestSettings.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "CalendarioServiceTests.cs",
+              "DocumentMoniker": "C:\\Users\\e_dvplima\\Documents\\C#\\CalendarioAcademico\\CalendarioAcad\\API.Tests\\Services\\Calendario\\CalendarioServiceTests.cs",
+              "RelativeDocumentMoniker": "API.Tests\\Services\\Calendario\\CalendarioServiceTests.cs",
+              "ToolTip": "C:\\Users\\e_dvplima\\Documents\\C#\\CalendarioAcademico\\CalendarioAcad\\API.Tests\\Services\\Calendario\\CalendarioServiceTests.cs",
+              "RelativeToolTip": "API.Tests\\Services\\Calendario\\CalendarioServiceTests.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAAAACoAAAA5AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-15T11:43:55.331Z",
+              "WhenOpened": "2025-01-15T12:00:49.717Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "ICalendarioInterface.cs",
-              "DocumentMoniker": "C:\\Users\\e_dvplima\\Documents\\C#\\CalendarioAcademico\\CalendarioAcad\\API\\Services\\Calendarios\\ICalendarioInterface.cs",
-              "RelativeDocumentMoniker": "API\\Services\\Calendarios\\ICalendarioInterface.cs",
-              "ToolTip": "C:\\Users\\e_dvplima\\Documents\\C#\\CalendarioAcademico\\CalendarioAcad\\API\\Services\\Calendarios\\ICalendarioInterface.cs*",
-              "RelativeToolTip": "API\\Services\\Calendarios\\ICalendarioInterface.cs*",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-15T11:41:13.194Z",
+              "DocumentIndex": 0,
+              "Title": "API.Tests",
+              "DocumentMoniker": "C:\\Users\\e_dvplima\\Documents\\C#\\CalendarioAcademico\\CalendarioAcad\\API.Tests\\API.Tests.csproj",
+              "RelativeDocumentMoniker": "API.Tests\\API.Tests.csproj",
+              "ToolTip": "C:\\Users\\e_dvplima\\Documents\\C#\\CalendarioAcademico\\CalendarioAcad\\API.Tests\\API.Tests.csproj",
+              "RelativeToolTip": "API.Tests\\API.Tests.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAA0AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-01-15T11:57:40.581Z",
               "EditorCaption": ""
             },
             {
@@ -158,7 +158,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "CalendarioService.cs",
               "DocumentMoniker": "C:\\Users\\e_dvplima\\Documents\\C#\\CalendarioAcademico\\CalendarioAcad\\API\\Services\\Calendarios\\CalendarioService.cs",
               "RelativeDocumentMoniker": "API\\Services\\Calendarios\\CalendarioService.cs",
