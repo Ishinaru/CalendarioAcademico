@@ -1,0 +1,245 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\david\\Documents\\Programa\u00E7\u00E3o\\C#\\CalendarioAcad\\CalendarioAcad\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{01EF6A0F-1F36-40E3-8252-1347B8252BF8}|API\\API.csproj|c:\\users\\david\\documents\\programa\u00E7\u00E3o\\c#\\calendarioacad\\calendarioacad\\api\\services\\portarias\\portariaservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{01EF6A0F-1F36-40E3-8252-1347B8252BF8}|API\\API.csproj|solutionrelative:api\\services\\portarias\\portariaservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{01EF6A0F-1F36-40E3-8252-1347B8252BF8}|API\\API.csproj|c:\\users\\david\\documents\\programa\u00E7\u00E3o\\c#\\calendarioacad\\calendarioacad\\api\\controllers\\portariacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{01EF6A0F-1F36-40E3-8252-1347B8252BF8}|API\\API.csproj|solutionrelative:api\\controllers\\portariacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{01EF6A0F-1F36-40E3-8252-1347B8252BF8}|API\\API.csproj|c:\\users\\david\\documents\\programa\u00E7\u00E3o\\c#\\calendarioacad\\calendarioacad\\api\\model\\portaria.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{01EF6A0F-1F36-40E3-8252-1347B8252BF8}|API\\API.csproj|solutionrelative:api\\model\\portaria.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{01EF6A0F-1F36-40E3-8252-1347B8252BF8}|API\\API.csproj|c:\\users\\david\\documents\\programa\u00E7\u00E3o\\c#\\calendarioacad\\calendarioacad\\api\\services\\calendarios\\calendarioservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{01EF6A0F-1F36-40E3-8252-1347B8252BF8}|API\\API.csproj|solutionrelative:api\\services\\calendarios\\calendarioservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{01EF6A0F-1F36-40E3-8252-1347B8252BF8}|API\\API.csproj|c:\\users\\david\\documents\\programa\u00E7\u00E3o\\c#\\calendarioacad\\calendarioacad\\api\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{01EF6A0F-1F36-40E3-8252-1347B8252BF8}|API\\API.csproj|solutionrelative:api\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{01EF6A0F-1F36-40E3-8252-1347B8252BF8}|API\\API.csproj|c:\\users\\david\\documents\\programa\u00E7\u00E3o\\c#\\calendarioacad\\calendarioacad\\api\\controllers\\eventoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{01EF6A0F-1F36-40E3-8252-1347B8252BF8}|API\\API.csproj|solutionrelative:api\\controllers\\eventoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{01EF6A0F-1F36-40E3-8252-1347B8252BF8}|API\\API.csproj|c:\\users\\david\\documents\\programa\u00E7\u00E3o\\c#\\calendarioacad\\calendarioacad\\api\\controllers\\calendarioscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{01EF6A0F-1F36-40E3-8252-1347B8252BF8}|API\\API.csproj|solutionrelative:api\\controllers\\calendarioscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{01EF6A0F-1F36-40E3-8252-1347B8252BF8}|API\\API.csproj|c:\\users\\david\\documents\\programa\u00E7\u00E3o\\c#\\calendarioacad\\calendarioacad\\api\\services\\portarias\\iportariainterface.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{01EF6A0F-1F36-40E3-8252-1347B8252BF8}|API\\API.csproj|solutionrelative:api\\services\\portarias\\iportariainterface.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{01EF6A0F-1F36-40E3-8252-1347B8252BF8}|API\\API.csproj|c:\\users\\david\\documents\\programa\u00E7\u00E3o\\c#\\calendarioacad\\calendarioacad\\api\\services\\eventos\\ieventointerface.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{01EF6A0F-1F36-40E3-8252-1347B8252BF8}|API\\API.csproj|solutionrelative:api\\services\\eventos\\ieventointerface.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{01EF6A0F-1F36-40E3-8252-1347B8252BF8}|API\\API.csproj|c:\\users\\david\\documents\\programa\u00E7\u00E3o\\c#\\calendarioacad\\calendarioacad\\api\\services\\eventos\\eventoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{01EF6A0F-1F36-40E3-8252-1347B8252BF8}|API\\API.csproj|solutionrelative:api\\services\\eventos\\eventoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{01EF6A0F-1F36-40E3-8252-1347B8252BF8}|API\\API.csproj|c:\\users\\david\\documents\\programa\u00E7\u00E3o\\c#\\calendarioacad\\calendarioacad\\api\\dto\\portarias\\criarportariadto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{01EF6A0F-1F36-40E3-8252-1347B8252BF8}|API\\API.csproj|solutionrelative:api\\dto\\portarias\\criarportariadto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{01EF6A0F-1F36-40E3-8252-1347B8252BF8}|API\\API.csproj|c:\\users\\david\\documents\\programa\u00E7\u00E3o\\c#\\calendarioacad\\calendarioacad\\api\\model\\evento_portaria.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{01EF6A0F-1F36-40E3-8252-1347B8252BF8}|API\\API.csproj|solutionrelative:api\\model\\evento_portaria.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{01EF6A0F-1F36-40E3-8252-1347B8252BF8}|API\\API.csproj|c:\\users\\david\\documents\\programa\u00E7\u00E3o\\c#\\calendarioacad\\calendarioacad\\api\\model\\evento.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{01EF6A0F-1F36-40E3-8252-1347B8252BF8}|API\\API.csproj|solutionrelative:api\\model\\evento.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{01EF6A0F-1F36-40E3-8252-1347B8252BF8}|API\\API.csproj|c:\\users\\david\\documents\\programa\u00E7\u00E3o\\c#\\calendarioacad\\calendarioacad\\api\\migrations\\20250114121531_portariaisativo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{01EF6A0F-1F36-40E3-8252-1347B8252BF8}|API\\API.csproj|solutionrelative:api\\migrations\\20250114121531_portariaisativo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "PortariaService.cs",
+              "DocumentMoniker": "C:\\Users\\david\\Documents\\Programa\u00E7\u00E3o\\C#\\CalendarioAcad\\CalendarioAcad\\API\\Services\\Portarias\\PortariaService.cs",
+              "RelativeDocumentMoniker": "API\\Services\\Portarias\\PortariaService.cs",
+              "ToolTip": "C:\\Users\\david\\Documents\\Programa\u00E7\u00E3o\\C#\\CalendarioAcad\\CalendarioAcad\\API\\Services\\Portarias\\PortariaService.cs",
+              "RelativeToolTip": "API\\Services\\Portarias\\PortariaService.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAAMwM8AAAA6AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-13T11:35:58.656Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "PortariaController.cs",
+              "DocumentMoniker": "C:\\Users\\david\\Documents\\Programa\u00E7\u00E3o\\C#\\CalendarioAcad\\CalendarioAcad\\API\\Controllers\\PortariaController.cs",
+              "RelativeDocumentMoniker": "API\\Controllers\\PortariaController.cs",
+              "ToolTip": "C:\\Users\\david\\Documents\\Programa\u00E7\u00E3o\\C#\\CalendarioAcad\\CalendarioAcad\\API\\Controllers\\PortariaController.cs",
+              "RelativeToolTip": "API\\Controllers\\PortariaController.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAewBUAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-13T12:02:50.228Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Portaria.cs",
+              "DocumentMoniker": "C:\\Users\\david\\Documents\\Programa\u00E7\u00E3o\\C#\\CalendarioAcad\\CalendarioAcad\\API\\Model\\Portaria.cs",
+              "RelativeDocumentMoniker": "API\\Model\\Portaria.cs",
+              "ToolTip": "C:\\Users\\david\\Documents\\Programa\u00E7\u00E3o\\C#\\CalendarioAcad\\CalendarioAcad\\API\\Model\\Portaria.cs",
+              "RelativeToolTip": "API\\Model\\Portaria.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-13T13:08:25.408Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "CalendarioService.cs",
+              "DocumentMoniker": "C:\\Users\\david\\Documents\\Programa\u00E7\u00E3o\\C#\\CalendarioAcad\\CalendarioAcad\\API\\Services\\Calendarios\\CalendarioService.cs",
+              "RelativeDocumentMoniker": "API\\Services\\Calendarios\\CalendarioService.cs",
+              "ToolTip": "C:\\Users\\david\\Documents\\Programa\u00E7\u00E3o\\C#\\CalendarioAcad\\CalendarioAcad\\API\\Services\\Calendarios\\CalendarioService.cs",
+              "RelativeToolTip": "API\\Services\\Calendarios\\CalendarioService.cs",
+              "ViewState": "AgIAAIoAAAAAAAAAAAAewOcAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-14T11:23:52.969Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "EventoService.cs",
+              "DocumentMoniker": "C:\\Users\\david\\Documents\\Programa\u00E7\u00E3o\\C#\\CalendarioAcad\\CalendarioAcad\\API\\Services\\Eventos\\EventoService.cs",
+              "RelativeDocumentMoniker": "API\\Services\\Eventos\\EventoService.cs",
+              "ToolTip": "C:\\Users\\david\\Documents\\Programa\u00E7\u00E3o\\C#\\CalendarioAcad\\CalendarioAcad\\API\\Services\\Eventos\\EventoService.cs",
+              "RelativeToolTip": "API\\Services\\Eventos\\EventoService.cs",
+              "ViewState": "AgIAAEIAAAAAAAAAAAAowD4AAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-14T12:24:09.874Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "20250114121531_portariaIsAtivo.cs",
+              "DocumentMoniker": "C:\\Users\\david\\Documents\\Programa\u00E7\u00E3o\\C#\\CalendarioAcad\\CalendarioAcad\\API\\Migrations\\20250114121531_portariaIsAtivo.cs",
+              "RelativeDocumentMoniker": "API\\Migrations\\20250114121531_portariaIsAtivo.cs",
+              "ToolTip": "C:\\Users\\david\\Documents\\Programa\u00E7\u00E3o\\C#\\CalendarioAcad\\CalendarioAcad\\API\\Migrations\\20250114121531_portariaIsAtivo.cs",
+              "RelativeToolTip": "API\\Migrations\\20250114121531_portariaIsAtivo.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-14T12:15:31.475Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "CalendariosController.cs",
+              "DocumentMoniker": "C:\\Users\\david\\Documents\\Programa\u00E7\u00E3o\\C#\\CalendarioAcad\\CalendarioAcad\\API\\Controllers\\CalendariosController.cs",
+              "RelativeDocumentMoniker": "API\\Controllers\\CalendariosController.cs",
+              "ToolTip": "C:\\Users\\david\\Documents\\Programa\u00E7\u00E3o\\C#\\CalendarioAcad\\CalendarioAcad\\API\\Controllers\\CalendariosController.cs",
+              "RelativeToolTip": "API\\Controllers\\CalendariosController.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAAAgwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-13T12:41:33.358Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "EventosController.cs",
+              "DocumentMoniker": "C:\\Users\\david\\Documents\\Programa\u00E7\u00E3o\\C#\\CalendarioAcad\\CalendarioAcad\\API\\Controllers\\EventosController.cs",
+              "RelativeDocumentMoniker": "API\\Controllers\\EventosController.cs",
+              "ToolTip": "C:\\Users\\david\\Documents\\Programa\u00E7\u00E3o\\C#\\CalendarioAcad\\CalendarioAcad\\API\\Controllers\\EventosController.cs",
+              "RelativeToolTip": "API\\Controllers\\EventosController.cs",
+              "ViewState": "AgIAABwAAAAAAAAAAAAgwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-13T12:40:55.114Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "AppDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\david\\Documents\\Programa\u00E7\u00E3o\\C#\\CalendarioAcad\\CalendarioAcad\\API\\Data\\AppDbContext.cs",
+              "RelativeDocumentMoniker": "API\\Data\\AppDbContext.cs",
+              "ToolTip": "C:\\Users\\david\\Documents\\Programa\u00E7\u00E3o\\C#\\CalendarioAcad\\CalendarioAcad\\API\\Data\\AppDbContext.cs",
+              "RelativeToolTip": "API\\Data\\AppDbContext.cs",
+              "ViewState": "AgIAABUAAAAAAAAAAAAmwC0AAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-13T14:06:11.783Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "IPortariaInterface.cs",
+              "DocumentMoniker": "C:\\Users\\david\\Documents\\Programa\u00E7\u00E3o\\C#\\CalendarioAcad\\CalendarioAcad\\API\\Services\\Portarias\\IPortariaInterface.cs",
+              "RelativeDocumentMoniker": "API\\Services\\Portarias\\IPortariaInterface.cs",
+              "ToolTip": "C:\\Users\\david\\Documents\\Programa\u00E7\u00E3o\\C#\\CalendarioAcad\\CalendarioAcad\\API\\Services\\Portarias\\IPortariaInterface.cs",
+              "RelativeToolTip": "API\\Services\\Portarias\\IPortariaInterface.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-13T12:40:44.704Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "IEventoInterface.cs",
+              "DocumentMoniker": "C:\\Users\\david\\Documents\\Programa\u00E7\u00E3o\\C#\\CalendarioAcad\\CalendarioAcad\\API\\Services\\Eventos\\IEventoInterface.cs",
+              "RelativeDocumentMoniker": "API\\Services\\Eventos\\IEventoInterface.cs",
+              "ToolTip": "C:\\Users\\david\\Documents\\Programa\u00E7\u00E3o\\C#\\CalendarioAcad\\CalendarioAcad\\API\\Services\\Eventos\\IEventoInterface.cs",
+              "RelativeToolTip": "API\\Services\\Eventos\\IEventoInterface.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAABjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-13T13:06:28.717Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Evento.cs",
+              "DocumentMoniker": "C:\\Users\\david\\Documents\\Programa\u00E7\u00E3o\\C#\\CalendarioAcad\\CalendarioAcad\\API\\Model\\Evento.cs",
+              "RelativeDocumentMoniker": "API\\Model\\Evento.cs",
+              "ToolTip": "C:\\Users\\david\\Documents\\Programa\u00E7\u00E3o\\C#\\CalendarioAcad\\CalendarioAcad\\API\\Model\\Evento.cs",
+              "RelativeToolTip": "API\\Model\\Evento.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAA5wCEAAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-13T12:52:29.731Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "CriarPortariaDTO.cs",
+              "DocumentMoniker": "C:\\Users\\david\\Documents\\Programa\u00E7\u00E3o\\C#\\CalendarioAcad\\CalendarioAcad\\API\\DTO\\Portarias\\CriarPortariaDTO.cs",
+              "RelativeDocumentMoniker": "API\\DTO\\Portarias\\CriarPortariaDTO.cs",
+              "ToolTip": "C:\\Users\\david\\Documents\\Programa\u00E7\u00E3o\\C#\\CalendarioAcad\\CalendarioAcad\\API\\DTO\\Portarias\\CriarPortariaDTO.cs",
+              "RelativeToolTip": "API\\DTO\\Portarias\\CriarPortariaDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-13T11:53:53.503Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Evento_Portaria.cs",
+              "DocumentMoniker": "C:\\Users\\david\\Documents\\Programa\u00E7\u00E3o\\C#\\CalendarioAcad\\CalendarioAcad\\API\\Model\\Evento_Portaria.cs",
+              "RelativeDocumentMoniker": "API\\Model\\Evento_Portaria.cs",
+              "ToolTip": "C:\\Users\\david\\Documents\\Programa\u00E7\u00E3o\\C#\\CalendarioAcad\\CalendarioAcad\\API\\Model\\Evento_Portaria.cs",
+              "RelativeToolTip": "API\\Model\\Evento_Portaria.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-13T13:09:42.191Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

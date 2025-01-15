@@ -1,0 +1,1002 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "API",
+    "version": "1.0"
+  },
+  "paths": {
+    "/api/Calendarios/ListarCalendarios": {
+      "get": {
+        "tags": [
+          "Calendarios"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/CalendarioListResponseModel"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CalendarioListResponseModel"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CalendarioListResponseModel"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Calendarios/CriarCalendario": {
+      "post": {
+        "tags": [
+          "Calendarios"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CriarCalendarioDTO"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CriarCalendarioDTO"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CriarCalendarioDTO"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/CalendarioResponseModel"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CalendarioResponseModel"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CalendarioResponseModel"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Calendarios/AprovarCalendario/{idCalendario}": {
+      "post": {
+        "tags": [
+          "Calendarios"
+        ],
+        "parameters": [
+          {
+            "name": "idCalendario",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/CalendarioResponseModel"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CalendarioResponseModel"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CalendarioResponseModel"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Calendarios/DesativarCalendario/{idCalendario}": {
+      "post": {
+        "tags": [
+          "Calendarios"
+        ],
+        "parameters": [
+          {
+            "name": "idCalendario",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/CalendarioResponseModel"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CalendarioResponseModel"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CalendarioResponseModel"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Eventos/ListarEventos": {
+      "get": {
+        "tags": [
+          "Eventos"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/EventoListResponseModel"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EventoListResponseModel"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EventoListResponseModel"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Eventos/EventoPorId/{eventoId}": {
+      "get": {
+        "tags": [
+          "Eventos"
+        ],
+        "parameters": [
+          {
+            "name": "eventoId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/EventoResponseModel"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EventoResponseModel"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EventoResponseModel"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Eventos/CriarEvento/{idCalendario}": {
+      "post": {
+        "tags": [
+          "Eventos"
+        ],
+        "parameters": [
+          {
+            "name": "idCalendario",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CriarEventoDTO"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CriarEventoDTO"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CriarEventoDTO"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/EventoResponseModel"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EventoResponseModel"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EventoResponseModel"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Eventos/EditarEvento/{idEvento}": {
+      "post": {
+        "tags": [
+          "Eventos"
+        ],
+        "parameters": [
+          {
+            "name": "idEvento",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EditarEventoDTO"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EditarEventoDTO"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/EditarEventoDTO"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/EventoResponseModel"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EventoResponseModel"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EventoResponseModel"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Eventos/DesativarEvento/{idEvento}": {
+      "post": {
+        "tags": [
+          "Eventos"
+        ],
+        "parameters": [
+          {
+            "name": "idEvento",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/EventoResponseModel"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EventoResponseModel"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EventoResponseModel"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Historico/ListarHistoricos": {
+      "get": {
+        "tags": [
+          "Historico"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/HistoricoListResponseModel"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HistoricoListResponseModel"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HistoricoListResponseModel"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Portaria/CriarPortaria": {
+      "post": {
+        "tags": [
+          "Portaria"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CriarPortariaEventosDTO"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CriarPortariaEventosDTO"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CriarPortariaEventosDTO"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/PortariaResponseModel"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PortariaResponseModel"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PortariaResponseModel"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Portaria/ListarPortarias": {
+      "get": {
+        "tags": [
+          "Portaria"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/PortariaResponseModel"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PortariaResponseModel"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PortariaResponseModel"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Portaria/DesativarPortaria/{idPortaria}": {
+      "post": {
+        "tags": [
+          "Portaria"
+        ],
+        "parameters": [
+          {
+            "name": "idPortaria",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/PortariaResponseModel"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PortariaResponseModel"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PortariaResponseModel"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Calendario": {
+        "required": [
+          "ano",
+          "status"
+        ],
+        "type": "object",
+        "properties": {
+          "idCalendario": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "ano": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "idUsuario": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "dataAtualizacao": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "status": {
+            "$ref": "#/components/schemas/Status"
+          },
+          "numeroResolucao": {
+            "type": "string",
+            "nullable": true
+          },
+          "observacao": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CalendarioListResponseModel": {
+        "type": "object",
+        "properties": {
+          "dados": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Calendario"
+            },
+            "nullable": true
+          },
+          "mensagem": {
+            "type": "string",
+            "nullable": true
+          },
+          "status": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "CalendarioResponseModel": {
+        "type": "object",
+        "properties": {
+          "dados": {
+            "$ref": "#/components/schemas/Calendario"
+          },
+          "mensagem": {
+            "type": "string",
+            "nullable": true
+          },
+          "status": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "CriarCalendarioDTO": {
+        "type": "object",
+        "properties": {
+          "ano": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "idUsuario": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "dataAtualizacao": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "numeroResolucao": {
+            "type": "string",
+            "nullable": true
+          },
+          "observacao": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CriarEventoDTO": {
+        "type": "object",
+        "properties": {
+          "dataInicio": {
+            "type": "string",
+            "format": "date"
+          },
+          "dataFinal": {
+            "type": "string",
+            "format": "date"
+          },
+          "descricao": {
+            "type": "string",
+            "nullable": true
+          },
+          "uescFunciona": {
+            "type": "boolean"
+          },
+          "importante": {
+            "type": "boolean"
+          },
+          "tipoFeriado": {
+            "$ref": "#/components/schemas/TipoFeriado"
+          },
+          "idUsuario": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "dataAtualizacao": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false
+      },
+      "CriarPortariaDTO": {
+        "type": "object",
+        "properties": {
+          "numPortaria": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "anoPortaria": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "idUsuario": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "dataAtualizacao": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false
+      },
+      "CriarPortariaEventosDTO": {
+        "type": "object",
+        "properties": {
+          "portariaDTO": {
+            "$ref": "#/components/schemas/CriarPortariaDTO"
+          },
+          "eventoPortariasDTO": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/EventoPortariasDTO"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "EditarEventoDTO": {
+        "type": "object",
+        "properties": {
+          "dataInicio": {
+            "type": "string",
+            "format": "date"
+          },
+          "dataFinal": {
+            "type": "string",
+            "format": "date"
+          },
+          "descricao": {
+            "type": "string",
+            "nullable": true
+          },
+          "uescFunciona": {
+            "type": "boolean"
+          },
+          "importante": {
+            "type": "boolean"
+          },
+          "tipoFeriado": {
+            "$ref": "#/components/schemas/TipoFeriado"
+          },
+          "idUsuario": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "dataAtualizacao": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Evento": {
+        "required": [
+          "dataFinal",
+          "dataInicio",
+          "descricao",
+          "importante",
+          "tipoFeriado",
+          "uescFunciona"
+        ],
+        "type": "object",
+        "properties": {
+          "idEvento": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "dataInicio": {
+            "type": "string",
+            "format": "date"
+          },
+          "dataFinal": {
+            "type": "string",
+            "format": "date"
+          },
+          "descricao": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "uescFunciona": {
+            "type": "boolean"
+          },
+          "importante": {
+            "type": "boolean"
+          },
+          "tipoFeriado": {
+            "$ref": "#/components/schemas/TipoFeriado"
+          },
+          "idUsuario": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "dataAtualizacao": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "isAtivo": {
+            "type": "boolean"
+          },
+          "idCalendario": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "calendario": {
+            "$ref": "#/components/schemas/Calendario"
+          }
+        },
+        "additionalProperties": false
+      },
+      "EventoListResponseModel": {
+        "type": "object",
+        "properties": {
+          "dados": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Evento"
+            },
+            "nullable": true
+          },
+          "mensagem": {
+            "type": "string",
+            "nullable": true
+          },
+          "status": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "EventoPortariasDTO": {
+        "type": "object",
+        "properties": {
+          "eventoID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "dataInicio": {
+            "type": "string",
+            "format": "date"
+          },
+          "dataFinal": {
+            "type": "string",
+            "format": "date"
+          },
+          "observacao": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "EventoResponseModel": {
+        "type": "object",
+        "properties": {
+          "dados": {
+            "$ref": "#/components/schemas/Evento"
+          },
+          "mensagem": {
+            "type": "string",
+            "nullable": true
+          },
+          "status": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Historico": {
+        "type": "object",
+        "properties": {
+          "idHistorico": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "status": {
+            "$ref": "#/components/schemas/Status"
+          },
+          "descricao": {
+            "type": "string",
+            "nullable": true
+          },
+          "idUsuario": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "dataMudanca": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "idCalendario": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "calendario": {
+            "$ref": "#/components/schemas/Calendario"
+          },
+          "idEvento": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "evento": {
+            "$ref": "#/components/schemas/Evento"
+          },
+          "idPortaria": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "portaria": {
+            "$ref": "#/components/schemas/Portaria"
+          }
+        },
+        "additionalProperties": false
+      },
+      "HistoricoListResponseModel": {
+        "type": "object",
+        "properties": {
+          "dados": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Historico"
+            },
+            "nullable": true
+          },
+          "mensagem": {
+            "type": "string",
+            "nullable": true
+          },
+          "status": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Portaria": {
+        "required": [
+          "anoPortaria",
+          "numPortaria"
+        ],
+        "type": "object",
+        "properties": {
+          "id_Portaria": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "numPortaria": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "anoPortaria": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "idUsuario": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "isAtivo": {
+            "type": "boolean"
+          },
+          "dataAtualizacao": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false
+      },
+      "PortariaResponseModel": {
+        "type": "object",
+        "properties": {
+          "dados": {
+            "$ref": "#/components/schemas/Portaria"
+          },
+          "mensagem": {
+            "type": "string",
+            "nullable": true
+          },
+          "status": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Status": {
+        "enum": [
+          0,
+          1,
+          2
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
+      "TipoFeriado": {
+        "enum": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "type": "integer",
+        "format": "int32"
+      }
+    }
+  }
+}

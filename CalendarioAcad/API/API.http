@@ -1,0 +1,6 @@
+@API_HostAddress = https://localhost:7071
+
+GET {{API_HostAddress}}/api/Eventos/
+Accept: application/json
+
+###
