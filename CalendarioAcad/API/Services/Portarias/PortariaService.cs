@@ -16,9 +16,6 @@ namespace API.Services.Portarias
         private const string MSG_CRIACAO = "Portaria criada";
         private const string MSG_DESATIVACAO = "Portaria desativada";
         private static string? numResolucaoDesativado;
-        private static List<DateOnly>? datasAnteriores = new List<DateOnly>();
-        private static List<int> idUsuarioAnteriores = new List<int>();
-        private static List<DateTime> datasAtualizacoesAnteriores = new List<DateTime>();
 
         public PortariaService(AppDbContext context, ICalendarioInterface calendarioInterface)
         {
@@ -104,6 +101,16 @@ namespace API.Services.Portarias
                 {
                     var evento = eventos.FirstOrDefault(e => e.IdEvento == eventoPortariaDTO.EventoID);
 
+                    var backupEvento = new BackupEvento
+                    {
+                        IdEvento = evento.IdEvento,
+                        DataInicio = evento.DataInicio,
+                        DataFinal = evento.DataFinal,
+                        IdUsuario = evento.IdUsuario,
+                        DataAtualizacao = evento.DataAtualizacao
+                    };
+                    _context.BackupEvents.Add(backupEvento);
+
                     var eventoPortaria = new Evento_Portaria
                     {
                         IdEvento = evento.IdEvento,
@@ -119,16 +126,10 @@ namespace API.Services.Portarias
                     evento.DataAtualizacao = portariaDTO.DataAtualizacao;
                     evento.IdUsuario = portariaDTO.IdUsuario;
 
-                    datasAnteriores.Add(evento.DataInicio);
-                    datasAnteriores.Add(evento.DataFinal);
-                    datasAtualizacoesAnteriores.Add(evento.DataAtualizacao);
-                    idUsuarioAnteriores.Add(evento.IdUsuario);
-
                     _context.Evento_Portarias.Add(eventoPortaria);
                     _context.Eventos.Update(evento);
                 }
                 await _context.SaveChangesAsync();
-
 
                 calendario.NumeroResolucao =  await _calendarioInterface.GerarNumeroResolucao(calendario.Ano);
                 _context.Calendarios.Update(calendario);
@@ -203,15 +204,14 @@ namespace API.Services.Portarias
                 foreach (var item in eventosPortaria)
                 {
                     var evento = item.Evento;
-                    evento.DataInicio = datasAnteriores[0];
-                    datasAnteriores.RemoveAt(0);
-                    evento.DataFinal = datasAnteriores[0];
-                    datasAnteriores.RemoveAt(0);
-                    evento.DataAtualizacao = datasAtualizacoesAnteriores[0];
-                    datasAtualizacoesAnteriores.RemoveAt(0);
-                    evento.IdUsuario = idUsuarioAnteriores[0];
-                    idUsuarioAnteriores.RemoveAt(0);
+                    var backupEvento = await _context.BackupEvents.FirstOrDefaultAsync(be => be.IdEvento == evento.IdEvento);
+                    evento.DataInicio = backupEvento.DataInicio;
+                    evento.DataFinal = backupEvento.DataFinal;
+                    evento.DataAtualizacao = backupEvento.DataAtualizacao;
+                    evento.IdUsuario = backupEvento.IdUsuario;
+                    
                     _context.Eventos.Update(evento);
+                    _context.BackupEvents.Remove(backupEvento);
                 }
 
                 var calendario = await _context.Calendarios
@@ -232,7 +232,7 @@ namespace API.Services.Portarias
                     IdCalendario = historicoDTO.IdCalendario,
                     IdPortaria = portaria.Id_Portaria
                 };
-                _context.Add(portaria);
+                _context.Add(historico);
                 await _context.SaveChangesAsync();
 
                 numResolucaoDesativado = portaria.NumPortaria;

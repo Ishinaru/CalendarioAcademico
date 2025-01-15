@@ -49,5 +49,6 @@ namespace API.Data
         public DbSet<Calendario> Calendarios { get; set; }
         public DbSet<Historico> Historicos { get; set; }
         public DbSet<Evento_Portaria> Evento_Portarias { get; set; }
+        public DbSet<BackupEvento> BackupEvents { get; set; }
     }
 }
