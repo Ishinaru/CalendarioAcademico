@@ -69,7 +69,7 @@ namespace API.Services.Eventos
                     {
                         Status = calendario.Status,
                         Descricao =  $"{MSG_CRIACAO}{eventoDTO.Descricao} pelo Usuário: {eventoDTO.IdUsuario}" ,
-                        IdUsuario = historicoDTO.IdUsuario,
+                        IdUsuario = evento.IdUsuario,
                         DataMudanca = historicoDTO.DataMudanca,
                         IdCalendario = calendario.IdCalendario,
                         IdEvento = evento.IdEvento

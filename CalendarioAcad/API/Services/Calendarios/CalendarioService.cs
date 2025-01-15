@@ -50,8 +50,8 @@ namespace API.Services.Calendarios
                 var historico = new Historico()
                 {
                     Status = calendario.Status,
-                    Descricao = MSG_APROVACAO,
-                    IdUsuario = historicoDTO.IdUsuario,
+                    Descricao = $"{MSG_APROVACAO}: pelo usuário : {calendario.IdUsuario}",
+                    IdUsuario = calendario.IdUsuario,
                     DataMudanca = historicoDTO.DataMudanca,
                     IdCalendario = calendario.IdCalendario
                 };
@@ -60,7 +60,7 @@ namespace API.Services.Calendarios
                 await _context.SaveChangesAsync();
 
                 response.Dados = calendario;
-                response.Mensagem = "Calendário aprovado";
+                response.Mensagem = $"{MSG_APROVACAO}: {calendario.IdUsuario}";
                 return response;
 
             }
@@ -107,7 +107,7 @@ namespace API.Services.Calendarios
                     Ano = criarCalendarioDTO.Ano,
                     IdUsuario = criarCalendarioDTO.IdUsuario,
                     DataAtualizacao = criarCalendarioDTO.DataAtualizacao,
-                    NumeroResolucao = criarCalendarioDTO.NumeroResolucao,
+                    NumeroResolucao = $"000/{criarCalendarioDTO.Ano}",
                     Observacao = criarCalendarioDTO.Observacao
                 };
                 var calendarioDB = await _context.Calendarios.Where(calendarioDB => calendarioDB.Ano == calendario.Ano).ToListAsync();

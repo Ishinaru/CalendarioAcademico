@@ -31,8 +31,8 @@ namespace API.Tests.Services.Calendario
         [Fact]
         public async Task CriarCalendarioDeveRetornarSucessoCasoAnoSejaUnico()
         {
-            var calendario = new Model.Calendario() { Ano = 2025, IdUsuario = 0 };
-            var calendarioTest = new CriarCalendarioDTO() { Ano = 2025, IdUsuario = 0 };
+            var calendario = new Model.Calendario() { Ano = 2030, IdUsuario = 0 };
+            var calendarioTest = new CriarCalendarioDTO() { Ano = 2030, IdUsuario = 0 };
 
             var entityEntryMock = new Mock<EntityEntry<Model.Calendario>>();
             _mockContext.Setup(x => x.Calendarios.AddAsync(It.IsAny<Model.Calendario>(), default)).ReturnsAsync(entityEntryMock.Object);
