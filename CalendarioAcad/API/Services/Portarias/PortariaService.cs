@@ -22,11 +22,11 @@ namespace API.Services.Portarias
             _context = context;
             _calendarioInterface = calendarioInterface;
         }
-        
+
         public async Task<ResponseModel<List<Portaria>>> CriarPortaria(CriarPortariaDTO portariaDTO, List<EventoPortariasDTO> eventoPortariasDTO)
         {
 
-            ResponseModel<List<Portaria>> response = new ResponseModel<List<Portaria>>();
+            var response = new ResponseModel<List<Portaria>>();
 
             if (eventoPortariasDTO == null || eventoPortariasDTO.Count == 0)
             {
@@ -35,23 +35,21 @@ namespace API.Services.Portarias
                 return response;
             }
 
-            foreach (var item in eventoPortariasDTO)
-            {
-                if (item.DataFinal < item.DataInicio)
-                {
-                    response.Mensagem = "A data final não pode ser menor que a data inicial";
-                    response.Status = false;
-                    return response;
-                }
-            }
 
+            if (eventoPortariasDTO.Any(e => e.DataFinal < e.DataInicio)) 
+            { 
+                response.Mensagem = "A data final não pode ser menor que a data inicial";
+                response.Status = false;
+                return response;
+            }
+            
             var eventos = await _context.Eventos
                 .Where(e => eventoPortariasDTO.Select(ep => ep.EventoID).Contains(e.IdEvento) && e.IsAtivo)
                 .ToListAsync();
 
             if (eventos.Count != eventoPortariasDTO.Count)
             {
-                response.Mensagem = "Um ou mais eventos não encontrados";
+                response.Mensagem = "Um ou mais eventos não foram encontrados";
                 response.Status = false;
                 return response;
             }
@@ -120,7 +118,6 @@ namespace API.Services.Portarias
                         Observacao = eventoPortariaDTO.Observacao
                     };
 
-
                     evento.DataInicio = eventoPortaria.DataInicio;
                     evento.DataFinal = eventoPortaria.DataFinal;
                     evento.DataAtualizacao = portariaDTO.DataAtualizacao;
@@ -134,14 +131,12 @@ namespace API.Services.Portarias
                 calendario.NumeroResolucao =  await _calendarioInterface.GerarNumeroResolucao(calendario.Ano);
                 _context.Calendarios.Update(calendario);
 
-                CriarHistoricoDTO historicoDTO = new CriarHistoricoDTO();
-
                 var historico = new Historico()
                 {
                     Status = calendario.Status,
-                    Descricao = MSG_CRIACAO + $" pelo Usuário : {portaria.IdUsuario}",
+                    Descricao = $"{MSG_CRIACAO } pelo Usuário : {portaria.IdUsuario}",
                     IdUsuario = portaria.IdUsuario,
-                    DataMudanca = historicoDTO.DataMudanca,
+                    DataMudanca = DateTime.Now,
                     IdCalendario = eventos.First().IdCalendario,
                     IdEvento = eventos.First().IdEvento,
                     IdPortaria = portaria.Id_Portaria
@@ -161,7 +156,6 @@ namespace API.Services.Portarias
                 return response;
             }
         }
-
 
         public async Task<ResponseModel<List<Portaria>>> ListarPortarias()
         {
@@ -184,7 +178,7 @@ namespace API.Services.Portarias
 
         public async Task<ResponseModel<Portaria>> DesativarPortaria(int idPortaria)
         {
-            ResponseModel<Portaria> response = new ResponseModel<Portaria>();
+            var response = new ResponseModel<Portaria>();
             try
             {
                 var portaria = await _context.Portarias.FirstOrDefaultAsync(portariaDB => portariaDB.Id_Portaria == idPortaria);
@@ -221,15 +215,13 @@ namespace API.Services.Portarias
                 _context.Portarias.Update(portaria);
                 await _context.SaveChangesAsync();
 
-                CriarHistoricoDTO historicoDTO = new CriarHistoricoDTO();
-
                 var historico = new Historico()
                 {
                     Status = calendario.Status,
                     Descricao = MSG_DESATIVACAO + $" pelo Usuário : {portaria.IdUsuario}",
                     IdUsuario = portaria.IdUsuario,
-                    DataMudanca = historicoDTO.DataMudanca,
-                    IdCalendario = historicoDTO.IdCalendario,
+                    DataMudanca = DateTime.Now,
+                    IdCalendario = calendario.IdCalendario,
                     IdPortaria = portaria.Id_Portaria
                 };
                 _context.Add(historico);
