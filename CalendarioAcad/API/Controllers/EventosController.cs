@@ -1,8 +1,6 @@
 ﻿using API.DTO.Eventos;
-using API.DTO.Historicos;
 using API.Model;
 using API.Services.Eventos;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers

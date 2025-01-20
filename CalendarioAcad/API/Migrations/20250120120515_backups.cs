@@ -5,26 +5,22 @@
 namespace API.Migrations
 {
     /// <inheritdoc />
-    public partial class initialnovobancobackup : Migration
+    public partial class backups : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "BackupEvents",
+                name: "BackupNumerosResolucao",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    IdEvento = table.Column<int>(type: "int", nullable: false),
-                    DataInicio = table.Column<DateOnly>(type: "date", nullable: false),
-                    DataFinal = table.Column<DateOnly>(type: "date", nullable: false),
-                    IdUsuario = table.Column<int>(type: "int", nullable: false),
-                    DataAtualizacao = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    NumResolucao = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_BackupEvents", x => x.Id);
+                    table.PrimaryKey("PK_BackupNumerosResolucao", x => x.Id);
                 });
         }
 
@@ -32,7 +28,7 @@ namespace API.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "BackupEvents");
+                name: "BackupNumerosResolucao");
         }
     }
 }

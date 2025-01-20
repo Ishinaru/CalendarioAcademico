@@ -1,10 +1,38 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\david\\Documents\\Programa\u00E7\u00E3o\\C#\\CalendarioAcademico\\CalendarioAcad\\",
+  "WorkspaceRootPath": "C:\\Users\\e_dvplima\\Documents\\C#\\CalendarioAcademico\\CalendarioAcad\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{01EF6A0F-1F36-40E3-8252-1347B8252BF8}|API\\API.csproj|c:\\users\\david\\documents\\programa\u00E7\u00E3o\\c#\\calendarioacademico\\calendarioacad\\api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\e_dvplima\\Documents\\C#\\CalendarioAcademico\\CalendarioAcad\\FrontEnd\\App.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:FrontEnd\\App.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{01EF6A0F-1F36-40E3-8252-1347B8252BF8}|API\\API.csproj|c:\\users\\e_dvplima\\documents\\c#\\calendarioacademico\\calendarioacad\\api\\services\\portarias\\portariaservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{01EF6A0F-1F36-40E3-8252-1347B8252BF8}|API\\API.csproj|solutionrelative:api\\services\\portarias\\portariaservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{01EF6A0F-1F36-40E3-8252-1347B8252BF8}|API\\API.csproj|c:\\users\\e_dvplima\\documents\\c#\\calendarioacademico\\calendarioacad\\api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{01EF6A0F-1F36-40E3-8252-1347B8252BF8}|API\\API.csproj|solutionrelative:api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{01EF6A0F-1F36-40E3-8252-1347B8252BF8}|API\\API.csproj|c:\\users\\e_dvplima\\documents\\c#\\calendarioacademico\\calendarioacad\\api\\services\\portarias\\iportariainterface.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{01EF6A0F-1F36-40E3-8252-1347B8252BF8}|API\\API.csproj|solutionrelative:api\\services\\portarias\\iportariainterface.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{01EF6A0F-1F36-40E3-8252-1347B8252BF8}|API\\API.csproj|c:\\users\\e_dvplima\\documents\\c#\\calendarioacademico\\calendarioacad\\api\\model\\backupevento.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{01EF6A0F-1F36-40E3-8252-1347B8252BF8}|API\\API.csproj|solutionrelative:api\\model\\backupevento.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{01EF6A0F-1F36-40E3-8252-1347B8252BF8}|API\\API.csproj|c:\\users\\e_dvplima\\documents\\c#\\calendarioacademico\\calendarioacad\\api\\model\\backupnumeroresolucao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{01EF6A0F-1F36-40E3-8252-1347B8252BF8}|API\\API.csproj|solutionrelative:api\\model\\backupnumeroresolucao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{01EF6A0F-1F36-40E3-8252-1347B8252BF8}|API\\API.csproj|c:\\users\\e_dvplima\\documents\\c#\\calendarioacademico\\calendarioacad\\api\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{01EF6A0F-1F36-40E3-8252-1347B8252BF8}|API\\API.csproj|solutionrelative:api\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{01EF6A0F-1F36-40E3-8252-1347B8252BF8}|API\\API.csproj|c:\\users\\e_dvplima\\documents\\c#\\calendarioacademico\\calendarioacad\\api\\migrations\\20250120120515_backups.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{01EF6A0F-1F36-40E3-8252-1347B8252BF8}|API\\API.csproj|solutionrelative:api\\migrations\\20250120120515_backups.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,20 +42,122 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 5,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:130:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:132:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:130:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "App.razor",
+              "DocumentMoniker": "C:\\Users\\e_dvplima\\Documents\\C#\\CalendarioAcademico\\CalendarioAcad\\FrontEnd\\App.razor",
+              "RelativeDocumentMoniker": "FrontEnd\\App.razor",
+              "ToolTip": "C:\\Users\\e_dvplima\\Documents\\C#\\CalendarioAcademico\\CalendarioAcad\\FrontEnd\\App.razor",
+              "RelativeToolTip": "FrontEnd\\App.razor",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-01-20T13:11:03.451Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "appsettings.json",
-              "DocumentMoniker": "C:\\Users\\david\\Documents\\Programa\u00E7\u00E3o\\C#\\CalendarioAcademico\\CalendarioAcad\\API\\appsettings.json",
+              "DocumentMoniker": "C:\\Users\\e_dvplima\\Documents\\C#\\CalendarioAcademico\\CalendarioAcad\\API\\appsettings.json",
               "RelativeDocumentMoniker": "API\\appsettings.json",
-              "ToolTip": "C:\\Users\\david\\Documents\\Programa\u00E7\u00E3o\\C#\\CalendarioAcademico\\CalendarioAcad\\API\\appsettings.json*",
-              "RelativeToolTip": "API\\appsettings.json*",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\e_dvplima\\Documents\\C#\\CalendarioAcademico\\CalendarioAcad\\API\\appsettings.json",
+              "RelativeToolTip": "API\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAzAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-01-16T01:18:55.128Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-20T12:05:46.082Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "20250120120515_backups.cs",
+              "DocumentMoniker": "C:\\Users\\e_dvplima\\Documents\\C#\\CalendarioAcademico\\CalendarioAcad\\API\\Migrations\\20250120120515_backups.cs",
+              "RelativeDocumentMoniker": "API\\Migrations\\20250120120515_backups.cs",
+              "ToolTip": "C:\\Users\\e_dvplima\\Documents\\C#\\CalendarioAcademico\\CalendarioAcad\\API\\Migrations\\20250120120515_backups.cs",
+              "RelativeToolTip": "API\\Migrations\\20250120120515_backups.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-20T12:05:15.41Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "AppDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\e_dvplima\\Documents\\C#\\CalendarioAcademico\\CalendarioAcad\\API\\Data\\AppDbContext.cs",
+              "RelativeDocumentMoniker": "API\\Data\\AppDbContext.cs",
+              "ToolTip": "C:\\Users\\e_dvplima\\Documents\\C#\\CalendarioAcademico\\CalendarioAcad\\API\\Data\\AppDbContext.cs",
+              "RelativeToolTip": "API\\Data\\AppDbContext.cs",
+              "ViewState": "AgIAACQAAAAAAAAAAAAowDgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-20T11:50:26.516Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "BackupNumeroResolucao.cs",
+              "DocumentMoniker": "C:\\Users\\e_dvplima\\Documents\\C#\\CalendarioAcademico\\CalendarioAcad\\API\\Model\\BackupNumeroResolucao.cs",
+              "RelativeDocumentMoniker": "API\\Model\\BackupNumeroResolucao.cs",
+              "ToolTip": "C:\\Users\\e_dvplima\\Documents\\C#\\CalendarioAcademico\\CalendarioAcad\\API\\Model\\BackupNumeroResolucao.cs",
+              "RelativeToolTip": "API\\Model\\BackupNumeroResolucao.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-20T11:49:35.37Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "PortariaService.cs",
+              "DocumentMoniker": "C:\\Users\\e_dvplima\\Documents\\C#\\CalendarioAcademico\\CalendarioAcad\\API\\Services\\Portarias\\PortariaService.cs",
+              "RelativeDocumentMoniker": "API\\Services\\Portarias\\PortariaService.cs",
+              "ToolTip": "C:\\Users\\e_dvplima\\Documents\\C#\\CalendarioAcademico\\CalendarioAcad\\API\\Services\\Portarias\\PortariaService.cs",
+              "RelativeToolTip": "API\\Services\\Portarias\\PortariaService.cs",
+              "ViewState": "AgIAAHQAAAAAAAAAAAAAAHcAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-20T11:37:43.665Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "BackupEvento.cs",
+              "DocumentMoniker": "C:\\Users\\e_dvplima\\Documents\\C#\\CalendarioAcademico\\CalendarioAcad\\API\\Model\\BackupEvento.cs",
+              "RelativeDocumentMoniker": "API\\Model\\BackupEvento.cs",
+              "ToolTip": "C:\\Users\\e_dvplima\\Documents\\C#\\CalendarioAcademico\\CalendarioAcad\\API\\Model\\BackupEvento.cs",
+              "RelativeToolTip": "API\\Model\\BackupEvento.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-20T11:36:52.578Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "IPortariaInterface.cs",
+              "DocumentMoniker": "C:\\Users\\e_dvplima\\Documents\\C#\\CalendarioAcademico\\CalendarioAcad\\API\\Services\\Portarias\\IPortariaInterface.cs",
+              "RelativeDocumentMoniker": "API\\Services\\Portarias\\IPortariaInterface.cs",
+              "ToolTip": "C:\\Users\\e_dvplima\\Documents\\C#\\CalendarioAcademico\\CalendarioAcad\\API\\Services\\Portarias\\IPortariaInterface.cs",
+              "RelativeToolTip": "API\\Services\\Portarias\\IPortariaInterface.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-20T11:30:04.873Z"
             }
           ]
         }

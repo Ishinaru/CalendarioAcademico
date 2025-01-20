@@ -1,8 +1,6 @@
-﻿using API.DTO.EventoPortarias;
-using API.DTO.Portarias;
+﻿using API.DTO.Portarias;
 using API.Model;
 using API.Services.Portarias;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers
@@ -18,7 +16,7 @@ namespace API.Controllers
         }
 
         [HttpPost("CriarPortaria")]
-        public async Task <ActionResult<ResponseModel<Portaria>>> CriarPortaria(CriarPortariaEventosDTO dados)
+        public async Task<ActionResult<ResponseModel<Portaria>>> CriarPortaria(CriarPortariaEventosDTO dados)
         {
             CriarPortariaDTO portariaDTO = dados.PortariaDTO;
             var eventoPortariasDTO = dados.EventoPortariasDTO;
@@ -27,7 +25,7 @@ namespace API.Controllers
         }
 
         [HttpGet("ListarPortarias")]
-        public  async Task <ActionResult<ResponseModel<Portaria>>> ListarPortarias()
+        public async Task<ActionResult<ResponseModel<Portaria>>> ListarPortarias()
         {
             var portarias = await _portariaInterface.ListarPortarias();
             return Ok(portarias);

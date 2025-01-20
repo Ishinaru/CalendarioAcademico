@@ -9,13 +9,13 @@ namespace API.DTO.Historicos
         public int IdUsuario { get; set; }
         public DateTime DataMudanca { get; set; } = DateTime.Now;
 
-        public int ?IdCalendario { get; set; }
-        public Calendario ?Calendario { get; set; }
+        public int? IdCalendario { get; set; }
+        public Calendario? Calendario { get; set; }
 
-        public int ?IdEvento { get; set; }
+        public int? IdEvento { get; set; }
         public Evento? Evento { get; set; }
 
         public int? IdPortaria { get; set; }
-        public Portaria ?Portaria { get; set; }
+        public Portaria? Portaria { get; set; }
     }
 }

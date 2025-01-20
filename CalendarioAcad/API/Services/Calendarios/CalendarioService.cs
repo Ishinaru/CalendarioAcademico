@@ -4,7 +4,6 @@ using API.DTO.Historicos;
 using API.Model;
 using API.Services.Historicos;
 using Microsoft.EntityFrameworkCore;
-using System.Globalization;
 
 namespace API.Services.Calendarios
 {
@@ -27,13 +26,13 @@ namespace API.Services.Calendarios
             try
             {
                 var calendario = await _context.Calendarios.FirstOrDefaultAsync(calendarioDB => calendarioDB.IdCalendario == idCalendario);
-                if (calendario == null || calendario.Status == Status.Desativado) 
+                if (calendario == null || calendario.Status == Status.Desativado)
                 {
                     response.Mensagem = "Calendário não encontrado";
                     response.Status = false;
                     return response;
                 }
-                
+
                 if (calendario.Status == Status.Aprovado)
                 {
                     response.Mensagem = "Calendário já foi aprovado anteriormente";
@@ -114,9 +113,9 @@ namespace API.Services.Calendarios
 
                 if (calendarioDB.Any(calendarioDB => calendarioDB.Status != Status.Desativado))
                 {
-                        response.Mensagem = "Calendário com mesmo ano já consta no banco de dados";
-                        response.Status = false;
-                        return response;
+                    response.Mensagem = "Calendário com mesmo ano já consta no banco de dados";
+                    response.Status = false;
+                    return response;
                 }
 
                 _context.Add(calendario);
@@ -154,7 +153,7 @@ namespace API.Services.Calendarios
             ResponseModel<List<Calendario>> response = new ResponseModel<List<Calendario>>();
             try
             {
-                var calendarios = await _context.Calendarios.Where(calendarioDB => calendarioDB.Status!= Status.Desativado).ToListAsync();
+                var calendarios = await _context.Calendarios.Where(calendarioDB => calendarioDB.Status != Status.Desativado).ToListAsync();
                 response.Dados = calendarios;
                 response.Mensagem = "Calendários encontrados";
                 return response;
@@ -184,7 +183,7 @@ namespace API.Services.Calendarios
                 _context.Calendarios.Update(calendario);
                 await _context.SaveChangesAsync();
 
-                CriarHistoricoDTO historicoDTO = new ();
+                CriarHistoricoDTO historicoDTO = new();
 
                 var historico = new Historico()
                 {
@@ -220,7 +219,7 @@ namespace API.Services.Calendarios
 
             var num = 0;
 
-            if (calendario!= null)
+            if (calendario != null)
             {
                 var numRes = calendario.NumeroResolucao;
                 num = int.Parse(numRes.Split('/')[0]);

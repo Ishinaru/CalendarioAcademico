@@ -1,5 +1,4 @@
-﻿using API.DTO.Calendarios;
-using API.Model;
+﻿using API.Model;
 
 namespace API.DTO.Eventos
 {

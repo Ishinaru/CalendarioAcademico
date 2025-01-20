@@ -1,9 +1,7 @@
 ﻿using API.DTO.Calendarios;
-using API.DTO.Historicos;
 using API.Model;
 using API.Services.Calendarios;
 using API.Services.Historicos;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers

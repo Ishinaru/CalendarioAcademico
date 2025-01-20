@@ -1,6 +1,5 @@
-﻿using API.Model;
-using API.DTO.Eventos;
-using API.DTO.Historicos;
+﻿using API.DTO.Eventos;
+using API.Model;
 
 namespace API.Services.Eventos
 {

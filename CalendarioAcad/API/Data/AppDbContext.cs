@@ -1,5 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
-using API.Model;
+﻿using API.Model;
+using Microsoft.EntityFrameworkCore;
 
 namespace API.Data
 {
@@ -50,5 +50,7 @@ namespace API.Data
         public DbSet<Historico> Historicos { get; set; }
         public DbSet<Evento_Portaria> Evento_Portarias { get; set; }
         public DbSet<BackupEvento> BackupEvents { get; set; }
+        public DbSet<BackupNumeroResolucao> BackupNumerosResolucao { get; set; }
+        public object BackupNumResolucoes { get; internal set; }
     }
 }

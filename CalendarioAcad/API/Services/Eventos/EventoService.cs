@@ -22,8 +22,8 @@ namespace API.Services.Eventos
             ResponseModel<List<Evento>> response = new ResponseModel<List<Evento>>();
 
             var calendario = await _context.Calendarios.FirstOrDefaultAsync(calendarioDB => calendarioDB.IdCalendario == idCalendario);
-            
-            if(calendario == null || calendario.Status == Status.Desativado)
+
+            if (calendario == null || calendario.Status == Status.Desativado)
             {
                 response.Mensagem = "Calendário Inválido ou Inexistente";
                 response.Status = false;
@@ -31,14 +31,14 @@ namespace API.Services.Eventos
             }
             else
             {
-                if(calendario.Status == Status.Aprovado)
+                if (calendario.Status == Status.Aprovado)
                 {
                     response.Mensagem = "Não é possível criar um evento com um calendário em estado de aprovado";
                     response.Status = false;
                     return response;
                 }
 
-                if(eventoDTO.DataFinal < eventoDTO.DataInicio)
+                if (eventoDTO.DataFinal < eventoDTO.DataInicio)
                 {
                     response.Mensagem = "A data final não pode ser menor que a data inicial";
                     response.Status = false;
@@ -63,12 +63,12 @@ namespace API.Services.Eventos
                     _context.Add(evento);
                     await _context.SaveChangesAsync();
 
-                    CriarHistoricoDTO historicoDTO = new ();
+                    CriarHistoricoDTO historicoDTO = new();
 
                     var historico = new Historico()
                     {
                         Status = calendario.Status,
-                        Descricao =  $"{MSG_CRIACAO}{eventoDTO.Descricao} pelo Usuário: {eventoDTO.IdUsuario}" ,
+                        Descricao = $"{MSG_CRIACAO}{eventoDTO.Descricao} pelo Usuário: {eventoDTO.IdUsuario}",
                         IdUsuario = evento.IdUsuario,
                         DataMudanca = historicoDTO.DataMudanca,
                         IdCalendario = calendario.IdCalendario,
@@ -100,8 +100,8 @@ namespace API.Services.Eventos
             try
             {
                 var evento = await _context.Eventos.FirstOrDefaultAsync(eventoDB => eventoDB.IdEvento == idEvento);
-                
-                if(evento == null || !evento.IsAtivo)
+
+                if (evento == null || !evento.IsAtivo)
                 {
                     response.Mensagem = "Evento não encontrado";
                     response.Status = false;
@@ -156,7 +156,7 @@ namespace API.Services.Eventos
                 if (evento == null || !evento.IsAtivo)
                 {
                     response.Mensagem = "Evento não encontrado";
-                    response.Status = false;    
+                    response.Status = false;
                     return response;
                 }
 

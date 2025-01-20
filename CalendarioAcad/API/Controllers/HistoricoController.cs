@@ -1,7 +1,5 @@
-﻿using API.Data;
-using API.Model;
+﻿using API.Model;
 using API.Services.Historicos;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers

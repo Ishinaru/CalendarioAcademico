@@ -2,13 +2,12 @@
 using API.DTO.Historicos;
 using API.Model;
 using Microsoft.EntityFrameworkCore;
-using System.Globalization;
 
 namespace API.Services.Historicos
 {
     public class HistoricoService : IHistoricoInterface
     {
-        private readonly AppDbContext _context; 
+        private readonly AppDbContext _context;
 
         public HistoricoService(AppDbContext context)
         {
@@ -17,11 +16,12 @@ namespace API.Services.Historicos
 
         public async Task<ResponseModel<List<Historico>>> CriarHistorico(CriarHistoricoDTO? historicoDTO, int idCalendario)
         {
-            ResponseModel<List<Historico>> response = new ();
+            ResponseModel<List<Historico>> response = new();
 
             var calendario = await _context.Calendarios.FirstOrDefaultAsync(calendarioDb => calendarioDb.IdCalendario == idCalendario);
 
-            if (calendario == null) {
+            if (calendario == null)
+            {
                 response.Mensagem = "Calendário não encontrado";
                 response.Status = false;
                 return response;
@@ -46,7 +46,7 @@ namespace API.Services.Historicos
                 response.Mensagem = "Histórico criado com sucesso";
                 return response;
 
-    }
+            }
             catch (Exception e)
             {
                 response.Mensagem = e.Message;

@@ -1,16 +1,9 @@
 ﻿using API.Data;
 using API.DTO.Calendarios;
-using API.Model;
 using API.Services.Calendarios;
 using API.Services.Historicos;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Moq;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace API.Tests.Services.Calendario
 {

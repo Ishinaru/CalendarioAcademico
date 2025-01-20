@@ -1,8 +1,4 @@
-﻿using API.Model;
-using System.ComponentModel.DataAnnotations;
-using System.Text.Json.Serialization;
-
-namespace API.DTO.Portarias
+﻿namespace API.DTO.Portarias
 {
     public class CriarPortariaDTO
     {

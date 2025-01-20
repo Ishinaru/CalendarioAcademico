@@ -1,11 +1,10 @@
 
 using API.Data;
-using API.Services.Eventos;
 using API.Services.Calendarios;
-using Microsoft.EntityFrameworkCore;
-using System;
+using API.Services.Eventos;
 using API.Services.Historicos;
 using API.Services.Portarias;
+using Microsoft.EntityFrameworkCore;
 
 namespace API
 {
@@ -30,7 +29,7 @@ namespace API
 
             var connectionString = builder.Configuration.GetConnectionString("CalendarioAcademicoContext");
 
-            builder.Services.AddDbContextFactory<AppDbContext>(options => 
+            builder.Services.AddDbContextFactory<AppDbContext>(options =>
                 options.UseSqlServer(connectionString));
 
             var app = builder.Build();
