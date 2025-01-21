@@ -1,0 +1,29 @@
+﻿@page "/ViewCalendario"
+@using API.Model
+@inject IHttpClientFactory ClientFactory
+
+<PageTitle>ViewCalendario</PageTitle>
+
+<h3>Calendário</h3>
+
+@if (calendarios == null)
+{
+    <p><em>Carregando...</em></p>
+}
+else
+{
+    <ul>
+        @foreach (var calendario in calendarios)
+        {
+            <li>@calendario.Ano - @calendario.Status</li>
+        }
+    </ul>
+}
+@code {
+    private List<Calendario>? calendarios;
+    protected override async Task OnInitializedAsync()
+    {
+        var client = ClientFactory.CreateClient("API");
+        calendarios = await client.GetFromJsonAsync < List < Calendario >>("https://localhost:7071/api/Calendarios/ListarCalendarios");
+    }
+}
