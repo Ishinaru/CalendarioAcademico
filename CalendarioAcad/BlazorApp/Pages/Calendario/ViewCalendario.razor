@@ -1,9 +1,12 @@
-﻿@page "/ViewCalendario"
+﻿@page "/Calendario/ViewCalendario"
 @using BlazorApp.Models
-@inject HttpClient Http
+@using BlazorApp.Services
+
+@inject CalendarioService Service
 
 <h1 class="text-center mb-3">Calendários</h1>
-<a class="btn btn-primary mb-3" href="/Calendarios/CriarCalendario">Criar Calendário</a>
+<a class="btn btn-primary mb-3" href="/Calendario/CreateCalendario">Criar Calendário</a>
+<hr />
 
 @if(calendarios == null)
 {
@@ -11,20 +14,47 @@
 }
 else
 {
-    <ul>
-        @foreach (var calendario in calendarios)
+ <table class="table table-striped table-bordered">
+        <thead>
+            <tr>
+                <th>Ano</th>
+                <th>Observação</th>
+                <th>Número Resolução</th>
+                <th>Status</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+    <tbody>
+        @foreach(var calendario in calendarios)
         {
-            <li>@calendario.Ano - @calendario.Status</li>
-        }
-    </ul>
+            <tr>
+                <td>@calendario.Ano</td>
+                <td>@calendario.Observacao</td>
+                <td>@calendario.NumeroResolucao</td>
+                <td>@calendario.Status</td>
+                <td style="white-space:nowrap">
+                    <a class="btn btn-primary btn-sm" href="/api/Calendarios/AprovarCalendario/@calendario.IdCalendario"> Aprovar Calendário</a>
+                    <a class="btn btn-danger btn-sm" href="/api/Calendarios/DesativarCalendario/@calendario.IdCalendario"> Desativar Calendário</a>
+                    <a class="btn btn-primary"></a>
+                </td>
+            </tr>
+        }      
+    </tbody>
+</table>
+
+    
 }
 
 @code {
     private List<Calendario> ?calendarios;
+
     protected override async Task OnInitializedAsync()
     {
-        calendarios = await Http.GetFromJsonAsync<List<Calendario>>("https://localhost:7071/api/Calendarios/ListarCalendarios");
+        await GetAsync();
     }
+
+    private async Task GetAsync() 
+        => calendarios = await Service.GetAsync();
 
 
 }

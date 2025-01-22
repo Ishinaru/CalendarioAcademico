@@ -32,6 +32,19 @@ namespace API
             builder.Services.AddDbContextFactory<AppDbContext>(options =>
                 options.UseSqlServer(connectionString));
 
+            builder.Services.AddCors(
+                x=>x.AddPolicy(
+                    Configuration.CorsPolicyName,
+                    police => police
+                    .WithOrigins([
+                        Configuration.BackendUrl,
+                        Configuration.FrontendUrl
+                        ])
+                    .AllowAnyHeader()
+                    .AllowAnyMethod()
+                    .AllowCredentials()
+                    ));
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
@@ -40,6 +53,8 @@ namespace API
                 app.UseSwagger();
                 app.UseSwaggerUI();
             }
+
+            app.UseCors(Configuration.CorsPolicyName);
 
             app.UseRouting();
             app.UseHttpsRedirection();

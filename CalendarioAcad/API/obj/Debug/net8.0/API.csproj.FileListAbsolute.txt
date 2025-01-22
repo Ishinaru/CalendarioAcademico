@@ -534,10 +534,10 @@ C:\Users\e_dvplima\Documents\C#\CalendarioAcademico\CalendarioAcad\API\obj\Debug
 C:\Users\e_dvplima\Documents\C#\CalendarioAcademico\CalendarioAcad\API\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.API.props
 C:\Users\e_dvplima\Documents\C#\CalendarioAcademico\CalendarioAcad\API\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.API.props
 C:\Users\e_dvplima\Documents\C#\CalendarioAcademico\CalendarioAcad\API\obj\Debug\net8.0\staticwebassets.pack.json
-C:\Users\e_dvplima\Documents\C#\CalendarioAcademico\CalendarioAcad\API\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
 C:\Users\e_dvplima\Documents\C#\CalendarioAcademico\CalendarioAcad\API\obj\Debug\net8.0\API.csproj.Up2Date
 C:\Users\e_dvplima\Documents\C#\CalendarioAcademico\CalendarioAcad\API\obj\Debug\net8.0\API.dll
 C:\Users\e_dvplima\Documents\C#\CalendarioAcademico\CalendarioAcad\API\obj\Debug\net8.0\refint\API.dll
 C:\Users\e_dvplima\Documents\C#\CalendarioAcademico\CalendarioAcad\API\obj\Debug\net8.0\API.pdb
 C:\Users\e_dvplima\Documents\C#\CalendarioAcademico\CalendarioAcad\API\obj\Debug\net8.0\API.genruntimeconfig.cache
 C:\Users\e_dvplima\Documents\C#\CalendarioAcademico\CalendarioAcad\API\obj\Debug\net8.0\ref\API.dll
+C:\Users\e_dvplima\Documents\C#\CalendarioAcademico\CalendarioAcad\API\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt

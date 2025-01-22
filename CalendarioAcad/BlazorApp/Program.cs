@@ -1,5 +1,7 @@
+using BlazorApp.Services;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
+using System.Runtime.Intrinsics.X86;
 
 namespace BlazorApp
 {
@@ -11,7 +13,14 @@ namespace BlazorApp
             builder.RootComponents.Add<App>("#app");
             builder.RootComponents.Add<HeadOutlet>("head::after");
 
-            builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
+            builder.Services.AddHttpClient(
+                Configuration.HttpClientName,
+                x =>
+                {
+                   x.BaseAddress = new Uri(Configuration.BackendUrl);
+                });
+
+            builder.Services.AddTransient<CalendarioService>();
 
             await builder.Build().RunAsync();
         }

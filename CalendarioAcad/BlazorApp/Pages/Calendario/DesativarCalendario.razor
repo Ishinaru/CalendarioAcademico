@@ -1,0 +1,32 @@
+﻿@page "/Calendarios/DesativarCalendario/{idCalendario:int}"
+@using BlazorApp.Models
+@using BlazorApp.Services
+@inject CalendarioService Service
+@inject NavigationManager NavManager
+
+<ConfirmDialog @ref="confirmDialog" Title="Desativar Calendário" Message="Você tem certeza que deseja desativar este calendário?" OnConfirm="OnConfirm" />
+
+@code {
+    [Parameter]
+    public int idCalendario { get; set; }
+
+    private ConfirmDialog? confirmDialog;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await confirmDialog.Show();
+    }
+
+    private async Task OnConfirm(bool confirmed)
+    {
+        if (confirmed)
+        {
+            await Service.DesativarCalendario(idCalendario);
+            NavManager.NavigateTo("/Calendario/ViewCalendario");
+        }
+        else
+        {
+            NavManager.NavigateTo("/Calendario/ViewCalendario");
+        }
+    }
+}

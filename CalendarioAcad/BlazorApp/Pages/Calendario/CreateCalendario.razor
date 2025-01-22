@@ -1,0 +1,44 @@
+﻿@page "/Calendario/CreateCalendario"
+@using BlazorApp.Models.DTO.Calendario
+@using BlazorApp.Services
+
+@inject CalendarioService Service
+@inject NavigationManager NavigationManager
+
+<div class="row">
+    <div class="col-lg-8">
+        <h1 class="mb-5">Novo Calendário</h1>
+
+        <div class="row mb-3">
+            <label class="col-md-4 col-form-label">Ano do Calendário</label>
+            <div class="col-md-8">
+                <input type="text" class="form-control" @bind="calendario.Ano" />
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <label class="col-md-4 col-form-label">Observação</label>
+            <div class="col-md-8">
+                <input type="text" class="form-control" @bind="calendario.Observacao" />
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="offset-md-4 col-md-4 d-grid">
+                <button class="btn btn-primary" @onclick="SaveCalendario">Enviar</button>
+            </div>
+            <div class="col-md-4 d-grid">
+                <a class="btn btn-outline-primary" href="/Calendario/ViewCalendario">Cancelar</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+    private CriarCalendarioDTO calendario { get; set; } = new();
+
+    private async Task SaveCalendario()
+    {
+        await Service.CreateAsync(calendario, NavigationManager);
+    }
+}
