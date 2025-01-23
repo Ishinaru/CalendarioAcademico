@@ -44,6 +44,12 @@ namespace API.Controllers
             return Ok(calendario);
         }
 
+        [HttpGet("CalendarioPorId/{idCalendario}")]
+        public async Task<ActionResult<ResponseModel<Calendario>>> CalendarioPorId(int idCalendario)
+        {
+            var calendario = await _calendarioInterface.CalendarioPorId(idCalendario);
+            return Ok(calendario);
+        }
 
     }
 }

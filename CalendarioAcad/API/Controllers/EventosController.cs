@@ -49,5 +49,12 @@ namespace API.Controllers
             var evento = await _eventoInterface.DesativarEvento(idEvento);
             return Ok(evento);
         }
+
+        [HttpGet("EventoPorCalendario/{idCalendario}")]
+        public async Task<ActionResult<ResponseModel<List<Evento>>>> EventoPorCalendario(int idCalendario)
+        {
+            var eventos = await _eventoInterface.EventoPorCalendario(idCalendario);
+            return Ok(eventos);
+        }
     }
 }

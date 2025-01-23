@@ -246,5 +246,30 @@ namespace API.Services.Eventos
             }
         }
 
+        public async Task<ResponseModel<List<Evento>>> EventoPorCalendario(int idCalendario)
+        {
+            var response = new ResponseModel<List<Evento>>();
+            try
+            {
+                var eventos = await _context.Eventos.Where(evento => evento.IdCalendario == idCalendario).ToListAsync();
+
+                if (eventos == null)
+                {
+                    response.Mensagem = "Eventos não encontrados";
+                    response.Status = false;
+                    return response;
+                }
+
+                response.Dados = eventos;
+                response.Mensagem = "Eventos encontrados";
+                return response;
+            }
+            catch (Exception e)
+            {
+                response.Mensagem = e.Message;
+                response.Status = false;
+                return response;
+            }
+        }
     }
 }

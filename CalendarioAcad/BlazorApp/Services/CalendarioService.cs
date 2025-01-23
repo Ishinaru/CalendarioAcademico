@@ -29,6 +29,13 @@ namespace BlazorApp.Services
             return response?.Dados ?? [];
         }
 
+        public async Task<Calendario> GetByIdAsync(int idCalendario)
+        {
+            var client = httpClientFactory.CreateClient(Configuration.HttpClientName);
+            var response = await client.GetFromJsonAsync<ResponseModel<Calendario>>($"api/Calendarios/CalendarioPorId/{idCalendario}");
+            return response?.Dados;
+        }
+
         public async Task ApproveAsync(int idCalendario)
         {
             var client = httpClientFactory.CreateClient(Configuration.HttpClientName);
@@ -39,7 +46,7 @@ namespace BlazorApp.Services
         public async Task<Calendario> DesativarCalendario(int idCalendario)
         {
             var client = httpClientFactory.CreateClient(Configuration.HttpClientName);
-            var response = await client.PostAsJsonAsync($"/api/Calendarios/DesativarCalendario/{idCalendario}", idCalendario);
+            var response = await client.PostAsync($"/api/Calendarios/DesativarCalendario/{idCalendario}", null);
             return await response.Content.ReadFromJsonAsync<Calendario>();
         }
     }

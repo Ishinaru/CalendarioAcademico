@@ -162,6 +162,46 @@
         }
       }
     },
+    "/api/Calendarios/CalendarioPorId/{idCalendario}": {
+      "get": {
+        "tags": [
+          "Calendarios"
+        ],
+        "parameters": [
+          {
+            "name": "idCalendario",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/CalendarioResponseModel"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CalendarioResponseModel"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CalendarioResponseModel"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/Eventos/ListarEventos": {
       "get": {
         "tags": [
@@ -382,6 +422,46 @@
               "text/json": {
                 "schema": {
                   "$ref": "#/components/schemas/EventoResponseModel"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Eventos/EventoPorCalendario/{idCalendario}": {
+      "get": {
+        "tags": [
+          "Eventos"
+        ],
+        "parameters": [
+          {
+            "name": "idCalendario",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/EventoListResponseModel"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EventoListResponseModel"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EventoListResponseModel"
                 }
               }
             }
