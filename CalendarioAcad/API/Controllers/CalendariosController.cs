@@ -30,14 +30,14 @@ namespace API.Controllers
             return Ok(calendario);
         }
 
-        [HttpPost("AprovarCalendario/{idCalendario}")]
+        [HttpPatch("AprovarCalendario/{idCalendario}")]
         public async Task<ActionResult<ResponseModel<Calendario>>> AprovarCalendario(int idCalendario)
         {
             var calendario = await _calendarioInterface.AprovarCalendario(idCalendario);
             return Ok(calendario);
         }
 
-        [HttpPost("DesativarCalendario/{idCalendario}")]
+        [HttpPatch("DesativarCalendario/{idCalendario}")]
         public async Task<ActionResult<ResponseModel<Calendario>>> DesativarCalendario(int idCalendario)
         {
             var calendario = await _calendarioInterface.DesativarCalendario(idCalendario);

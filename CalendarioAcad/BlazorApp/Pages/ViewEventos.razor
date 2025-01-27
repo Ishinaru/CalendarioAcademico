@@ -31,8 +31,8 @@ else
             {
                 <tr>
                     <td class="@GetDescricaoClasse(evento)">@evento.Descricao</td>
-                    <td>@evento.DataInicio</td>
-                    <td>@evento.DataFinal</td>
+                    <td class="@GetDescricaoClasse(evento)">@evento.DataInicio</td>
+                    <td class="@GetDescricaoClasse(evento)">@evento.DataFinal</td>
                     <td>@(evento.UescFunciona ? "✔" : "✘")</td>
                     <td>@evento.TipoFeriado</td>
                 </tr>

@@ -3,7 +3,7 @@
     "ContainingType": "API.Controllers.CalendariosController",
     "Method": "AprovarCalendario",
     "RelativePath": "api/Calendarios/AprovarCalendario/{idCalendario}",
-    "HttpMethod": "POST",
+    "HttpMethod": "PATCH",
     "IsController": true,
     "Order": 0,
     "Parameters": [
@@ -81,7 +81,7 @@
     "ContainingType": "API.Controllers.CalendariosController",
     "Method": "DesativarCalendario",
     "RelativePath": "api/Calendarios/DesativarCalendario/{idCalendario}",
-    "HttpMethod": "POST",
+    "HttpMethod": "PATCH",
     "IsController": true,
     "Order": 0,
     "Parameters": [
