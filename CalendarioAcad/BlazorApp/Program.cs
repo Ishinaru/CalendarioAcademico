@@ -22,6 +22,7 @@ namespace BlazorApp
 
             builder.Services.AddTransient<CalendarioService>();
             builder.Services.AddTransient<EventoService>();
+            
 
             await builder.Build().RunAsync();
         }
