@@ -1,5 +1,36 @@
-﻿<h3>ViewEventos</h3>
+﻿@page "/Eventos/ViewEventos"
+@using BlazorApp.Models
+@using BlazorApp.Services
 
+@inject CalendarioService CalendarioService
+@inject EventoService EventoService
+
+@if (calendarios == null)
+{
+    <p><em>Carregando calendários...</em></p>
+}
+else
+{
+    <InputSelect class="input-group mb-3" @bind-Value="selectedCalendarioId">
+        <option value="0">Selecione um calendário</option>
+        @foreach (var calendario in calendarios)
+        {
+            <option value="@calendario.IdCalendario">@calendario.Ano</option>
+        }
+    </InputSelect>
+}
+
+@if (selectedCalendarioId > 0)
+{
+    <ViewEventosDoCalendario idCalendario="selectedCalendarioId" />
+}
 @code {
+    private List<Calendario> ?calendarios;
+    private int selectedCalendarioId;
+
+    protected override async Task OnInitializedAsync()
+    {
+        calendarios = await CalendarioService.GetAsync();
+    }
 
 }
