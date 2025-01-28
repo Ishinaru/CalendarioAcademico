@@ -1,7 +1,6 @@
 ﻿using BlazorApp.Models;
 using BlazorApp.Models.DTO.Calendario;
 using Microsoft.AspNetCore.Components;
-using System.Net.Http;
 using System.Net.Http.Json;
 
 namespace BlazorApp.Services

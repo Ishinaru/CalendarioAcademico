@@ -1,7 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.Text.Json.Serialization;
-
-namespace BlazorApp.Models
+﻿namespace BlazorApp.Models
 {
     public class Calendario
     {

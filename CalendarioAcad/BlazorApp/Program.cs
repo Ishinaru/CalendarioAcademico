@@ -1,7 +1,6 @@
 using BlazorApp.Services;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
-using System.Runtime.Intrinsics.X86;
 
 namespace BlazorApp
 {
@@ -17,12 +16,12 @@ namespace BlazorApp
                 Configuration.HttpClientName,
                 x =>
                 {
-                   x.BaseAddress = new Uri(Configuration.BackendUrl);
+                    x.BaseAddress = new Uri(Configuration.BackendUrl);
                 });
 
             builder.Services.AddTransient<CalendarioService>();
             builder.Services.AddTransient<EventoService>();
-            
+
 
             await builder.Build().RunAsync();
         }
