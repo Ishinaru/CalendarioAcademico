@@ -1,10 +1,55 @@
 ﻿@page "/Eventos/EditarEvento/{idEvento:int}"
+@using BlazorApp.Models
+@using BlazorApp.Services
+
+@inject EventoService EventoService
+
+
 <h3>EditarEvento</h3>
 
-<div class="input">
-  <input type="text" class="form-control" placeholder="Username" aria-label="Username">
-</div>
+<form class="mt-3">
+    <div class="row mb-3">
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="floatingInput" placeholder="Descrição">
+            <label class="ms-lg-3" for="floatingInput">Descrição</label>
+        </div>
+    </div>
+    <div class="row gx-3 gy-2 align-items-center">
+        <div class="col-sm-2">
+            Data Início: <input class="form-control" @bind="DateInicio" type="date" />
+        </div>
+        <div class="col-sm-2">
+            Data Final: <input class="form-control" @bind="DateFinal" type="date" />
+        </div>
+        <div class="col-auto form-check ms-3 mt-3">
+            <input class="form-check-input" type="checkbox" id="autoSizingCheck">
+            <label class="form-check-label" for="autoSizingCheck">
+                Importante?
+            </label>
+        </div>
+        <div class="col-auto form-check ms-3 mt-3">
+            <input class="form-check-input" type="checkbox" id="autoSizingCheck">
+            <label class="form-check-label" for="autoSizingCheck">
+                Uesc Funciona?
+            </label>
+        </div>
+        <div class="col-auto">
+            <label class="visually-hidden" for="autoSizingSelect">Tipo de Feriado</label>
+            <InputSelect class="form-select form-select-sm" @bind-Value=evento.TipoFeriado>
+                @foreach (var status in Enum.GetValues(typeof(Status)).Cast<Status>())
+                {
+                    <option value="@status">@EnumExtensions.ConverteEnum(status)</option>
+                }
+            </InputSelect>
+        </div>
+
+    </div>
+</form>
 
 @code {
-    
+    [Parameter]
+    public int idEvento { get; set; }
+    private DateOnly DateInicio { get; set; } = new DateOnly(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day);
+    private DateOnly DateFinal { get; set; } = new DateOnly(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day);
+    private Evento evento = EventoService.GetEventoById(idEvento);
 }
