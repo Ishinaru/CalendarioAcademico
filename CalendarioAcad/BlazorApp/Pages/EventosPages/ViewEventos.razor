@@ -1,4 +1,4 @@
-﻿@page "/Eventos/ViewEventos"
+﻿@page "/Eventos/ViewEventos/{idCalendario:int?}"
 @using BlazorApp.Models
 @using BlazorApp.Services
 
@@ -11,7 +11,7 @@
 }
 else
 {
-    <InputSelect class="input-group mb-3" @bind-Value="selectedCalendarioId">
+    <InputSelect class="input-group mb-3" @bind-Value="selectedCalendarioId" @onchange="OnChangeCalendario">
         <option value="0">Selecione um calendário</option>
         @foreach (var calendario in calendarios)
         {
@@ -19,18 +19,28 @@ else
         }
     </InputSelect>
 }
-
-@if (selectedCalendarioId > 0)
+@if(selectedCalendarioId > 0)
 {
-    <ViewEventosDoCalendario idCalendario="selectedCalendarioId" />
+    <ViewEventosDoCalendario idCalendario="selectedCalendarioId" @key="selectedCalendarioId" />
 }
 @code {
+    [Parameter] public int? idCalendario { get; set; }
     private List<Calendario> ?calendarios;
     private int selectedCalendarioId;
 
     protected override async Task OnInitializedAsync()
     {
         calendarios = await CalendarioService.GetAsync();
+        if(idCalendario.HasValue && idCalendario > 0)
+        {
+            selectedCalendarioId = idCalendario.Value;
+        }
     }
 
+    private async Task OnChangeCalendario(ChangeEventArgs e)
+    {
+        selectedCalendarioId = Convert.ToInt32(e.Value);
+        StateHasChanged();
+    }
+    
 }
