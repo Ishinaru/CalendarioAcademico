@@ -11,8 +11,8 @@
 }
 else
 {
-    <InputSelect class="input-group mb-3" @bind-Value="selectedCalendarioId" @onchange="OnChangeCalendario">
-        <option value="0">Selecione um calendário</option>
+    <InputSelect class="form-select form-select-lg mb-4" @bind-Value="selectedCalendarioId" @onchange="OnChangeCalendario">
+        <option value="0" disabled selected>Selecione um calendário</option>
         @foreach (var calendario in calendarios)
         {
             <option value="@calendario.IdCalendario">@calendario.Ano</option>
