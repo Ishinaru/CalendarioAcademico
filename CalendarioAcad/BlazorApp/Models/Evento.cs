@@ -9,6 +9,13 @@
         public bool UescFunciona { get; set; }
         public bool Importante { get; set; }
         public TipoFeriado TipoFeriado { get; set; }
+    }
 
+    public static class EnumExtensions
+    {
+        public static string ConverteEnum(this Enum valor)
+        {
+            return valor.ToString().Replace("_", " ");
+        }
     }
 }

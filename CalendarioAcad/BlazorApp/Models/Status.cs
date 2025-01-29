@@ -2,7 +2,7 @@
 {
     public enum Status
     {
-        AguardandoAprovacao = 0,
+        Aguardando_Aprovação = 0,
         Aprovado = 1,
         Desativado = 2
     }

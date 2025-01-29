@@ -15,7 +15,7 @@ namespace API.Model
         public DateTime DataAtualizacao { get; set; }
 
         [Required(ErrorMessage = "Campo Status é obrigatório")]
-        public Status Status { get; set; } = Status.AguardandoAprovacao;
+        public Status Status { get; set; } = Status.Aguardando_Aprovação;
 
         public string? NumeroResolucao { get; set; }
 

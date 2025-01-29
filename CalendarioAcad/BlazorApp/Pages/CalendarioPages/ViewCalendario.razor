@@ -50,7 +50,7 @@ else
                     <td>@calendario.Ano</td>
                     <td>@calendario.Observacao</td>
                     <td>@calendario.NumeroResolucao</td>
-                    <td>@calendario.Status</td>
+                    <td>@EnumExtensions.ConverteEnum(calendario.Status)</td>
                     <td style="white-space:nowrap">
                         <a class="btn btn-primary btn-sm" @onclick="()=>AprovarCalendario(calendario.IdCalendario)"> Aprovar Calendário</a>
                         <a class="btn btn-danger btn-sm" @onclick="()=>DesativarCalendario(calendario.IdCalendario)"> Desativar Calendário</a>
@@ -95,7 +95,7 @@ else
             alertIcon = "#exclamation-triangle-fill";
             ariaLabel = "Danger:";
         }
-        
+
         StateHasChanged();
         await GetAsync();
     }
@@ -119,6 +119,5 @@ else
         StateHasChanged();
         await GetAsync();
     }
-
 
 }

@@ -34,7 +34,7 @@ else
                     <td class="@GetDescricaoClasse(evento)">@evento.DataInicio</td>
                     <td class="@GetDescricaoClasse(evento)">@evento.DataFinal</td>
                     <td>@(evento.UescFunciona ? "✔" : "✘")</td>
-                    <td>@evento.TipoFeriado</td>
+                    <td>@EnumExtensions.ConverteEnum(evento.TipoFeriado)</td>
                 </tr>
             }
         </tbody>
