@@ -1,4 +1,5 @@
 ﻿using BlazorApp.Models;
+using Microsoft.AspNetCore.Components;
 using System.Net.Http.Json;
 
 namespace BlazorApp.Services
@@ -30,6 +31,19 @@ namespace BlazorApp.Services
                 throw new Exception(errorResponse?.Mensagem);
             }
 
+            return await response.Content.ReadFromJsonAsync<ResponseModel<Evento>>();
+        }
+
+        public async Task<ResponseModel<Evento>> CriarEvento(Evento evento, int idCalendario)
+        {
+            var client = httpClientFactory.CreateClient(Configuration.HttpClientName);
+            var response = await client.PostAsJsonAsync($"/api/Eventos/CriarEvento/{idCalendario}", evento);
+            if (!response.IsSuccessStatusCode)
+            {
+                var errorResponse = await response.Content.ReadFromJsonAsync<ResponseModel<Evento>>();
+                throw new Exception(errorResponse?.Mensagem);
+            }
+            
             return await response.Content.ReadFromJsonAsync<ResponseModel<Evento>>();
         }
     }

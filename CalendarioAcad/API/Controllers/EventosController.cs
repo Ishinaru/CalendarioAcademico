@@ -40,6 +40,8 @@ namespace API.Controllers
         public async Task<ActionResult<ResponseModel<Evento>>> EditarEvento(EditarEventoDTO editarEvento, int idEvento)
         {
             var eventos = await _eventoInterface.EditarEvento(editarEvento, idEvento);
+            if(!eventos.Status)
+                return BadRequest(eventos);
             return Ok(eventos);
         }
 

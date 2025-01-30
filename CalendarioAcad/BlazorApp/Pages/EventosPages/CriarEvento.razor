@@ -1,5 +1,115 @@
-﻿<h3>CriarEvento</h3>
+﻿@page "/Eventos/CriarEvento/{idCalendario:int}"
+@using BlazorApp.Services
+@using BlazorApp.Models
+
+@inject EventoService EventoService
+@inject NavigationManager NavigationManager
+
+@if (!string.IsNullOrEmpty(errorMessage))
+{
+    <div class="alert alert-warning" mb-3>
+        @errorMessage
+    </div>
+}
+
+@if (!string.IsNullOrEmpty(successMessage))
+{
+    <div class="alert alert-success" mb-3>
+        @successMessage
+    </div>
+}
+
+<h3>Novo Evento</h3>
+<form class="mt-3" @onsubmit="SaveEvento">
+    <div class="row mb-3">
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control ms-3" id="floatingInput" placeholder="Descrição" @bind="evento.Descricao">
+            <label class="ms-3" for="floatingInput">Descrição</label>
+        </div>
+    </div>
+    <div class="row gx-3 gy-2 align-items-center">
+        <div class="col-sm-2">
+            Data Início: <input class="form-control" @bind="evento.DataInicio" type="date" />
+        </div>
+        <div class="col-sm-2">
+            Data Final: <input class="form-control" @bind="evento.DataFinal" type="date" />
+        </div>
+        <div class="col-auto form-check ms-3 mt-3">
+            <input class="form-check-input" type="checkbox" id="autoSizingCheck" @bind="evento.Importante">
+            <label class="form-check-label" for="autoSizingCheck">
+                Importante?
+            </label>
+        </div>
+        <div class="col-auto form-check ms-3 mt-3">
+            <input class="form-check-input" type="checkbox" id="autoSizingCheck" @bind="evento.UescFunciona">
+            <label class="form-check-label" for="autoSizingCheck">
+                Uesc Funciona?
+            </label>
+        </div>
+        <div class="col-auto">
+            <label class="visually-hidden" for="autoSizingSelect">Tipo de Feriado</label>
+            <InputSelect class="form-select form-select-sm" @bind-Value="evento.TipoFeriado">
+                @foreach (var tipoFeriado in Enum.GetValues(typeof(TipoFeriado)).Cast<TipoFeriado>())
+                {
+                    <option value="@tipoFeriado">@EnumExtensions.ConverteEnum(tipoFeriado)</option>
+                }
+            </InputSelect>
+        </div>
+
+        <div class="mt-3">
+            <button type="submit" class="btn btn-success">Confirmar</button>
+            <button type="button" class="btn btn-danger" @onclick="Cancelar">Cancelar</button>
+        </div>
+
+    </div>
+</form>
 
 @code {
+    [Parameter] public int idCalendario { get; set; }
+    private Evento evento = new();
+    private string? errorMessage;
+    private string? successMessage;
 
+    protected override void OnParametersSet()
+    {
+        evento.IdCalendario = idCalendario;
+    }
+
+    private async Task SaveEvento()
+    {
+        errorMessage = null;
+        successMessage = null;
+
+        try
+        {
+            var response = await EventoService.CriarEvento(evento, idCalendario);
+            if (response.Status)
+            {
+                successMessage = "Evento Criado com sucesso";
+                StateHasChanged();
+                await Task.Delay(3000);
+                NavigationManager.NavigateTo($"/Eventos/ViewEventosDoCalendario/{idCalendario}");
+            }
+            else
+            {
+                errorMessage = $"Erro ao criar evento:{response.Mensagem}";
+                StateHasChanged();
+                await Task.Delay(3000);
+                errorMessage = null;
+                StateHasChanged();
+            }
+        }
+        catch (Exception e)
+        {
+            errorMessage = e.Message;
+            Console.WriteLine(e.Message);
+            StateHasChanged();
+        }
+    }
+
+
+    private void Cancelar()
+    {
+        NavigationManager.NavigateTo($"/Eventos/ViewEventosDoCalendario/{idCalendario}");
+    }
 }

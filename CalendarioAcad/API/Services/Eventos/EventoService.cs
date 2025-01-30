@@ -17,9 +17,9 @@ namespace API.Services.Eventos
             _context = context;
         }
 
-        public async Task<ResponseModel<List<Evento>>> CriarEvento(CriarEventoDTO eventoDTO, int idCalendario)
+        public async Task<ResponseModel<Evento>> CriarEvento(CriarEventoDTO eventoDTO, int idCalendario)
         {
-            ResponseModel<List<Evento>> response = new ResponseModel<List<Evento>>();
+            ResponseModel<Evento> response = new ResponseModel<Evento>();
 
             var calendario = await _context.Calendarios.FirstOrDefaultAsync(calendarioDB => calendarioDB.IdCalendario == idCalendario);
 
@@ -78,7 +78,7 @@ namespace API.Services.Eventos
                     _context.Add(historico);
                     await _context.SaveChangesAsync();
 
-                    response.Dados = await _context.Eventos.ToListAsync();
+                    response.Dados = evento;
                     response.Mensagem = "Evento criado com sucesso";
                     return response;
 
@@ -139,9 +139,9 @@ namespace API.Services.Eventos
             }
         }
 
-        public async Task<ResponseModel<List<Evento>>> EditarEvento(EditarEventoDTO editarEvento, int idEvento)
+        public async Task<ResponseModel<Evento>> EditarEvento(EditarEventoDTO editarEvento, int idEvento)
         {
-            ResponseModel<List<Evento>> response = new ResponseModel<List<Evento>>();
+            ResponseModel<Evento> response = new ResponseModel<Evento>();
 
             try
             {
@@ -192,7 +192,7 @@ namespace API.Services.Eventos
                 _context.Add(historico);
                 await _context.SaveChangesAsync();
 
-                response.Dados = await _context.Eventos.ToListAsync();
+                response.Dados = evento;
                 response.Mensagem = $"Evento editado por ";
                 return response;
             }

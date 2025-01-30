@@ -7,8 +7,8 @@ namespace API.Services.Eventos
     {
         Task<ResponseModel<List<Evento>>> ListarEventos();
         Task<ResponseModel<Evento>> EventorPorID(int idEvento);
-        Task<ResponseModel<List<Evento>>> CriarEvento(CriarEventoDTO eventoDTO, int idCalendario);
-        Task<ResponseModel<List<Evento>>> EditarEvento(EditarEventoDTO editarEvento, int idEvento);
+        Task<ResponseModel<Evento>> CriarEvento(CriarEventoDTO eventoDTO, int idCalendario);
+        Task<ResponseModel<Evento>> EditarEvento(EditarEventoDTO editarEvento, int idEvento);
         Task<ResponseModel<Evento>> DesativarEvento(int idEvento);
         Task<ResponseModel<List<Evento>>> EventoPorCalendario (int idCalendario);
     }
