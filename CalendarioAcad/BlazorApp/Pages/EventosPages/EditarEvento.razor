@@ -3,53 +3,159 @@
 @using BlazorApp.Services
 
 @inject EventoService EventoService
+@inject NavigationManager NavigationManager
 
 
-<h3>EditarEvento</h3>
-
-<form class="mt-3">
-    <div class="row mb-3">
-        <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="floatingInput" placeholder="Descrição">
-            <label class="ms-lg-3" for="floatingInput">Descrição</label>
-        </div>
+@if (!string.IsNullOrEmpty(errorMessage))
+{
+    <div class="alert alert-warning mt-3">
+        @errorMessage
     </div>
-    <div class="row gx-3 gy-2 align-items-center">
-        <div class="col-sm-2">
-            Data Início: <input class="form-control" @bind="DateInicio" type="date" />
-        </div>
-        <div class="col-sm-2">
-            Data Final: <input class="form-control" @bind="DateFinal" type="date" />
-        </div>
-        <div class="col-auto form-check ms-3 mt-3">
-            <input class="form-check-input" type="checkbox" id="autoSizingCheck">
-            <label class="form-check-label" for="autoSizingCheck">
-                Importante?
-            </label>
-        </div>
-        <div class="col-auto form-check ms-3 mt-3">
-            <input class="form-check-input" type="checkbox" id="autoSizingCheck">
-            <label class="form-check-label" for="autoSizingCheck">
-                Uesc Funciona?
-            </label>
-        </div>
-        <div class="col-auto">
-            <label class="visually-hidden" for="autoSizingSelect">Tipo de Feriado</label>
-            <InputSelect class="form-select form-select-sm" @bind-Value=evento.TipoFeriado>
-                @foreach (var status in Enum.GetValues(typeof(Status)).Cast<Status>())
-                {
-                    <option value="@status">@EnumExtensions.ConverteEnum(status)</option>
-                }
-            </InputSelect>
-        </div>
+}
 
+@if (!string.IsNullOrEmpty(successMessage))
+{
+    <div class="alert alert-success mt-3">
+        @successMessage
     </div>
-</form>
+}
 
+@if(evento == null)
+{
+    <p><em>Carregando...</em></p>
+}
+
+else{
+    <h3>Editar Evento @evento.Descricao</h3>
+    <form class="mt-3" @onsubmit="ConfirmarEdicao">
+        <div class="row mb-3">
+            <div class="form-floating mb-3">
+                <input type="text" class="form-control ms-3" id="floatingInput" placeholder="Descrição" @bind="descricaoEvento">
+                <label class="ms-3" for="floatingInput">Descrição</label>
+            </div>
+        </div>
+        <div class="row gx-3 gy-2 align-items-center">
+            <div class="col-sm-2">
+                Data Início: <input class="form-control" @bind="DateInicio" type="date" />
+            </div>
+            <div class="col-sm-2">
+                Data Final: <input class="form-control" @bind="DateFinal" type="date" />
+            </div>
+            <div class="col-auto form-check ms-3 mt-3">
+                <input class="form-check-input" type="checkbox" id="autoSizingCheck" @bind="importanteEvento">
+                <label class="form-check-label" for="autoSizingCheck">
+                    Importante?
+                </label>
+            </div>
+            <div class="col-auto form-check ms-3 mt-3">
+                <input class="form-check-input" type="checkbox" id="autoSizingCheck" @bind="uescFuncionaEvento">
+                <label class="form-check-label" for="autoSizingCheck">
+                    Uesc Funciona?
+                </label>
+            </div>
+            <div class="col-auto">
+                <label class="visually-hidden" for="autoSizingSelect">Tipo de Feriado</label>
+                <InputSelect class="form-select form-select-sm" @bind-Value="tipoFeriadoEvento">
+                    @foreach (var tipoFeriado in Enum.GetValues(typeof(TipoFeriado)).Cast<TipoFeriado>())
+                    {
+                        <option value="@tipoFeriado">@EnumExtensions.ConverteEnum(tipoFeriado)</option>
+                    }
+                </InputSelect>
+            </div>
+
+            <div class="mt-3">
+                <button type="submit" class="btn btn-success">Salvar Alterações</button>
+                <button type="button" class="btn btn-danger" @onclick="Cancelar">Cancelar</button>
+            </div>
+
+        </div>
+    </form>
+}
 @code {
     [Parameter]
     public int idEvento { get; set; }
-    private DateOnly DateInicio { get; set; } = new DateOnly(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day);
-    private DateOnly DateFinal { get; set; } = new DateOnly(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day);
-    private Evento evento = EventoService.GetEventoById(idEvento);
+    private string descricaoEvento { get; set;}
+    private bool importanteEvento { get; set; }
+    private bool uescFuncionaEvento { get; set; }
+    private TipoFeriado tipoFeriadoEvento { get; set; }
+    private DateOnly DateInicio { get; set; }
+    private DateOnly DateFinal { get; set; }
+    public Evento evento;
+    private int idCalendario; 
+    private string ?errorMessage;
+    private string ?successMessage;
+
+
+    protected override async Task OnParametersSetAsync()
+    {
+        await LoadEvento();
+    }
+
+    private async Task LoadEvento()
+    {
+        try
+        {
+            evento = await EventoService.GetEventoById(idEvento);
+
+            if (evento != null)
+            {
+                idCalendario = evento.IdCalendario;
+                descricaoEvento = evento.Descricao;
+                importanteEvento = evento.Importante;
+                uescFuncionaEvento = evento.UescFunciona;
+                tipoFeriadoEvento = evento.TipoFeriado;
+                DateInicio = evento.DataInicio;
+                DateFinal = evento.DataFinal;
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Erro ao carregar evento: {ex.Message}");
+        }
+    }
+
+    private async Task ConfirmarEdicao()
+    {
+        errorMessage = null;
+        successMessage = null;
+
+        try
+        {
+
+            evento.Descricao = descricaoEvento;
+            evento.Importante = importanteEvento;
+            evento.UescFunciona = uescFuncionaEvento;
+            evento.TipoFeriado = tipoFeriadoEvento;
+            evento.DataInicio = DateInicio;
+            evento.DataFinal = DateFinal;
+
+            var response = await EventoService.UpdateEvento(evento);
+
+            if(response.Status)
+            {
+                successMessage = "Evento atualizado com sucesso!";
+                StateHasChanged();
+                await Task.Delay(3000);
+                NavigationManager.NavigateTo($"/Eventos/ViewEventosDoCalendario/{idCalendario}");
+            }
+            else
+            {
+                errorMessage = "Erro ao atualizar: " + response.Mensagem;
+                StateHasChanged();
+                await Task.Delay(3000);
+                errorMessage = null;
+                StateHasChanged();
+            }
+        }
+        catch (Exception e)
+        {     
+            errorMessage = e.Message;
+            Console.WriteLine($"Erro ao atualizar evento: {e.Message}");
+            StateHasChanged();
+        }
+    }
+
+    private void Cancelar(){
+        NavigationManager.NavigateTo($"/Eventos/ViewEventosDoCalendario/{idCalendario}");
+    }
 }

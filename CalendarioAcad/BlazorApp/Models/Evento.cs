@@ -9,6 +9,7 @@
         public bool UescFunciona { get; set; }
         public bool Importante { get; set; }
         public TipoFeriado TipoFeriado { get; set; }
+        public int IdCalendario { get; set; }
     }
 
     public static class EnumExtensions

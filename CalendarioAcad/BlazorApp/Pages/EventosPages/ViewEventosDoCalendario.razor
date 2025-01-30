@@ -1,4 +1,4 @@
-﻿@page "/ViewEventosDoCalendario/{idCalendario:int}"
+﻿@page "/Eventos/ViewEventosDoCalendario/{idCalendario:int}"
 @using BlazorApp.Models
 @using BlazorApp.Services
 @inject EventoService Service
@@ -24,6 +24,7 @@ else
                 <th>Data Final</th>
                 <th>Uesc Funciona</th>
                 <th>Tipo Feriado</th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
@@ -35,17 +36,18 @@ else
                     <td class="@GetDescricaoClasse(evento)">@evento.DataFinal</td>
                     <td>@(evento.UescFunciona ? "✔" : "✘")</td>
                     <td>@EnumExtensions.ConverteEnum(evento.TipoFeriado)</td>
+                    <td class="align-content-sm-center"><a href="/Eventos/EditarEvento/@evento.IdEvento">Editar Evento</a></td>
                 </tr>
             }
         </tbody>
-    </table>
+    </table> 
 }
 
 @code {
     [Parameter]
     public int idCalendario { get; set; }
     private List<Evento> eventos = new List<Evento>();
-    private Calendario calendario;
+    private Calendario ? calendario;
 
     protected override async Task OnInitializedAsync()
     {
@@ -56,7 +58,6 @@ else
         }
         catch (Exception ex)
         {
-            // Log the exception or handle it as needed
             Console.WriteLine($"Erro ao carregar eventos: {ex.Message}");
         }
     }

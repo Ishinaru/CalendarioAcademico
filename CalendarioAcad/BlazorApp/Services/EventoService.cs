@@ -18,4 +18,19 @@ namespace BlazorApp.Services
             var response = await client.GetFromJsonAsync<ResponseModel<Evento>>($"/api/Eventos/EventoPorId/{idEvento}");
             return response?.Dados;
         }
+
+        public async Task <ResponseModel<Evento>> UpdateEvento(Evento evento)
+        {
+            var client = httpClientFactory.CreateClient(Configuration.HttpClientName);
+            var response = await client.PostAsJsonAsync($"/api/Eventos/EditarEvento/{evento.IdEvento}", evento);
+
+            if (!response.IsSuccessStatusCode)
+            {
+                var errorResponse = await response.Content.ReadFromJsonAsync<ResponseModel<Evento>>();
+                throw new Exception(errorResponse?.Mensagem);
+            }
+
+            return await response.Content.ReadFromJsonAsync<ResponseModel<Evento>>();
+        }
+    }
 }

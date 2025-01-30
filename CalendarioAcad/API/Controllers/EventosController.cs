@@ -47,6 +47,10 @@ namespace API.Controllers
         public async Task<ActionResult<ResponseModel<Evento>>> DesativarEvento(int idEvento)
         {
             var evento = await _eventoInterface.DesativarEvento(idEvento);
+            
+            if(!evento.Status)
+                return BadRequest(evento);
+            
             return Ok(evento);
         }
 
