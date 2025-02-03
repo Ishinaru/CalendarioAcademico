@@ -34,12 +34,23 @@ namespace BlazorApp.Services
             var response = await client.GetFromJsonAsync<ResponseModel<Calendario>>($"api/Calendarios/CalendarioPorId/{idCalendario}");
             return response?.Dados;
         }
-        public async Task<Calendario> AprovarCalendario(int idCalendario)
+        public async Task<ResponseModel<Calendario>> AprovarCalendario(int idCalendario)
         {
             var client = httpClientFactory.CreateClient(Configuration.HttpClientName);
             var response = await client.PatchAsync($"/api/Calendarios/AprovarCalendario/{idCalendario}", null);
+            if(!response.IsSuccessStatusCode)
+            {
+                var errorResponse = await response.Content.ReadFromJsonAsync<ResponseModel<Calendario>>();
+                throw new Exception(errorResponse?.Mensagem);
+            }
+            
             var responseModel = await response.Content.ReadFromJsonAsync<ResponseModel<Calendario>>();
-            return responseModel?.Dados;
+            
+            if (responseModel == null)
+            {
+                throw new Exception("Erro ao aprovar calendário.");
+            }
+            return responseModel;
         }
         public async Task<Calendario> DesativarCalendario(int idCalendario)
         {

@@ -135,14 +135,14 @@ else{
             {
                 successMessage = "Evento atualizado com sucesso!";
                 StateHasChanged();
-                await Task.Delay(3000);
+                await Task.Delay(2000);
                 NavigationManager.NavigateTo($"/Eventos/ViewEventosDoCalendario/{idCalendario}");
             }
             else
             {
                 errorMessage = "Erro ao atualizar: " + response.Mensagem;
                 StateHasChanged();
-                await Task.Delay(3000);
+                await Task.Delay(2000);
                 errorMessage = null;
                 StateHasChanged();
             }
@@ -151,6 +151,9 @@ else{
         {     
             errorMessage = e.Message;
             Console.WriteLine($"Erro ao atualizar evento: {e.Message}");
+            StateHasChanged();
+            await Task.Delay(2000);
+            errorMessage = null;
             StateHasChanged();
         }
     }
