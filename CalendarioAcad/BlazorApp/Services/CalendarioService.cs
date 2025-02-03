@@ -52,12 +52,23 @@ namespace BlazorApp.Services
             }
             return responseModel;
         }
-        public async Task<Calendario> DesativarCalendario(int idCalendario)
+        public async Task<ResponseModel<Calendario>> DesativarCalendario(int idCalendario)
         {
             var client = httpClientFactory.CreateClient(Configuration.HttpClientName);
             var response = await client.PatchAsync($"/api/Calendarios/DesativarCalendario/{idCalendario}", null);
+            if (!response.IsSuccessStatusCode)
+            {
+                var errorResponse = await response.Content.ReadFromJsonAsync<ResponseModel<Calendario>>();
+                throw new Exception(errorResponse?.Mensagem);
+            }
+
             var responseModel = await response.Content.ReadFromJsonAsync<ResponseModel<Calendario>>();
-            return responseModel?.Dados;
+
+            if (responseModel == null)
+            {
+                throw new Exception("Erro ao desativar calendário.");
+            }
+            return responseModel;
         }
     }
 }
