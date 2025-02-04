@@ -1,8 +1,10 @@
 ﻿@page "/Eventos/ViewEventos/{idCalendario:int?}"
 @using BlazorApp.Models
-@using BlazorApp.Services
+@using BlazorApp.Services.CalendarioService
+@using BlazorApp.Services.EventoService
 
-@inject CalendarioService CalendarioService
+
+@inject ICalendarioInterface CalendarioService
 @inject EventoService EventoService
 
 @if (calendarios == null)
@@ -30,7 +32,7 @@ else
 
     protected override async Task OnInitializedAsync()
     {
-        calendarios = await CalendarioService.GetAsync();
+        calendarios = await CalendarioService.GetAllCalendarios();
         if(idCalendario.HasValue && idCalendario > 0)
         {
             selectedCalendarioId = idCalendario.Value;

@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Components;
 using System.Net.Http.Json;
 
-namespace BlazorApp.Services
+namespace BlazorApp.Services.EventoService
 {
     public class EventoService(IHttpClientFactory httpClientFactory)
     {
@@ -20,7 +20,7 @@ namespace BlazorApp.Services
             return response?.Dados;
         }
 
-        public async Task <ResponseModel<Evento>> UpdateEvento(Evento evento)
+        public async Task<ResponseModel<Evento>> UpdateEvento(Evento evento)
         {
             var client = httpClientFactory.CreateClient(Configuration.HttpClientName);
             var response = await client.PostAsJsonAsync($"/api/Eventos/EditarEvento/{evento.IdEvento}", evento);
@@ -43,7 +43,7 @@ namespace BlazorApp.Services
                 var errorResponse = await response.Content.ReadFromJsonAsync<ResponseModel<Evento>>();
                 throw new Exception(errorResponse?.Mensagem);
             }
-            
+
             return await response.Content.ReadFromJsonAsync<ResponseModel<Evento>>();
         }
     }

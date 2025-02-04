@@ -1,8 +1,9 @@
 ﻿@page "/Calendario/ViewCalendario"
 @using BlazorApp.Models
 @using BlazorApp.Services
+@using BlazorApp.Services.CalendarioService
 
-@inject CalendarioService Service
+@inject ICalendarioInterface Service
 @inject NavigationManager NavigationManager
 
 <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
@@ -96,7 +97,7 @@ else
     }
 
     private async Task GetAsync() 
-        => calendarios = await Service.GetAsync();
+        => calendarios = await Service.GetAllCalendarios();
 
     private async Task AprovarCalendario(int idCalendario)
     {

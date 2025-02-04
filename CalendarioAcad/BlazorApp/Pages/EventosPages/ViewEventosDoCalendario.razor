@@ -1,8 +1,11 @@
 ﻿@page "/Eventos/ViewEventosDoCalendario/{idCalendario:int}"
 @using BlazorApp.Models
-@using BlazorApp.Services
+@using BlazorApp.Services.CalendarioService
+@using BlazorApp.Services.EventoService
+
+
 @inject EventoService Service
-@inject CalendarioService CalendarioService
+@inject ICalendarioInterface CalendarioService
 @inject NavigationManager Navigation
 
 <h3 class="mb-3">
@@ -80,7 +83,7 @@ else
         try
         {
             eventos = await Service.GetEventoPorCalendario(idCalendario);
-            calendario = await CalendarioService.GetByIdAsync(idCalendario);
+            calendario = await CalendarioService.GetCalendarioById(idCalendario);
         }
         catch (Exception ex)
         {

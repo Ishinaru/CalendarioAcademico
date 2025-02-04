@@ -1,4 +1,6 @@
-using BlazorApp.Services;
+using BlazorApp.Services.CalendarioService;
+using BlazorApp.Services.EventoService;
+using BlazorApp.Services.PortariaService;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 
@@ -19,8 +21,9 @@ namespace BlazorApp
                     x.BaseAddress = new Uri(Configuration.BackendUrl);
                 });
 
-            builder.Services.AddTransient<CalendarioService>();
+            builder.Services.AddScoped<ICalendarioInterface, CalendarioService>();
             builder.Services.AddTransient<EventoService>();
+            builder.Services.AddTransient<PortariaService>();
 
 
             await builder.Build().RunAsync();

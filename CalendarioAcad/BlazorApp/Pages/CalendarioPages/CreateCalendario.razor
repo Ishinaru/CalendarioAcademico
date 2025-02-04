@@ -1,44 +1,93 @@
 ﻿@page "/Calendario/CreateCalendario"
-@using BlazorApp.Models.DTO.Calendario
-@using BlazorApp.Services
 
-@inject CalendarioService Service
-@inject NavigationManager NavigationManager
+@inject ICalendarioInterface Service;
+@inject NavigationManager NavigationManager;
 
-<div class="row">
-    <div class="col-lg-8">
-        <h1 class="mb-5">Novo Calendário</h1>
 
-        <div class="row mb-3">
-            <label class="col-md-4 col-form-label">Ano do Calendário</label>
-            <div class="col-md-8">
-                <input type="text" class="form-control" @bind="calendario.Ano" />
-            </div>
-        </div>
-
-        <div class="row mb-3">
-            <label class="col-md-4 col-form-label">Observação</label>
-            <div class="col-md-8">
-                <input type="text" class="form-control" @bind="calendario.Observacao" />
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="offset-md-4 col-md-4 d-grid">
-                <button class="btn btn-primary" @onclick="SaveCalendario">Enviar</button>
-            </div>
-            <div class="col-md-4 d-grid">
-                <a class="btn btn-outline-primary" href="/Calendario/ViewCalendario">Cancelar</a>
-            </div>
-        </div>
+@if(showSuccessMessage)
+{
+    <div class="alert alert-success">
+        @successMessage
     </div>
-</div>
+}
+
+@if (!string.IsNullOrEmpty(errorMessage))
+{
+    <div class="alert alert-danger">
+        @errorMessage
+    </div>
+}
+
+<h2>Criar Calendário</h2>
+
+<EditForm Model="calendario" OnValidSubmit="@HandleSubmit" class="mt-3">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+    <div class="mb-3">
+        <label for="ano" class="form-label">Ano do calendário</label>
+        <InputNumber id="ano" class="form-control" @bind-Value="calendario.Ano" />
+    </div>
+
+    <div class="mb-3">
+        <label for="observacao" class="form-label">Observação</label>
+        <InputText id="observacao" class="form-control" @bind-Value="calendario.Observacao" />
+    </div>
+
+    <button type="submit" class="btn btn-primary" disabled="@isSubmitting">
+        @(isSubmitting ? "Criando..." : "Criar Calendário")
+    </button>
+</EditForm>
 
 @code {
-    private CriarCalendarioDTO calendario { get; set; } = new();
+    private CriarCalendarioDTO calendario = new();
+    private bool isSubmitting = false;
+    private bool showSuccessMessage = false;
+    private string errorMessage = string.Empty;
+    private string successMessage = string.Empty;
 
-    private async Task SaveCalendario()
+    private async Task HandleSubmit()
     {
-        await Service.CreateAsync(calendario, NavigationManager);
+        isSubmitting = true;
+        errorMessage = string.Empty;
+        showSuccessMessage = false;
+
+        try
+        {
+            var response = await Service.CreateCalendario(calendario);
+            if(response.Status)
+            {
+                successMessage = "Calendário criado! Redirecionando...";
+                showSuccessMessage = true;
+                StateHasChanged();
+                await Task.Delay(2000);
+
+                NavigationManager.NavigateTo("/Calendario/ViewCalendario");
+            }
+
+            else
+            {
+                errorMessage = response.Mensagem;
+                StateHasChanged();
+                await Task.Delay(2000);
+                errorMessage = string.Empty;
+                StateHasChanged();
+            }
+        }
+        catch (Exception e)
+        {
+            errorMessage = e.Message; 
+            StateHasChanged();
+            await Task.Delay(2000);
+            errorMessage = string.Empty;
+            StateHasChanged();
+          
+        }
+        finally
+        {
+            isSubmitting = false;
+        }
     }
+
+    
 }

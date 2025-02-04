@@ -95,9 +95,9 @@ namespace API.Services.Calendarios
             }
         }
 
-        public async Task<ResponseModel<List<Calendario>>> CriarCalendario(CriarCalendarioDTO criarCalendarioDTO)
+        public async Task<ResponseModel<Calendario>> CriarCalendario(CriarCalendarioDTO criarCalendarioDTO)
         {
-            ResponseModel<List<Calendario>> response = new ResponseModel<List<Calendario>>();
+            var response = new ResponseModel<Calendario>();
 
             try
             {
@@ -135,7 +135,7 @@ namespace API.Services.Calendarios
                 _context.Add(historico);
                 await _context.SaveChangesAsync();
 
-                response.Dados = await _context.Calendarios.ToListAsync();
+                response.Dados = calendario;
                 response.Mensagem = "Calendário criado com sucesso";
                 return response;
 
