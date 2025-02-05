@@ -3,28 +3,48 @@
   "WorkspaceRootPath": "C:\\Users\\e_dvplima\\Documents\\C#\\CalendarioAcademico\\CalendarioAcad\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{2F0040FD-1593-4550-8A9A-896E13F1B6E6}|BlazorApp\\BlazorApp.csproj|c:\\users\\e_dvplima\\documents\\c#\\calendarioacademico\\calendarioacad\\blazorapp\\services\\portariaservice\\iportariainterface.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2F0040FD-1593-4550-8A9A-896E13F1B6E6}|BlazorApp\\BlazorApp.csproj|solutionrelative:blazorapp\\services\\portariaservice\\iportariainterface.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{01EF6A0F-1F36-40E3-8252-1347B8252BF8}|API\\API.csproj|c:\\users\\e_dvplima\\documents\\c#\\calendarioacademico\\calendarioacad\\api\\controllers\\calendarioscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{01EF6A0F-1F36-40E3-8252-1347B8252BF8}|API\\API.csproj|solutionrelative:api\\controllers\\calendarioscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{01EF6A0F-1F36-40E3-8252-1347B8252BF8}|API\\API.csproj|c:\\users\\e_dvplima\\documents\\c#\\calendarioacademico\\calendarioacad\\api\\services\\calendarios\\calendarioservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{01EF6A0F-1F36-40E3-8252-1347B8252BF8}|API\\API.csproj|solutionrelative:api\\services\\calendarios\\calendarioservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{01EF6A0F-1F36-40E3-8252-1347B8252BF8}|API\\API.csproj|c:\\users\\e_dvplima\\documents\\c#\\calendarioacademico\\calendarioacad\\api\\services\\calendarios\\icalendariointerface.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{01EF6A0F-1F36-40E3-8252-1347B8252BF8}|API\\API.csproj|solutionrelative:api\\services\\calendarios\\icalendariointerface.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2F0040FD-1593-4550-8A9A-896E13F1B6E6}|BlazorApp\\BlazorApp.csproj|c:\\users\\e_dvplima\\documents\\c#\\calendarioacademico\\calendarioacad\\blazorapp\\services\\calendarioservice\\icalendariointerface.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2F0040FD-1593-4550-8A9A-896E13F1B6E6}|BlazorApp\\BlazorApp.csproj|solutionrelative:blazorapp\\services\\calendarioservice\\icalendariointerface.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{2F0040FD-1593-4550-8A9A-896E13F1B6E6}|BlazorApp\\BlazorApp.csproj|c:\\users\\e_dvplima\\documents\\c#\\calendarioacademico\\calendarioacad\\blazorapp\\services\\portariaservice\\portariaservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2F0040FD-1593-4550-8A9A-896E13F1B6E6}|BlazorApp\\BlazorApp.csproj|solutionrelative:blazorapp\\services\\portariaservice\\portariaservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2F0040FD-1593-4550-8A9A-896E13F1B6E6}|BlazorApp\\BlazorApp.csproj|c:\\users\\e_dvplima\\documents\\c#\\calendarioacademico\\calendarioacad\\blazorapp\\pages\\calendariopages\\viewcalendario.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{2F0040FD-1593-4550-8A9A-896E13F1B6E6}|BlazorApp\\BlazorApp.csproj|solutionrelative:blazorapp\\pages\\calendariopages\\viewcalendario.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{2F0040FD-1593-4550-8A9A-896E13F1B6E6}|BlazorApp\\BlazorApp.csproj|c:\\users\\e_dvplima\\documents\\c#\\calendarioacademico\\calendarioacad\\blazorapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2F0040FD-1593-4550-8A9A-896E13F1B6E6}|BlazorApp\\BlazorApp.csproj|solutionrelative:blazorapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2F0040FD-1593-4550-8A9A-896E13F1B6E6}|BlazorApp\\BlazorApp.csproj|c:\\users\\e_dvplima\\documents\\c#\\calendarioacademico\\calendarioacad\\blazorapp\\pages\\calendariopages\\createcalendario.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{2F0040FD-1593-4550-8A9A-896E13F1B6E6}|BlazorApp\\BlazorApp.csproj|solutionrelative:blazorapp\\pages\\calendariopages\\createcalendario.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{2F0040FD-1593-4550-8A9A-896E13F1B6E6}|BlazorApp\\BlazorApp.csproj|c:\\users\\e_dvplima\\documents\\c#\\calendarioacademico\\calendarioacad\\blazorapp\\wwwroot\\css\\app.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{2F0040FD-1593-4550-8A9A-896E13F1B6E6}|BlazorApp\\BlazorApp.csproj|solutionrelative:blazorapp\\wwwroot\\css\\app.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2F0040FD-1593-4550-8A9A-896E13F1B6E6}|BlazorApp\\BlazorApp.csproj|c:\\users\\e_dvplima\\documents\\c#\\calendarioacademico\\calendarioacad\\blazorapp\\layout\\mainlayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{2F0040FD-1593-4550-8A9A-896E13F1B6E6}|BlazorApp\\BlazorApp.csproj|solutionrelative:blazorapp\\layout\\mainlayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2F0040FD-1593-4550-8A9A-896E13F1B6E6}|BlazorApp\\BlazorApp.csproj|c:\\users\\e_dvplima\\documents\\c#\\calendarioacademico\\calendarioacad\\blazorapp\\layout\\navmenu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{2F0040FD-1593-4550-8A9A-896E13F1B6E6}|BlazorApp\\BlazorApp.csproj|solutionrelative:blazorapp\\layout\\navmenu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2F0040FD-1593-4550-8A9A-896E13F1B6E6}|BlazorApp\\BlazorApp.csproj|c:\\users\\e_dvplima\\documents\\c#\\calendarioacademico\\calendarioacad\\blazorapp\\pages\\portariapages\\criarportaria.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{2F0040FD-1593-4550-8A9A-896E13F1B6E6}|BlazorApp\\BlazorApp.csproj|solutionrelative:blazorapp\\pages\\portariapages\\criarportaria.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{2F0040FD-1593-4550-8A9A-896E13F1B6E6}|BlazorApp\\BlazorApp.csproj|c:\\users\\e_dvplima\\documents\\c#\\calendarioacademico\\calendarioacad\\blazorapp\\pages\\eventospages\\vieweventosdocalendario.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{2F0040FD-1593-4550-8A9A-896E13F1B6E6}|BlazorApp\\BlazorApp.csproj|solutionrelative:blazorapp\\pages\\eventospages\\vieweventosdocalendario.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2F0040FD-1593-4550-8A9A-896E13F1B6E6}|BlazorApp\\BlazorApp.csproj|c:\\users\\e_dvplima\\documents\\c#\\calendarioacademico\\calendarioacad\\blazorapp\\pages\\eventospages\\vieweventos.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{2F0040FD-1593-4550-8A9A-896E13F1B6E6}|BlazorApp\\BlazorApp.csproj|solutionrelative:blazorapp\\pages\\eventospages\\vieweventos.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{2F0040FD-1593-4550-8A9A-896E13F1B6E6}|BlazorApp\\BlazorApp.csproj|c:\\users\\e_dvplima\\documents\\c#\\calendarioacademico\\calendarioacad\\blazorapp\\pages\\eventospages\\editarevento.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -35,8 +55,24 @@
       "RelativeMoniker": "D:0:0:{2F0040FD-1593-4550-8A9A-896E13F1B6E6}|BlazorApp\\BlazorApp.csproj|solutionrelative:blazorapp\\pages\\eventospages\\criarevento.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2F0040FD-1593-4550-8A9A-896E13F1B6E6}|BlazorApp\\BlazorApp.csproj|c:\\users\\e_dvplima\\documents\\c#\\calendarioacademico\\calendarioacad\\blazorapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2F0040FD-1593-4550-8A9A-896E13F1B6E6}|BlazorApp\\BlazorApp.csproj|solutionrelative:blazorapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{2F0040FD-1593-4550-8A9A-896E13F1B6E6}|BlazorApp\\BlazorApp.csproj|c:\\users\\e_dvplima\\documents\\c#\\calendarioacademico\\calendarioacad\\blazorapp\\pages\\calendariopages\\viewcalendario.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{2F0040FD-1593-4550-8A9A-896E13F1B6E6}|BlazorApp\\BlazorApp.csproj|solutionrelative:blazorapp\\pages\\calendariopages\\viewcalendario.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2F0040FD-1593-4550-8A9A-896E13F1B6E6}|BlazorApp\\BlazorApp.csproj|c:\\users\\e_dvplima\\documents\\c#\\calendarioacademico\\calendarioacad\\blazorapp\\pages\\calendariopages\\createcalendario.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{2F0040FD-1593-4550-8A9A-896E13F1B6E6}|BlazorApp\\BlazorApp.csproj|solutionrelative:blazorapp\\pages\\calendariopages\\createcalendario.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2F0040FD-1593-4550-8A9A-896E13F1B6E6}|BlazorApp\\BlazorApp.csproj|c:\\users\\e_dvplima\\documents\\c#\\calendarioacademico\\calendarioacad\\blazorapp\\blazorapp.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{2F0040FD-1593-4550-8A9A-896E13F1B6E6}|BlazorApp\\BlazorApp.csproj|solutionrelative:blazorapp\\blazorapp.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2F0040FD-1593-4550-8A9A-896E13F1B6E6}|BlazorApp\\BlazorApp.csproj|c:\\users\\e_dvplima\\documents\\c#\\calendarioacademico\\calendarioacad\\blazorapp\\services\\portariaservice\\iportariainterface.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2F0040FD-1593-4550-8A9A-896E13F1B6E6}|BlazorApp\\BlazorApp.csproj|solutionrelative:blazorapp\\services\\portariaservice\\iportariainterface.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2F0040FD-1593-4550-8A9A-896E13F1B6E6}|BlazorApp\\BlazorApp.csproj|c:\\users\\e_dvplima\\documents\\c#\\calendarioacademico\\calendarioacad\\blazorapp\\pages\\eventospages\\vieweventos.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{2F0040FD-1593-4550-8A9A-896E13F1B6E6}|BlazorApp\\BlazorApp.csproj|solutionrelative:blazorapp\\pages\\eventospages\\vieweventos.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{2F0040FD-1593-4550-8A9A-896E13F1B6E6}|BlazorApp\\BlazorApp.csproj|c:\\users\\e_dvplima\\documents\\c#\\calendarioacademico\\calendarioacad\\blazorapp\\services\\eventoservice\\eventoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -51,32 +87,8 @@
       "RelativeMoniker": "D:0:0:{01EF6A0F-1F36-40E3-8252-1347B8252BF8}|API\\API.csproj|solutionrelative:api\\dto\\calendarios\\criarcalendariodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2F0040FD-1593-4550-8A9A-896E13F1B6E6}|BlazorApp\\BlazorApp.csproj|c:\\users\\e_dvplima\\documents\\c#\\calendarioacademico\\calendarioacad\\blazorapp\\services\\calendarioservice\\icalendariointerface.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2F0040FD-1593-4550-8A9A-896E13F1B6E6}|BlazorApp\\BlazorApp.csproj|solutionrelative:blazorapp\\services\\calendarioservice\\icalendariointerface.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{01EF6A0F-1F36-40E3-8252-1347B8252BF8}|API\\API.csproj|c:\\users\\e_dvplima\\documents\\c#\\calendarioacademico\\calendarioacad\\api\\services\\calendarios\\calendarioservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{01EF6A0F-1F36-40E3-8252-1347B8252BF8}|API\\API.csproj|solutionrelative:api\\services\\calendarios\\calendarioservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{01EF6A0F-1F36-40E3-8252-1347B8252BF8}|API\\API.csproj|c:\\users\\e_dvplima\\documents\\c#\\calendarioacademico\\calendarioacad\\api\\services\\calendarios\\icalendariointerface.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{01EF6A0F-1F36-40E3-8252-1347B8252BF8}|API\\API.csproj|solutionrelative:api\\services\\calendarios\\icalendariointerface.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{2F0040FD-1593-4550-8A9A-896E13F1B6E6}|BlazorApp\\BlazorApp.csproj|c:\\users\\e_dvplima\\documents\\c#\\calendarioacademico\\calendarioacad\\blazorapp\\_imports.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{2F0040FD-1593-4550-8A9A-896E13F1B6E6}|BlazorApp\\BlazorApp.csproj|solutionrelative:blazorapp\\_imports.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2F0040FD-1593-4550-8A9A-896E13F1B6E6}|BlazorApp\\BlazorApp.csproj|c:\\users\\e_dvplima\\documents\\c#\\calendarioacademico\\calendarioacad\\blazorapp\\pages\\portariapages\\criarportaria.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{2F0040FD-1593-4550-8A9A-896E13F1B6E6}|BlazorApp\\BlazorApp.csproj|solutionrelative:blazorapp\\pages\\portariapages\\criarportaria.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2F0040FD-1593-4550-8A9A-896E13F1B6E6}|BlazorApp\\BlazorApp.csproj|c:\\users\\e_dvplima\\documents\\c#\\calendarioacademico\\calendarioacad\\blazorapp\\layout\\mainlayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{2F0040FD-1593-4550-8A9A-896E13F1B6E6}|BlazorApp\\BlazorApp.csproj|solutionrelative:blazorapp\\layout\\mainlayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2F0040FD-1593-4550-8A9A-896E13F1B6E6}|BlazorApp\\BlazorApp.csproj|c:\\users\\e_dvplima\\documents\\c#\\calendarioacademico\\calendarioacad\\blazorapp\\blazorapp.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{2F0040FD-1593-4550-8A9A-896E13F1B6E6}|BlazorApp\\BlazorApp.csproj|solutionrelative:blazorapp\\blazorapp.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     }
   ],
   "DocumentGroupContainers": [
@@ -91,14 +103,14 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "IPortariaInterface.cs",
-              "DocumentMoniker": "C:\\Users\\e_dvplima\\Documents\\C#\\CalendarioAcademico\\CalendarioAcad\\BlazorApp\\Services\\PortariaService\\IPortariaInterface.cs",
-              "RelativeDocumentMoniker": "BlazorApp\\Services\\PortariaService\\IPortariaInterface.cs",
-              "ToolTip": "C:\\Users\\e_dvplima\\Documents\\C#\\CalendarioAcademico\\CalendarioAcad\\BlazorApp\\Services\\PortariaService\\IPortariaInterface.cs*",
-              "RelativeToolTip": "BlazorApp\\Services\\PortariaService\\IPortariaInterface.cs*",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAIAAAAAAAAAA==",
+              "Title": "CalendariosController.cs",
+              "DocumentMoniker": "C:\\Users\\e_dvplima\\Documents\\C#\\CalendarioAcademico\\CalendarioAcad\\API\\Controllers\\CalendariosController.cs",
+              "RelativeDocumentMoniker": "API\\Controllers\\CalendariosController.cs",
+              "ToolTip": "C:\\Users\\e_dvplima\\Documents\\C#\\CalendarioAcademico\\CalendarioAcad\\API\\Controllers\\CalendariosController.cs",
+              "RelativeToolTip": "API\\Controllers\\CalendariosController.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAABoAAABiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-05T11:26:40.571Z",
+              "WhenOpened": "2025-02-05T11:58:11.726Z",
               "EditorCaption": ""
             },
             {
@@ -119,19 +131,123 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "CriarEvento.razor",
-              "DocumentMoniker": "C:\\Users\\e_dvplima\\Documents\\C#\\CalendarioAcademico\\CalendarioAcad\\BlazorApp\\Pages\\EventosPages\\CriarEvento.razor",
-              "RelativeDocumentMoniker": "BlazorApp\\Pages\\EventosPages\\CriarEvento.razor",
-              "ToolTip": "C:\\Users\\e_dvplima\\Documents\\C#\\CalendarioAcademico\\CalendarioAcad\\BlazorApp\\Pages\\EventosPages\\CriarEvento.razor",
-              "RelativeToolTip": "BlazorApp\\Pages\\EventosPages\\CriarEvento.razor",
-              "ViewState": "AgIAADYAAAAAAAAAAAAAAAUAAAAYAAAAAAAAAA==",
+              "DocumentIndex": 11,
+              "Title": "EditarEvento.razor",
+              "DocumentMoniker": "C:\\Users\\e_dvplima\\Documents\\C#\\CalendarioAcademico\\CalendarioAcad\\BlazorApp\\Pages\\EventosPages\\EditarEvento.razor",
+              "RelativeDocumentMoniker": "BlazorApp\\Pages\\EventosPages\\EditarEvento.razor",
+              "ToolTip": "C:\\Users\\e_dvplima\\Documents\\C#\\CalendarioAcademico\\CalendarioAcad\\BlazorApp\\Pages\\EventosPages\\EditarEvento.razor",
+              "RelativeToolTip": "BlazorApp\\Pages\\EventosPages\\EditarEvento.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAYAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-02-04T12:06:19.498Z"
+              "WhenOpened": "2025-02-04T12:06:40.297Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "ViewEventosDoCalendario.razor",
+              "DocumentMoniker": "C:\\Users\\e_dvplima\\Documents\\C#\\CalendarioAcademico\\CalendarioAcad\\BlazorApp\\Pages\\EventosPages\\ViewEventosDoCalendario.razor",
+              "RelativeDocumentMoniker": "BlazorApp\\Pages\\EventosPages\\ViewEventosDoCalendario.razor",
+              "ToolTip": "C:\\Users\\e_dvplima\\Documents\\C#\\CalendarioAcademico\\CalendarioAcad\\BlazorApp\\Pages\\EventosPages\\ViewEventosDoCalendario.razor",
+              "RelativeToolTip": "BlazorApp\\Pages\\EventosPages\\ViewEventosDoCalendario.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-02-04T12:07:10.097Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "EventoService.cs",
+              "DocumentMoniker": "C:\\Users\\e_dvplima\\Documents\\C#\\CalendarioAcademico\\CalendarioAcad\\BlazorApp\\Services\\EventoService\\EventoService.cs",
+              "RelativeDocumentMoniker": "BlazorApp\\Services\\EventoService\\EventoService.cs",
+              "ToolTip": "C:\\Users\\e_dvplima\\Documents\\C#\\CalendarioAcademico\\CalendarioAcad\\BlazorApp\\Services\\EventoService\\EventoService.cs",
+              "RelativeToolTip": "BlazorApp\\Services\\EventoService\\EventoService.cs",
+              "ViewState": "AgIAABsAAAAAAAAAAAAmwCIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-04T18:05:36.36Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "BlazorApp.csproj",
+              "DocumentMoniker": "C:\\Users\\e_dvplima\\Documents\\C#\\CalendarioAcademico\\CalendarioAcad\\BlazorApp\\BlazorApp.csproj",
+              "RelativeDocumentMoniker": "BlazorApp\\BlazorApp.csproj",
+              "ToolTip": "C:\\Users\\e_dvplima\\Documents\\C#\\CalendarioAcademico\\CalendarioAcad\\BlazorApp\\BlazorApp.csproj",
+              "RelativeToolTip": "BlazorApp\\BlazorApp.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-02-04T11:39:02.594Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "PortariaService.cs",
+              "DocumentMoniker": "C:\\Users\\e_dvplima\\Documents\\C#\\CalendarioAcademico\\CalendarioAcad\\BlazorApp\\Services\\PortariaService\\PortariaService.cs",
+              "RelativeDocumentMoniker": "BlazorApp\\Services\\PortariaService\\PortariaService.cs",
+              "ToolTip": "C:\\Users\\e_dvplima\\Documents\\C#\\CalendarioAcademico\\CalendarioAcad\\BlazorApp\\Services\\PortariaService\\PortariaService.cs",
+              "RelativeToolTip": "BlazorApp\\Services\\PortariaService\\PortariaService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-04T11:51:18.124Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ICalendarioInterface.cs",
+              "DocumentMoniker": "C:\\Users\\e_dvplima\\Documents\\C#\\CalendarioAcademico\\CalendarioAcad\\BlazorApp\\Services\\CalendarioService\\ICalendarioInterface.cs",
+              "RelativeDocumentMoniker": "BlazorApp\\Services\\CalendarioService\\ICalendarioInterface.cs",
+              "ToolTip": "C:\\Users\\e_dvplima\\Documents\\C#\\CalendarioAcademico\\CalendarioAcad\\BlazorApp\\Services\\CalendarioService\\ICalendarioInterface.cs",
+              "RelativeToolTip": "BlazorApp\\Services\\CalendarioService\\ICalendarioInterface.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAABAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-04T11:40:20.439Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "CalendarioService.cs",
+              "DocumentMoniker": "C:\\Users\\e_dvplima\\Documents\\C#\\CalendarioAcademico\\CalendarioAcad\\API\\Services\\Calendarios\\CalendarioService.cs",
+              "RelativeDocumentMoniker": "API\\Services\\Calendarios\\CalendarioService.cs",
+              "ToolTip": "C:\\Users\\e_dvplima\\Documents\\C#\\CalendarioAcademico\\CalendarioAcad\\API\\Services\\Calendarios\\CalendarioService.cs",
+              "RelativeToolTip": "API\\Services\\Calendarios\\CalendarioService.cs",
+              "ViewState": "AgIAAKAAAAAAAAAAAAAIwPUAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-04T17:43:54.932Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
+              "Title": "ICalendarioInterface.cs",
+              "DocumentMoniker": "C:\\Users\\e_dvplima\\Documents\\C#\\CalendarioAcademico\\CalendarioAcad\\API\\Services\\Calendarios\\ICalendarioInterface.cs",
+              "RelativeDocumentMoniker": "API\\Services\\Calendarios\\ICalendarioInterface.cs",
+              "ToolTip": "C:\\Users\\e_dvplima\\Documents\\C#\\CalendarioAcademico\\CalendarioAcad\\API\\Services\\Calendarios\\ICalendarioInterface.cs",
+              "RelativeToolTip": "API\\Services\\Calendarios\\ICalendarioInterface.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAA3AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-04T17:45:09.114Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "CreateCalendario.razor",
+              "DocumentMoniker": "C:\\Users\\e_dvplima\\Documents\\C#\\CalendarioAcademico\\CalendarioAcad\\BlazorApp\\Pages\\CalendarioPages\\CreateCalendario.razor",
+              "RelativeDocumentMoniker": "BlazorApp\\Pages\\CalendarioPages\\CreateCalendario.razor",
+              "ToolTip": "C:\\Users\\e_dvplima\\Documents\\C#\\CalendarioAcademico\\CalendarioAcad\\BlazorApp\\Pages\\CalendarioPages\\CreateCalendario.razor",
+              "RelativeToolTip": "BlazorApp\\Pages\\CalendarioPages\\CreateCalendario.razor",
+              "ViewState": "AgIAACEAAAAAAAAAAAAkwEgAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-02-04T12:05:22.602Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
               "Title": "ViewCalendario.razor",
               "DocumentMoniker": "C:\\Users\\e_dvplima\\Documents\\C#\\CalendarioAcademico\\CalendarioAcad\\BlazorApp\\Pages\\CalendarioPages\\ViewCalendario.razor",
               "RelativeDocumentMoniker": "BlazorApp\\Pages\\CalendarioPages\\ViewCalendario.razor",
@@ -144,43 +260,98 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "ICalendarioInterface.cs",
-              "DocumentMoniker": "C:\\Users\\e_dvplima\\Documents\\C#\\CalendarioAcademico\\CalendarioAcad\\BlazorApp\\Services\\CalendarioService\\ICalendarioInterface.cs",
-              "RelativeDocumentMoniker": "BlazorApp\\Services\\CalendarioService\\ICalendarioInterface.cs",
-              "ToolTip": "C:\\Users\\e_dvplima\\Documents\\C#\\CalendarioAcademico\\CalendarioAcad\\BlazorApp\\Services\\CalendarioService\\ICalendarioInterface.cs",
-              "RelativeToolTip": "BlazorApp\\Services\\CalendarioService\\ICalendarioInterface.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 16,
+              "Title": "IPortariaInterface.cs",
+              "DocumentMoniker": "C:\\Users\\e_dvplima\\Documents\\C#\\CalendarioAcademico\\CalendarioAcad\\BlazorApp\\Services\\PortariaService\\IPortariaInterface.cs",
+              "RelativeDocumentMoniker": "BlazorApp\\Services\\PortariaService\\IPortariaInterface.cs",
+              "ToolTip": "C:\\Users\\e_dvplima\\Documents\\C#\\CalendarioAcademico\\CalendarioAcad\\BlazorApp\\Services\\PortariaService\\IPortariaInterface.cs",
+              "RelativeToolTip": "BlazorApp\\Services\\PortariaService\\IPortariaInterface.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-04T11:40:20.439Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "CriarCalendarioDTO.cs",
-              "DocumentMoniker": "C:\\Users\\e_dvplima\\Documents\\C#\\CalendarioAcademico\\CalendarioAcad\\API\\DTO\\Calendarios\\CriarCalendarioDTO.cs",
-              "RelativeDocumentMoniker": "API\\DTO\\Calendarios\\CriarCalendarioDTO.cs",
-              "ToolTip": "C:\\Users\\e_dvplima\\Documents\\C#\\CalendarioAcademico\\CalendarioAcad\\API\\DTO\\Calendarios\\CriarCalendarioDTO.cs",
-              "RelativeToolTip": "API\\DTO\\Calendarios\\CriarCalendarioDTO.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAA3AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-04T14:29:51.727Z"
+              "WhenOpened": "2025-02-05T11:26:40.571Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 8,
+              "Title": "NavMenu.razor",
+              "DocumentMoniker": "C:\\Users\\e_dvplima\\Documents\\C#\\CalendarioAcademico\\CalendarioAcad\\BlazorApp\\Layout\\NavMenu.razor",
+              "RelativeDocumentMoniker": "BlazorApp\\Layout\\NavMenu.razor",
+              "ToolTip": "C:\\Users\\e_dvplima\\Documents\\C#\\CalendarioAcademico\\CalendarioAcad\\BlazorApp\\Layout\\NavMenu.razor",
+              "RelativeToolTip": "BlazorApp\\Layout\\NavMenu.razor",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAAAoAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-02-05T11:30:30.803Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "app.css",
+              "DocumentMoniker": "C:\\Users\\e_dvplima\\Documents\\C#\\CalendarioAcademico\\CalendarioAcad\\BlazorApp\\wwwroot\\css\\app.css",
+              "RelativeDocumentMoniker": "BlazorApp\\wwwroot\\css\\app.css",
+              "ToolTip": "C:\\Users\\e_dvplima\\Documents\\C#\\CalendarioAcademico\\CalendarioAcad\\BlazorApp\\wwwroot\\css\\app.css",
+              "RelativeToolTip": "BlazorApp\\wwwroot\\css\\app.css",
+              "ViewState": "AgIAAD8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-02-05T11:30:44.736Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "CriarEvento.razor",
+              "DocumentMoniker": "C:\\Users\\e_dvplima\\Documents\\C#\\CalendarioAcademico\\CalendarioAcad\\BlazorApp\\Pages\\EventosPages\\CriarEvento.razor",
+              "RelativeDocumentMoniker": "BlazorApp\\Pages\\EventosPages\\CriarEvento.razor",
+              "ToolTip": "C:\\Users\\e_dvplima\\Documents\\C#\\CalendarioAcademico\\CalendarioAcad\\BlazorApp\\Pages\\EventosPages\\CriarEvento.razor",
+              "RelativeToolTip": "BlazorApp\\Pages\\EventosPages\\CriarEvento.razor",
+              "ViewState": "AgIAADYAAAAAAAAAAAAAAAUAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-02-04T12:06:19.498Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "CriarPortaria.razor",
+              "DocumentMoniker": "C:\\Users\\e_dvplima\\Documents\\C#\\CalendarioAcademico\\CalendarioAcad\\BlazorApp\\Pages\\PortariaPages\\CriarPortaria.razor",
+              "RelativeDocumentMoniker": "BlazorApp\\Pages\\PortariaPages\\CriarPortaria.razor",
+              "ToolTip": "C:\\Users\\e_dvplima\\Documents\\C#\\CalendarioAcademico\\CalendarioAcad\\BlazorApp\\Pages\\PortariaPages\\CriarPortaria.razor",
+              "RelativeToolTip": "BlazorApp\\Pages\\PortariaPages\\CriarPortaria.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-02-04T12:07:29.53Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\e_dvplima\\Documents\\C#\\CalendarioAcademico\\CalendarioAcad\\BlazorApp\\Program.cs",
               "RelativeDocumentMoniker": "BlazorApp\\Program.cs",
               "ToolTip": "C:\\Users\\e_dvplima\\Documents\\C#\\CalendarioAcademico\\CalendarioAcad\\BlazorApp\\Program.cs",
               "RelativeToolTip": "BlazorApp\\Program.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAABgAAABKAAAAAAAAAA==",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAsAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-04T11:50:32.233Z"
+              "WhenOpened": "2025-02-04T11:50:32.233Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 7,
+              "Title": "MainLayout.razor",
+              "DocumentMoniker": "C:\\Users\\e_dvplima\\Documents\\C#\\CalendarioAcademico\\CalendarioAcad\\BlazorApp\\Layout\\MainLayout.razor",
+              "RelativeDocumentMoniker": "BlazorApp\\Layout\\MainLayout.razor",
+              "ToolTip": "C:\\Users\\e_dvplima\\Documents\\C#\\CalendarioAcademico\\CalendarioAcad\\BlazorApp\\Layout\\MainLayout.razor",
+              "RelativeToolTip": "BlazorApp\\Layout\\MainLayout.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-02-04T12:04:54.922Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
               "Title": "ViewEventos.razor",
               "DocumentMoniker": "C:\\Users\\e_dvplima\\Documents\\C#\\CalendarioAcademico\\CalendarioAcad\\BlazorApp\\Pages\\EventosPages\\ViewEventos.razor",
               "RelativeDocumentMoniker": "BlazorApp\\Pages\\EventosPages\\ViewEventos.razor",
@@ -192,68 +363,19 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "CreateCalendario.razor",
-              "DocumentMoniker": "C:\\Users\\e_dvplima\\Documents\\C#\\CalendarioAcademico\\CalendarioAcad\\BlazorApp\\Pages\\CalendarioPages\\CreateCalendario.razor",
-              "RelativeDocumentMoniker": "BlazorApp\\Pages\\CalendarioPages\\CreateCalendario.razor",
-              "ToolTip": "C:\\Users\\e_dvplima\\Documents\\C#\\CalendarioAcademico\\CalendarioAcad\\BlazorApp\\Pages\\CalendarioPages\\CreateCalendario.razor",
-              "RelativeToolTip": "BlazorApp\\Pages\\CalendarioPages\\CreateCalendario.razor",
-              "ViewState": "AgIAACEAAAAAAAAAAAAkwEgAAAAsAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-02-04T12:05:22.602Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "EditarEvento.razor",
-              "DocumentMoniker": "C:\\Users\\e_dvplima\\Documents\\C#\\CalendarioAcademico\\CalendarioAcad\\BlazorApp\\Pages\\EventosPages\\EditarEvento.razor",
-              "RelativeDocumentMoniker": "BlazorApp\\Pages\\EventosPages\\EditarEvento.razor",
-              "ToolTip": "C:\\Users\\e_dvplima\\Documents\\C#\\CalendarioAcademico\\CalendarioAcad\\BlazorApp\\Pages\\EventosPages\\EditarEvento.razor",
-              "RelativeToolTip": "BlazorApp\\Pages\\EventosPages\\EditarEvento.razor",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAYAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-02-04T12:06:40.297Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "PortariaService.cs",
-              "DocumentMoniker": "C:\\Users\\e_dvplima\\Documents\\C#\\CalendarioAcademico\\CalendarioAcad\\BlazorApp\\Services\\PortariaService\\PortariaService.cs",
-              "RelativeDocumentMoniker": "BlazorApp\\Services\\PortariaService\\PortariaService.cs",
-              "ToolTip": "C:\\Users\\e_dvplima\\Documents\\C#\\CalendarioAcademico\\CalendarioAcad\\BlazorApp\\Services\\PortariaService\\PortariaService.cs*",
-              "RelativeToolTip": "BlazorApp\\Services\\PortariaService\\PortariaService.cs*",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAHAAAAAAAAAA==",
+              "DocumentIndex": 20,
+              "Title": "CriarCalendarioDTO.cs",
+              "DocumentMoniker": "C:\\Users\\e_dvplima\\Documents\\C#\\CalendarioAcademico\\CalendarioAcad\\API\\DTO\\Calendarios\\CriarCalendarioDTO.cs",
+              "RelativeDocumentMoniker": "API\\DTO\\Calendarios\\CriarCalendarioDTO.cs",
+              "ToolTip": "C:\\Users\\e_dvplima\\Documents\\C#\\CalendarioAcademico\\CalendarioAcad\\API\\DTO\\Calendarios\\CriarCalendarioDTO.cs",
+              "RelativeToolTip": "API\\DTO\\Calendarios\\CriarCalendarioDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAA3AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-04T11:51:18.124Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-04T14:29:51.727Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "ViewEventosDoCalendario.razor",
-              "DocumentMoniker": "C:\\Users\\e_dvplima\\Documents\\C#\\CalendarioAcademico\\CalendarioAcad\\BlazorApp\\Pages\\EventosPages\\ViewEventosDoCalendario.razor",
-              "RelativeDocumentMoniker": "BlazorApp\\Pages\\EventosPages\\ViewEventosDoCalendario.razor",
-              "ToolTip": "C:\\Users\\e_dvplima\\Documents\\C#\\CalendarioAcademico\\CalendarioAcad\\BlazorApp\\Pages\\EventosPages\\ViewEventosDoCalendario.razor",
-              "RelativeToolTip": "BlazorApp\\Pages\\EventosPages\\ViewEventosDoCalendario.razor",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-02-04T12:07:10.097Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "EventoService.cs",
-              "DocumentMoniker": "C:\\Users\\e_dvplima\\Documents\\C#\\CalendarioAcademico\\CalendarioAcad\\BlazorApp\\Services\\EventoService\\EventoService.cs",
-              "RelativeDocumentMoniker": "BlazorApp\\Services\\EventoService\\EventoService.cs",
-              "ToolTip": "C:\\Users\\e_dvplima\\Documents\\C#\\CalendarioAcademico\\CalendarioAcad\\BlazorApp\\Services\\EventoService\\EventoService.cs",
-              "RelativeToolTip": "BlazorApp\\Services\\EventoService\\EventoService.cs",
-              "ViewState": "AgIAABsAAAAAAAAAAAAmwCIAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-04T18:05:36.36Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 19,
               "Title": "IEventoInterface.cs",
               "DocumentMoniker": "C:\\Users\\e_dvplima\\Documents\\C#\\CalendarioAcademico\\CalendarioAcad\\BlazorApp\\Services\\EventoService\\IEventoInterface.cs",
               "RelativeDocumentMoniker": "BlazorApp\\Services\\EventoService\\IEventoInterface.cs",
@@ -265,31 +387,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "CalendarioService.cs",
-              "DocumentMoniker": "C:\\Users\\e_dvplima\\Documents\\C#\\CalendarioAcademico\\CalendarioAcad\\API\\Services\\Calendarios\\CalendarioService.cs",
-              "RelativeDocumentMoniker": "API\\Services\\Calendarios\\CalendarioService.cs",
-              "ToolTip": "C:\\Users\\e_dvplima\\Documents\\C#\\CalendarioAcademico\\CalendarioAcad\\API\\Services\\Calendarios\\CalendarioService.cs",
-              "RelativeToolTip": "API\\Services\\Calendarios\\CalendarioService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAqwA8AAABHAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-04T17:43:54.932Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "ICalendarioInterface.cs",
-              "DocumentMoniker": "C:\\Users\\e_dvplima\\Documents\\C#\\CalendarioAcademico\\CalendarioAcad\\API\\Services\\Calendarios\\ICalendarioInterface.cs",
-              "RelativeDocumentMoniker": "API\\Services\\Calendarios\\ICalendarioInterface.cs",
-              "ToolTip": "C:\\Users\\e_dvplima\\Documents\\C#\\CalendarioAcademico\\CalendarioAcad\\API\\Services\\Calendarios\\ICalendarioInterface.cs",
-              "RelativeToolTip": "API\\Services\\Calendarios\\ICalendarioInterface.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAzAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-04T17:45:09.114Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 21,
               "Title": "_Imports.razor",
               "DocumentMoniker": "C:\\Users\\e_dvplima\\Documents\\C#\\CalendarioAcademico\\CalendarioAcad\\BlazorApp\\_Imports.razor",
               "RelativeDocumentMoniker": "BlazorApp\\_Imports.razor",
@@ -298,42 +396,6 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAArAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-02-04T13:21:17.713Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "CriarPortaria.razor",
-              "DocumentMoniker": "C:\\Users\\e_dvplima\\Documents\\C#\\CalendarioAcademico\\CalendarioAcad\\BlazorApp\\Pages\\PortariaPages\\CriarPortaria.razor",
-              "RelativeDocumentMoniker": "BlazorApp\\Pages\\PortariaPages\\CriarPortaria.razor",
-              "ToolTip": "C:\\Users\\e_dvplima\\Documents\\C#\\CalendarioAcademico\\CalendarioAcad\\BlazorApp\\Pages\\PortariaPages\\CriarPortaria.razor",
-              "RelativeToolTip": "BlazorApp\\Pages\\PortariaPages\\CriarPortaria.razor",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-02-04T12:07:29.53Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "MainLayout.razor",
-              "DocumentMoniker": "C:\\Users\\e_dvplima\\Documents\\C#\\CalendarioAcademico\\CalendarioAcad\\BlazorApp\\Layout\\MainLayout.razor",
-              "RelativeDocumentMoniker": "BlazorApp\\Layout\\MainLayout.razor",
-              "ToolTip": "C:\\Users\\e_dvplima\\Documents\\C#\\CalendarioAcademico\\CalendarioAcad\\BlazorApp\\Layout\\MainLayout.razor",
-              "RelativeToolTip": "BlazorApp\\Layout\\MainLayout.razor",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-02-04T12:04:54.922Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 18,
-              "Title": "BlazorApp.csproj",
-              "DocumentMoniker": "C:\\Users\\e_dvplima\\Documents\\C#\\CalendarioAcademico\\CalendarioAcad\\BlazorApp\\BlazorApp.csproj",
-              "RelativeDocumentMoniker": "BlazorApp\\BlazorApp.csproj",
-              "ToolTip": "C:\\Users\\e_dvplima\\Documents\\C#\\CalendarioAcademico\\CalendarioAcad\\BlazorApp\\BlazorApp.csproj",
-              "RelativeToolTip": "BlazorApp\\BlazorApp.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-02-04T11:39:02.594Z"
             }
           ]
         }

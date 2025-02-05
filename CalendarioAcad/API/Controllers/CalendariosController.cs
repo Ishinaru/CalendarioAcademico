@@ -23,6 +23,13 @@ namespace API.Controllers
             return Ok(calendarios);
         }
 
+        [HttpGet("GetCalendariosAprovados")]
+        public async Task<ActionResult<ResponseModel<List<Calendario>>>> GetCalendariosAprovados()
+        {
+            var calendarios = await _calendarioInterface.GetCalendariosAprovados();
+            return Ok(calendarios);
+        }
+
         [HttpPost("CriarCalendario")]
         public async Task<ActionResult<ResponseModel<Calendario>>> CriarCalendario(CriarCalendarioDTO dados)
         {

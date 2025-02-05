@@ -11,6 +11,8 @@ namespace BlazorApp.Services.CalendarioService
 
         public Task<Calendario?> GetCalendarioById(int idCalendario);
 
+        public Task<List<Calendario>> GetCalendariosAprovados();
+
         public Task<ResponseModel<Calendario>> AprovarCalendario(int idCalendario);
 
         public Task<ResponseModel<Calendario>> DesativarCalendario(int idCalendario);

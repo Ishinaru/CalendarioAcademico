@@ -229,5 +229,23 @@ namespace API.Services.Calendarios
             string numResolucao = $"{num:D3}/{ano}";
             return numResolucao;
         }
+
+        public async Task<ResponseModel<List<Calendario>>> GetCalendariosAprovados()
+        {
+            ResponseModel<List<Calendario>> response = new ();
+            try
+            {
+                var calendarios = await _context.Calendarios.Where(calendarioDB => calendarioDB.Status == Status.Aprovado).ToListAsync();
+                response.Dados = calendarios;
+                response.Mensagem = "Calendários encontrados";
+                return response;
+            }
+            catch (Exception e)
+            {
+                response.Mensagem = e.Message;
+                response.Status = false;
+                return response;
+            }
+        }
     }
 }
