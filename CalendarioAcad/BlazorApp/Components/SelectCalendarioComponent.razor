@@ -1,0 +1,38 @@
+﻿@inject ICalendarioInterface CalendarioService
+
+@if (calendarios == null)
+{
+    <p><em>Carregando calendários...</em></p>
+}
+else
+{
+    <InputSelect class="form-select form-select-lg mb-4" @bind-Value="selectedCalendarioId" @onchange="OnChangeCalendario">
+        <option value="0" disabled selected>Selecione um calendário</option>
+        @foreach (var calendario in calendarios)
+        {
+            <option value="@calendario.IdCalendario">@calendario.Ano</option>
+        }
+    </InputSelect>
+}
+
+@code {
+    [Parameter] public int? idCalendario { get; set; }
+    private List<Calendario> ?calendarios;
+    private int selectedCalendarioId;
+
+    protected override async Task OnInitializedAsync()
+    {
+        calendarios = await CalendarioService.GetAllCalendarios();
+        if(idCalendario.HasValue && idCalendario > 0)
+        {
+            selectedCalendarioId = idCalendario.Value;
+        }
+    }
+
+    private async Task OnChangeCalendario(ChangeEventArgs e)
+    {
+        selectedCalendarioId = Convert.ToInt32(e.Value);
+        StateHasChanged();
+    }
+    
+}

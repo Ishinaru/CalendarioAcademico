@@ -23,8 +23,7 @@ namespace BlazorApp
 
             builder.Services.AddScoped<ICalendarioInterface, CalendarioService>();
             builder.Services.AddScoped<IEventoInterface, EventoService>();
-            builder.Services.AddTransient<PortariaService>();
-
+            builder.Services.AddScoped<IPortariaInterface, PortariaService>();
 
             await builder.Build().RunAsync();
         }

@@ -5,6 +5,6 @@ namespace BlazorApp.Services.PortariaService
 {
     public interface IPortariaInterface
     {
-        public Task<ResponseModel<Portaria>> CreatePortaria(int IdCalendario, CriarPortariaDTO portaria, EventoPortariasDTO eventoPortarias);
+        public Task<ResponseModel<Portaria>> CreatePortaria(int IdCalendario, List<EventoPortariasDTO> eventoPortarias);
     }
 }

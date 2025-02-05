@@ -1,10 +1,7 @@
 ﻿namespace BlazorApp.Models.DTO
 {
-    public class EventoPortariasDTO
+    public class EventoPortariasDTO : Evento_Portaria
     {
-        public int EventoID { get; set; }
-        public DateOnly DataInicio { get; set; }
-        public DateOnly DataFinal { get; set; }
-        public string Observacao { get; set; }
+        public bool Selecionado { get; set; }
     }
 }

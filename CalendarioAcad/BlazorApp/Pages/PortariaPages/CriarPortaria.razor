@@ -1,1 +1,123 @@
-﻿
+﻿@page "/Portaria/CriarPortaria/{idCalendario:int?}"
+
+@inject ICalendarioInterface CalendarioService
+@inject IEventoInterface EventoService
+@inject IPortariaInterface PortariaService
+@inject NavigationManager NavigationManager
+
+<h3>Criar Portaria</h3>
+
+@if (calendarios == null)
+{
+    <p><em>Carregando calendários...</em></p>
+}
+else
+{
+    <InputSelect class="form-select form-select-lg mb-4" @bind-Value="selectedCalendarioId" @onchange="OnChangeCalendario">
+        <option value="0" disabled selected>Selecione um calendário</option>
+        @foreach (var calendario in calendarios)
+        {
+            <option value="@calendario.IdCalendario">@calendario.Ano</option>
+        }
+    </InputSelect>
+
+}
+
+@if (eventos != null)
+{
+    <h4>Eventos do Calendário</h4>
+    <EditForm Model="@this" OnValidSubmit="SavePortaria">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Selecionar</th>
+                    <th>Data Inicial</th>
+                    <th>Data Final</th>
+                    <th>Observação</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var evento in eventos)
+                {
+                    <tr>
+                        <td>
+                            <InputCheckbox @bind-Value="evento.Selecionado" />
+                        </td>
+                        <td>
+                            <InputDate @bind-Value="evento.DataInicio" />
+                        </td>
+                        <td>
+                            <InputDate @bind-Value="evento.DataFinal" />
+                        </td>
+                        <td>
+                            <InputText @bind-Value="evento.Observacao" />
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <button type="submit" class="btn btn-primary">Salvar Portaria</button>
+    </EditForm>
+
+}
+
+@code
+{
+    [Parameter] public int? idCalendario { get; set; }
+    private int selectedCalendarioId;
+    private List<Calendario> ?calendarios;
+    private List<EventoPortariasDTO>? eventos;
+
+    protected override async Task OnInitializedAsync()
+    {
+        calendarios = await CalendarioService.GetCalendariosAprovados();
+    }
+
+    protected override async Task OnParametersSetAsync()
+    {
+        if (idCalendario.HasValue && idCalendario > 0)
+        {
+            selectedCalendarioId = idCalendario.Value;
+            await LoadEventos();
+        }
+        else if (calendarios == null)
+        {
+            calendarios = await CalendarioService.GetCalendariosAprovados();
+        }
+        await base.OnParametersSetAsync();
+    }
+
+    public async Task OnChangeCalendario(ChangeEventArgs e)
+    {
+        Console.WriteLine("OnChangeCalendario chamado");
+
+        selectedCalendarioId = Convert.ToInt32(e.Value);
+        StateHasChanged();
+        NavigationManager.NavigateTo($"/Portaria/CriarPortaria/{selectedCalendarioId}");
+    }
+
+    private async Task LoadEventos()
+    {
+       var eventosDomain = await EventoService.GetEventoPorCalendario(selectedCalendarioId);
+        Console.WriteLine($"Carregando eventos para o calendário: {selectedCalendarioId}");
+
+        eventos = eventosDomain.Select(e => new EventoPortariasDTO
+            {
+                IdEvento = e.IdEvento,
+                DataInicio = e.DataInicio,
+                DataFinal = e.DataFinal,
+                Selecionado = false
+            }).ToList();
+        Console.WriteLine($"Eventos carregados: {eventos.Count}");
+
+    }
+
+    private async Task SavePortaria()
+    {
+        var eventosSelecionados = eventos.Where(e => e.Selecionado).ToList();
+        if (eventosSelecionados.Any())
+        {
+            await PortariaService.CreatePortaria(selectedCalendarioId, eventosSelecionados);
+        }
+    }
+}
