@@ -34,6 +34,35 @@
         }
       }
     },
+    "/api/Calendarios/GetCalendariosAprovados": {
+      "get": {
+        "tags": [
+          "Calendarios"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/CalendarioListResponseModel"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CalendarioListResponseModel"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CalendarioListResponseModel"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/Calendarios/CriarCalendario": {
       "post": {
         "tags": [

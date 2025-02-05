@@ -37,6 +37,12 @@ namespace BlazorApp.Services.CalendarioService
             return response?.Dados;
         }
 
+        public async Task<List<Calendario>> GetCalendariosAprovados()
+        {
+            var response = await _httpClient.GetFromJsonAsync<ResponseModel<List<Calendario>>>($"{BasePath}/GetCalendariosAprovados");
+            return response?.Dados ?? [];
+        }
+
         public async Task<ResponseModel<Calendario>> AprovarCalendario(int idCalendario)
         {
             var response = await _httpClient.PatchAsync($"{BasePath}/AprovarCalendario/{idCalendario}", null);
@@ -58,5 +64,6 @@ namespace BlazorApp.Services.CalendarioService
             }
             return await response.Content.ReadFromJsonAsync<ResponseModel<T>>() ?? throw new InvalidOperationException("Invalid response format");
         }
+ 
     }
 }
