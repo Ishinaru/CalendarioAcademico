@@ -13,9 +13,31 @@ namespace BlazorApp.Services.PortariaService
         {
             _httpClient = httpClientFactory.CreateClient(Configuration.HttpClientName);
         }
-        public async Task<ResponseModel<Portaria>> CreatePortaria(int IdCalendario, List<EventoPortariasDTO> eventoPortarias)
+        public async Task<List<Portaria>> GetAllPortarias()
         {
-            var response = await _httpClient.PostAsJsonAsync($"{BaseURL}/CriarPortaria/{IdCalendario}", new { eventoPortarias });
+            var response = await _httpClient.GetFromJsonAsync<ResponseModel<List<Portaria>>>($"{BaseURL}/ListarPortarias");
+            return response?.Dados ?? [];
+        }
+
+        public async Task<ResponseModel<Portaria>> CreatePortaria(int IdCalendario, List<Evento_Portaria> eventoPortarias)
+        {
+            CriarPortariaDTO portariaDTO = new();
+
+            var eventoPortariasDTO = eventoPortarias.Select(e => new EventoPortariasDTO
+            {
+                EventoID = e.EventoID,
+                DataInicio = e.DataInicio,
+                DataFinal = e.DataFinal,
+                Observacao = e.Observacao
+            }).ToList();
+
+            var dados = new CriarPortariaEventosDTO
+            {
+                PortariaDTO = portariaDTO,
+                EventoPortariasDTO = eventoPortariasDTO
+            };
+
+            var response = await _httpClient.PostAsJsonAsync($"{BaseURL}/CriarPortaria", dados);
             return await HandleResponseAsync<Portaria>(response);
         }
 

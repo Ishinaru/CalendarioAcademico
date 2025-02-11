@@ -1,0 +1,84 @@
+﻿@inject IPortariaInterface PortariaService
+@inject NavigationManager Navigation
+@inject IJSRuntime JSRuntime
+
+@page "/Portarias/ViewPortarias"
+
+<h3 class="mb-3">Portarias</h3>
+
+@if(portarias == null)
+{
+    <p><em>Carregando ...</em></p>
+}
+
+else if (portarias.Count == 0)
+{
+    <p>Nenhuma portaria encontrada.</p>
+}
+
+else
+{
+    <table class="table table-striped table-bordered">
+        <thead>
+            <tr>
+                <th>Número da Portaria</th>
+                <th>Ano da Portaria</th>
+                <th>Status</th>
+                <th>Ações</th>
+            </tr>
+            @foreach (var portaria in portarias)
+            {
+                <tr>
+                    <td>@portaria.NumPortaria</td>
+                    <td>@portaria.AnoPortaria</td>
+                    <td>@(portaria.IsAtivo ? "Ativo" : "Inativo")</td>
+                    <td><button class="btn btn-primary" @onclick="() => EditPortaria(portaria.Id_Portaria)">Editar</button>
+                    <button class="btn btn-danger" @onclick="() => DesativatePortaria(portaria.Id_Portaria)">Desativar</button></td>
+                </tr>
+            }
+
+        </thead>
+    </table>
+
+    <div class="mt-3">
+        <button type="button" class="btn btn-primary"
+                @onclick="ToCriarPortaria"
+                data-bs-toggle="tooltip"
+                data-bs-placement="top">
+            Criar Evento
+        </button>
+        <button type="button" class="btn btn-secondary" @onclick="Cancelar">Voltar</button>
+    </div>
+}
+
+@code {
+    private List<Portaria> portarias;
+
+    protected override async Task OnInitializedAsync()
+    {
+        portarias = await PortariaService.GetAllPortarias();
+    }
+
+    private void EditPortaria(int id)
+    {
+        Navigation.NavigateTo($"/Portarias/EditPortaria/{id}");
+    }
+
+    private async Task DesativatePortaria(int id)
+    {
+        var confirm = await JSRuntime.InvokeAsync<bool>("confirm", "Deseja realmente desativar a portaria?");
+        Navigation.NavigateTo("/Portarias/ViewPortarias", true);
+    }
+
+    private void ToCriarPortaria()
+    {
+        
+            Navigation.NavigateTo($"/Portaria/ViewPortaria");
+        
+    }
+
+    private void Cancelar(MouseEventArgs e)
+    {
+        Navigation.NavigateTo($"/Calendario/ViewCalendario/");
+    }
+}

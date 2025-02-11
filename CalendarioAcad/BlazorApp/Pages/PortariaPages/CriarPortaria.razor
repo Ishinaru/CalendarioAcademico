@@ -1,123 +1,211 @@
-﻿@page "/Portaria/CriarPortaria/{idCalendario:int?}"
+﻿@page "/Portaria/CriarPortaria"
 
+@inject IPortariaInterface PortariaService
 @inject ICalendarioInterface CalendarioService
 @inject IEventoInterface EventoService
-@inject IPortariaInterface PortariaService
-@inject NavigationManager NavigationManager
 
-<h3>Criar Portaria</h3>
+<h3 class="mb-4">CriarPortaria</h3>
 
-@if (calendarios == null)
-{
-    <p><em>Carregando calendários...</em></p>
-}
-else
-{
-    <InputSelect class="form-select form-select-lg mb-4" @bind-Value="selectedCalendarioId" @onchange="OnChangeCalendario">
-        <option value="0" disabled selected>Selecione um calendário</option>
+<select class="form-select form-select-lg" name="anoCalendario" value="@idCalendario" @onchange="async (e) => await HandleCalendarioChange(e)">
+    <option value="0" disabled>Selecione um Calendário</option>
+    @if (calendarios != null)
+    {
         @foreach (var calendario in calendarios)
         {
             <option value="@calendario.IdCalendario">@calendario.Ano</option>
         }
-    </InputSelect>
+    }
+</select>
 
+<br/>
+
+@if(eventos == null)
+{
+    <p><em>Carregando eventos ...</em></p>
 }
 
-@if (eventos != null)
+else if(!eventos.Any())
 {
-    <h4>Eventos do Calendário</h4>
-    <EditForm Model="@this" OnValidSubmit="SavePortaria">
-        <table class="table">
+    <p><em>Nenhum evento cadastrado para esse calendário</em></p>
+}
+
+else
+{
+    <div class="evento-list">
+        <table class="table table-striped table-bordered">
             <thead>
                 <tr>
-                    <th>Selecionar</th>
+                    <th>Descrição</th>
                     <th>Data Inicial</th>
                     <th>Data Final</th>
                     <th>Observação</th>
                 </tr>
             </thead>
+
             <tbody>
                 @foreach (var evento in eventos)
                 {
-                    <tr>
-                        <td>
-                            <InputCheckbox @bind-Value="evento.Selecionado" />
-                        </td>
-                        <td>
-                            <InputDate @bind-Value="evento.DataInicio" />
-                        </td>
-                        <td>
-                            <InputDate @bind-Value="evento.DataFinal" />
-                        </td>
-                        <td>
-                            <InputText @bind-Value="evento.Observacao" />
-                        </td>
+                    <tr @onclick="()=>SelectEvento(evento)">
+                        <td>@evento.Descricao</td>
+                        <td>@evento.DataInicio</td>
+                        <td>@evento.DataFinal</td>
+                        <td></td>
                     </tr>
                 }
             </tbody>
-        </table>
-        <button type="submit" class="btn btn-primary">Salvar Portaria</button>
-    </EditForm>
 
+
+        </table>
+    </div>
 }
 
-@code
+@if(eventoSelecionado != null)
 {
-    [Parameter] public int? idCalendario { get; set; }
-    private int selectedCalendarioId;
-    private List<Calendario> ?calendarios;
-    private List<EventoPortariasDTO>? eventos;
+    <div class="mt-4">
+        <EditForm Model="newEventoPortaria" OnValidSubmit="SaveEventoPortaria">
+            <DataAnnotationsValidator/>
+            <ValidationSummary/>
+            <div class="form-group">
+                <label>Descrição</label>
+                <input class="form-control" value="@eventoSelecionado?.Descricao" disabled />
+            </div>
+            <div class="form-group">
+                <label>Data Inicial</label>
+                <InputDate class="form-control" @bind-Value="newEventoPortaria.DataInicio" />
+                <ValidationMessage For="() => newEventoPortaria.DataInicio"/>
+            </div>
+            <div class="form-group">
+                <label>Data Inicial</label>
+                <InputDate class="form-control" @bind-Value="newEventoPortaria.DataFinal" />
+                <ValidationMessage For="() => newEventoPortaria.DataFinal" />
+            </div>
+            <div class="form-group">
+                <label>Observação</label>
+                <InputText class="form-control" @bind-Value="newEventoPortaria.Observacao" />
+                <ValidationMessage For="() => newEventoPortaria.Observacao" />
+            </div>
+            <button type="submit" class="btn btn-primary mt-3">Salvar</button>
+            <button type="button" class="btn btn-secondary mt-3" @onclick="CancelEdit">Cancelar</button>
+        </EditForm>
+    </div>
+}
+
+@if (eventosPortarias != null && eventosPortarias.Any())
+{
+    <div class="mt-4">
+        <ul>
+            @foreach (var eventoPortaria in eventosPortarias)
+            {
+                <li>@eventoPortaria.Observacao - @eventoPortaria.DataInicio - @eventoPortaria.DataFinal</li>
+            }
+        </ul>
+        <button class="btn btn-success" @onclick="CreatePortaria">Criar Portaria</button>
+    </div>
+}
+
+@code {
+    private int idCalendario;
+    private List<Calendario>? calendarios;
+    private List<Evento>? eventos;
+    private Evento? eventoSelecionado;
+    private Evento_Portaria? newEventoPortaria = new();
+    private List<Evento_Portaria>? eventosPortarias = new();
 
     protected override async Task OnInitializedAsync()
     {
-        calendarios = await CalendarioService.GetCalendariosAprovados();
-    }
-
-    protected override async Task OnParametersSetAsync()
-    {
-        if (idCalendario.HasValue && idCalendario > 0)
-        {
-            selectedCalendarioId = idCalendario.Value;
-            await LoadEventos();
-        }
-        else if (calendarios == null)
+        try
         {
             calendarios = await CalendarioService.GetCalendariosAprovados();
         }
-        await base.OnParametersSetAsync();
-    }
-
-    public async Task OnChangeCalendario(ChangeEventArgs e)
-    {
-        Console.WriteLine("OnChangeCalendario chamado");
-
-        selectedCalendarioId = Convert.ToInt32(e.Value);
-        StateHasChanged();
-        NavigationManager.NavigateTo($"/Portaria/CriarPortaria/{selectedCalendarioId}");
-    }
-
-    private async Task LoadEventos()
-    {
-       var eventosDomain = await EventoService.GetEventoPorCalendario(selectedCalendarioId);
-        Console.WriteLine($"Carregando eventos para o calendário: {selectedCalendarioId}");
-
-        eventos = eventosDomain.Select(e => new EventoPortariasDTO
-            {
-                IdEvento = e.IdEvento,
-                DataInicio = e.DataInicio,
-                DataFinal = e.DataFinal,
-                Selecionado = false
-            }).ToList();
-        Console.WriteLine($"Eventos carregados: {eventos.Count}");
-
-    }
-
-    private async Task SavePortaria()
-    {
-        var eventosSelecionados = eventos.Where(e => e.Selecionado).ToList();
-        if (eventosSelecionados.Any())
+        catch (Exception e) 
         {
-            await PortariaService.CreatePortaria(selectedCalendarioId, eventosSelecionados);
+            Console.WriteLine($"Erro ao carregar calendários: {e.Message}");
         }
+
+    }
+
+    private async Task HandleCalendarioChange(ChangeEventArgs e)
+    {
+        idCalendario = int.Parse(e.Value.ToString());
+        await LoadEvento();
+    }
+
+    private async Task CreatePortaria()
+    {
+        if(idCalendario > 0 && eventosPortarias.Any())
+        {
+            try
+            {
+                var response = await PortariaService.CreatePortaria(idCalendario, eventosPortarias);
+                if(response.Status)
+                {
+                    Console.WriteLine("Portaria criada com Sucesso");
+                    eventosPortarias.Clear();
+                }
+                else
+                {
+                    Console.WriteLine($"Erro ao criar portaria: {response.Mensagem}");
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine($"Erro ao criar portaria: {e.Message}");
+            }
+        }
+        else
+        {
+            Console.WriteLine("Nenhum evento selecionado para a portaria.");
+        }
+    }
+
+    private void SelectEvento(Evento evento)
+    {
+        eventoSelecionado = evento;
+        newEventoPortaria = new Evento_Portaria
+            {
+                EventoID = evento.IdEvento,
+                DataInicio = evento.DataInicio,
+                DataFinal = evento.DataFinal,
+                Observacao = string.Empty
+            };
+    }
+    private async Task LoadEvento()
+    {
+        if(idCalendario > 0)
+        {
+            try
+            {
+                eventos = await EventoService.GetEventoPorCalendario(idCalendario);
+            }
+            catch (Exception e)
+            {
+
+                Console.WriteLine($"Erro ao carregar eventos: {e.Message}");
+            }
+        }
+    }
+
+    private async Task SaveEventoPortaria()
+    {
+        if(eventoSelecionado != null && newEventoPortaria != null)
+        {
+            if(eventosPortarias == null)
+            {
+                eventosPortarias = new List<Evento_Portaria>();
+            }
+            eventosPortarias.Add(newEventoPortaria);
+            ClearForms();
+        }
+    }
+    private void CancelEdit()
+    {
+        ClearForms();
+    }
+
+    private void ClearForms()
+    {
+        eventoSelecionado = null;
+        newEventoPortaria = new Evento_Portaria();
+        StateHasChanged();
     }
 }

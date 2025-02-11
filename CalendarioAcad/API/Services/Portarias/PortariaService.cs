@@ -26,6 +26,8 @@ namespace API.Services.Portarias
 
             ResponseModel<List<Portaria>> response = new ResponseModel<List<Portaria>>();
 
+            Console.WriteLine($"IDs dos eventos recebidos: {string.Join(", ", eventoPortariasDTO.Select(ep => ep.EventoID))}");
+
             if (eventoPortariasDTO == null || eventoPortariasDTO.Count == 0)
             {
                 response.Mensagem = "Eventos não encontrados";
