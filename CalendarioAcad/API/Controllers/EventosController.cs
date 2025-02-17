@@ -40,7 +40,7 @@ namespace API.Controllers
         public async Task<ActionResult<ResponseModel<Evento>>> EditarEvento(EditarEventoDTO editarEvento, int idEvento)
         {
             var eventos = await _eventoInterface.EditarEvento(editarEvento, idEvento);
-            if(!eventos.Status)
+            if (!eventos.Status)
                 return BadRequest(eventos);
             return Ok(eventos);
         }
@@ -49,10 +49,10 @@ namespace API.Controllers
         public async Task<ActionResult<ResponseModel<Evento>>> DesativarEvento(int idEvento)
         {
             var evento = await _eventoInterface.DesativarEvento(idEvento);
-            
-            if(!evento.Status)
+
+            if (!evento.Status)
                 return BadRequest(evento);
-            
+
             return Ok(evento);
         }
 

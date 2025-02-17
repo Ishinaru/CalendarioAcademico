@@ -42,7 +42,7 @@ else
                     <td class="@GetDescricaoClasse(evento)">@evento.DataInicio</td>
                     <td class="@GetDescricaoClasse(evento)">@evento.DataFinal</td>
                     <td>@(evento.UescFunciona ? "✔" : "✘")</td>
-                    <td>@EnumExtensions.ConverteEnum(evento.TipoFeriado)</td>
+                    <td>@EnumExtensionsBuild.ConverteEnum(evento.TipoFeriado)</td>
                     <td class="align-content-sm-center">
                         @if(habilitado)
                         {

@@ -19,26 +19,44 @@ namespace BlazorApp.Services.PortariaService
             return response?.Dados ?? [];
         }
 
-        public async Task<ResponseModel<Portaria>> CreatePortaria(int IdCalendario, List<Evento_Portaria> eventoPortarias)
+        public async Task<ResponseModel<Portaria>> CreatePortaria(int IdCalendario, CriarPortariaDTO portariaDTO, List<Evento_Portaria> eventoPortarias)
         {
-            CriarPortariaDTO portariaDTO = new();
-
-            var eventoPortariasDTO = eventoPortarias.Select(e => new EventoPortariasDTO
+            if (portariaDTO == null || eventoPortarias == null || !eventoPortarias.Any())
             {
-                EventoID = e.EventoID,
-                DataInicio = e.DataInicio,
-                DataFinal = e.DataFinal,
-                Observacao = e.Observacao
-            }).ToList();
+                return new ResponseModel<Portaria>
+                {
+                    Status = false,
+                    Mensagem = "Dados inválidos ou nenhum evento selecionado."
+                };
+            }
 
-            var dados = new CriarPortariaEventosDTO
+            try
             {
-                PortariaDTO = portariaDTO,
-                EventoPortariasDTO = eventoPortariasDTO
-            };
+                var eventoPortariasDTO = eventoPortarias.Select(e => new EventoPortariasDTO
+                {
+                    EventoID = e.EventoID,
+                    DataInicio = e.DataInicio,
+                    DataFinal = e.DataFinal,
+                    Observacao = e.Observacao
+                }).ToList();
 
-            var response = await _httpClient.PostAsJsonAsync($"{BaseURL}/CriarPortaria", dados);
-            return await HandleResponseAsync<Portaria>(response);
+                var dados = new CriarPortariaEventosDTO
+                {
+                    PortariaDTO = portariaDTO,
+                    EventoPortariasDTO = eventoPortariasDTO
+                };
+
+                var response = await _httpClient.PostAsJsonAsync($"{BaseURL}/CriarPortaria", dados);
+                return await HandleResponseAsync<Portaria>(response);
+            }
+            catch (Exception e)
+            {
+                return new ResponseModel<Portaria>
+                {
+                    Status = false,
+                    Mensagem = $"Erro ao criar portaria: {e.Message}"
+                };
+            }
         }
 
         private async Task<ResponseModel<T>> HandleResponseAsync<T>(HttpResponseMessage response)
@@ -48,7 +66,9 @@ namespace BlazorApp.Services.PortariaService
                 var errorResponse = await response.Content.ReadFromJsonAsync<ResponseModel<T>>();
                 throw new HttpRequestException(errorResponse?.Mensagem ?? "Erro desconhecido");
             }
-            return await response.Content.ReadFromJsonAsync<ResponseModel<T>>();
+
+            return await response.Content.ReadFromJsonAsync<ResponseModel<T>>()
+       ?? new ResponseModel<T> { Status = false, Mensagem = "Resposta inválida." };
         }
     }
 }

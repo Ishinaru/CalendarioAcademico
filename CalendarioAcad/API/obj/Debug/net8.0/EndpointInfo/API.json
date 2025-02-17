@@ -785,8 +785,8 @@
         "type": "object",
         "properties": {
           "numPortaria": {
-            "type": "integer",
-            "format": "int32"
+            "type": "string",
+            "nullable": true
           },
           "anoPortaria": {
             "type": "integer",
@@ -799,6 +799,10 @@
           "dataAtualizacao": {
             "type": "string",
             "format": "date-time"
+          },
+          "observacao": {
+            "type": "string",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -1063,6 +1067,10 @@
           },
           "isAtivo": {
             "type": "boolean"
+          },
+          "observacao": {
+            "type": "string",
+            "nullable": true
           },
           "dataAtualizacao": {
             "type": "string",

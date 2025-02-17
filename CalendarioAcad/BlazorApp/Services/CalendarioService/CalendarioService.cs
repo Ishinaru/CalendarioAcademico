@@ -1,6 +1,5 @@
 ﻿using BlazorApp.Models;
 using BlazorApp.Models.DTO.Calendario;
-using Microsoft.AspNetCore.Components;
 using System.Net.Http.Json;
 
 namespace BlazorApp.Services.CalendarioService
@@ -9,7 +8,7 @@ namespace BlazorApp.Services.CalendarioService
     {
         private readonly HttpClient _httpClient;
         private const string BasePath = "api/Calendarios";
-        
+
         public CalendarioService(IHttpClientFactory httpClientFactory)
         {
             _httpClient = httpClientFactory.CreateClient(Configuration.HttpClientName);
@@ -48,7 +47,7 @@ namespace BlazorApp.Services.CalendarioService
             var response = await _httpClient.PatchAsync($"{BasePath}/AprovarCalendario/{idCalendario}", null);
             return await HandleResponse<Calendario>(response);
         }
-        
+
         public async Task<ResponseModel<Calendario>> DesativarCalendario(int idCalendario)
         {
             var response = await _httpClient.PatchAsync($"{BasePath}/DesativarCalendario/{idCalendario}", null);
@@ -64,6 +63,6 @@ namespace BlazorApp.Services.CalendarioService
             }
             return await response.Content.ReadFromJsonAsync<ResponseModel<T>>() ?? throw new InvalidOperationException("Invalid response format");
         }
- 
+
     }
 }

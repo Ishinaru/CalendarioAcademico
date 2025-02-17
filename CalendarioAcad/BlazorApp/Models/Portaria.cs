@@ -1,6 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-namespace BlazorApp.Models
+﻿namespace BlazorApp.Models
 {
     public class Portaria
     {
@@ -8,5 +6,6 @@ namespace BlazorApp.Models
         public string NumPortaria { get; set; }
         public int AnoPortaria { get; set; }
         public bool IsAtivo { get; set; } = true;
+        public string Observacao { get; set; }
     }
 }

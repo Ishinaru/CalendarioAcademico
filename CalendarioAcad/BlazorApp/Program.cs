@@ -25,6 +25,8 @@ namespace BlazorApp
             builder.Services.AddScoped<IEventoInterface, EventoService>();
             builder.Services.AddScoped<IPortariaInterface, PortariaService>();
 
+            builder.Services.AddBlazorBootstrap();
+
             await builder.Build().RunAsync();
         }
     }

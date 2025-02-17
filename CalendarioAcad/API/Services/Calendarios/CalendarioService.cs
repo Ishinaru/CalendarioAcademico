@@ -232,7 +232,7 @@ namespace API.Services.Calendarios
 
         public async Task<ResponseModel<List<Calendario>>> GetCalendariosAprovados()
         {
-            ResponseModel<List<Calendario>> response = new ();
+            ResponseModel<List<Calendario>> response = new();
             try
             {
                 var calendarios = await _context.Calendarios.Where(calendarioDB => calendarioDB.Status == Status.Aprovado).ToListAsync();

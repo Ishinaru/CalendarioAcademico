@@ -1,10 +1,9 @@
 ﻿using BlazorApp.Models;
-using Microsoft.AspNetCore.Components;
 using System.Net.Http.Json;
 
 namespace BlazorApp.Services.EventoService
 {
-    public class EventoService: IEventoInterface
+    public class EventoService : IEventoInterface
     {
         private readonly HttpClient _httpClient;
         private const string BasePath = "/api/Eventos";
@@ -15,7 +14,7 @@ namespace BlazorApp.Services.EventoService
         public async Task<List<Evento>> GetEventoPorCalendario(int idCalendario)
         {
             var response = await _httpClient.GetAsync($"{BasePath}/EventoPorCalendario/{idCalendario}");
-            
+
             var result = await HandleResponseAsync<List<Evento>>(response);
             return result?.Dados ?? [];
         }

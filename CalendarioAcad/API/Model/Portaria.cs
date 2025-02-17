@@ -13,7 +13,7 @@ namespace API.Model
         public int AnoPortaria { get; set; }
         public int IdUsuario { get; set; }
         public bool IsAtivo { get; set; } = true;
-
+        public string? Observacao { get; set; }
         public DateTime DataAtualizacao { get; set; }
 
         [JsonIgnore]

@@ -45,7 +45,7 @@ else
                 @onclick="ToCriarPortaria"
                 data-bs-toggle="tooltip"
                 data-bs-placement="top">
-            Criar Evento
+            Criar Portaria
         </button>
         <button type="button" class="btn btn-secondary" @onclick="Cancelar">Voltar</button>
     </div>
@@ -73,7 +73,7 @@ else
     private void ToCriarPortaria()
     {
         
-            Navigation.NavigateTo($"/Portaria/ViewPortaria");
+            Navigation.NavigateTo($"/Portaria/CriarPortaria");
         
     }
 

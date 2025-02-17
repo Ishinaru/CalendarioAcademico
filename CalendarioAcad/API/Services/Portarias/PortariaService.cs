@@ -21,12 +21,10 @@ namespace API.Services.Portarias
             _calendarioInterface = calendarioInterface;
         }
 
-        public async Task<ResponseModel<List<Portaria>>> CriarPortaria(CriarPortariaDTO portariaDTO, List<EventoPortariasDTO> eventoPortariasDTO)
+        public async Task<ResponseModel<Portaria>> CriarPortaria(CriarPortariaDTO portariaDTO, List<EventoPortariasDTO> eventoPortariasDTO)
         {
 
-            ResponseModel<List<Portaria>> response = new ResponseModel<List<Portaria>>();
-
-            Console.WriteLine($"IDs dos eventos recebidos: {string.Join(", ", eventoPortariasDTO.Select(ep => ep.EventoID))}");
+            ResponseModel<Portaria> response = new ResponseModel<Portaria>();
 
             if (eventoPortariasDTO == null || eventoPortariasDTO.Count == 0)
             {
@@ -73,25 +71,13 @@ namespace API.Services.Portarias
 
             try
             {
-                var backupNumRes = await _context.BackupNumerosResolucao.FirstOrDefaultAsync();
-                string numeroResolucao;
-
-                if (backupNumRes != null)
-                {
-                    numeroResolucao = backupNumRes.NumResolucao;
-                    _context.BackupNumerosResolucao.Remove(backupNumRes);
-                }
-                else
-                {
-                    numeroResolucao = await _calendarioInterface.GerarNumeroResolucao(calendario.Ano);
-                }
-
                 var portaria = new Portaria
                 {
-                    NumPortaria = numeroResolucao,
+                    NumPortaria = portariaDTO.NumPortaria,
                     AnoPortaria = calendario.Ano,
                     IdUsuario = portariaDTO.IdUsuario,
-                    DataAtualizacao = portariaDTO.DataAtualizacao
+                    DataAtualizacao = portariaDTO.DataAtualizacao,
+                    Observacao = portariaDTO.Observacao
                 };
 
                 _context.Portarias.Add(portaria);
@@ -101,25 +87,14 @@ namespace API.Services.Portarias
                 {
                     var evento = eventos.FirstOrDefault(e => e.IdEvento == eventoPortariaDTO.EventoID);
 
-                    var backupEvento = new BackupEvento
-                    {
-                        IdEvento = evento.IdEvento,
-                        DataInicio = evento.DataInicio,
-                        DataFinal = evento.DataFinal,
-                        IdUsuario = evento.IdUsuario,
-                        DataAtualizacao = evento.DataAtualizacao
-                    };
-                    _context.BackupEvents.Add(backupEvento);
-
                     var eventoPortaria = new Evento_Portaria
                     {
                         IdEvento = evento.IdEvento,
                         IdPortaria = portaria.Id_Portaria,
                         DataInicio = eventoPortariaDTO.DataInicio,
                         DataFinal = eventoPortariaDTO.DataFinal,
-                        Observacao = eventoPortariaDTO.Observacao
+                        Observacao = portaria.Observacao
                     };
-
 
                     evento.DataInicio = eventoPortaria.DataInicio;
                     evento.DataFinal = eventoPortaria.DataFinal;
@@ -129,13 +104,6 @@ namespace API.Services.Portarias
                     _context.Evento_Portarias.Add(eventoPortaria);
                     _context.Eventos.Update(evento);
                 }
-                await _context.SaveChangesAsync();
-
-                backupNumRes = new BackupNumeroResolucao
-                {
-                    NumResolucao = calendario.NumeroResolucao
-                };
-                _context.Add(backupNumRes);
                 await _context.SaveChangesAsync();
 
                 calendario.NumeroResolucao = portaria.NumPortaria;
@@ -156,7 +124,7 @@ namespace API.Services.Portarias
 
                 await _context.SaveChangesAsync();
 
-                response.Dados = await _context.Portarias.ToListAsync();
+                response.Dados = portaria;
                 response.Mensagem = "Portaria criada com sucesso";
                 return response;
             }
@@ -246,14 +214,6 @@ namespace API.Services.Portarias
                     .OrderByDescending(p => p.Id_Portaria)
                     .FirstOrDefaultAsync();
 
-                if (ultimoNumResolucao != null)
-                {
-                    calendario.NumeroResolucao = ultimoNumResolucao.NumPortaria;
-                }
-                else
-                {
-                    calendario.NumeroResolucao = $"000/{calendario.Ano}";
-                }
 
                 _context.Calendarios.Update(calendario);
                 await _context.SaveChangesAsync();
@@ -269,38 +229,29 @@ namespace API.Services.Portarias
             }
         }
 
-        /*public async Task<ResponseModel<List<Portaria>>> EditarPortaria(EditarPortariaDTO editarPortaria, int idPortaria)
+        private string GerarNumeroResolucao(Calendario calendario)
         {
-            ResponseModel<List<Portaria>> response = new ResponseModel<List<Portaria>>();
-            try
-            { 
-                var portEvento = await _context.Evento_Portarias.FirstOrDefaultAsync(portariaDB => portariaDB.IdPortaria == idPortaria);
-                
-                if (portEvento == null)
-                {
-                    response.Mensagem = "Portaria não encontrada";
-                    response.Status = false;
-                    return response;
-                }
+            var portariasDoCalendario = _context.Portarias
+                .Where(p => p.AnoPortaria == calendario.Ano)
+                .ToList();
 
-                var evento = portEvento.Evento;
+            var numerosAtivos = portariasDoCalendario
+                .Where(p => p.IsAtivo)
+                .Select(p => int.Parse(p.NumPortaria.Split('/')[0]))
+                .OrderBy(n => n)
+                .ToList();
 
-                evento.DataFinal = editarPortaria.DataFinal;
-                evento.DataInicio = editarPortaria.DataInicio;
-                evento.Observacao = editarPortaria.Observacao;
-                evento.DataAtualizacao = editarPortaria.DataAtualizacao;
-                evento.IdUsuario = editarPortaria.IdUsuario;
-
-
-            }
-            catch (Exception e)
+            int proximoNumero = 1;
+            foreach (var numero in numerosAtivos)
             {
-                response.Mensagem = e.Message;
-                response.Status = false;
-                return response;
+                if (numero != proximoNumero) break;
+
+                proximoNumero++;
             }
-        }*/
+
+            return $"{proximoNumero:D3}/{calendario.Ano}";
+        }
+
+
     }
-
-
 }

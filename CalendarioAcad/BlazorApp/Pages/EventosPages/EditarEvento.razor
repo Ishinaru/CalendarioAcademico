@@ -59,7 +59,7 @@ else{
                 <InputSelect class="form-select form-select-sm" @bind-Value="tipoFeriadoEvento">
                     @foreach (var tipoFeriado in Enum.GetValues(typeof(TipoFeriado)).Cast<TipoFeriado>())
                     {
-                        <option value="@tipoFeriado">@EnumExtensions.ConverteEnum(tipoFeriado)</option>
+                        <option value="@tipoFeriado">@EnumExtensionsBuild.ConverteEnum(tipoFeriado)</option>
                     }
                 </InputSelect>
             </div>

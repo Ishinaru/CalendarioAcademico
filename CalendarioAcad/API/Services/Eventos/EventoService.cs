@@ -81,7 +81,6 @@ namespace API.Services.Eventos
                     response.Dados = evento;
                     response.Mensagem = "Evento criado com sucesso";
                     return response;
-
                 }
                 catch (Exception e)
                 {

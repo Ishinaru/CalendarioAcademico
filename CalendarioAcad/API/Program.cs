@@ -33,7 +33,7 @@ namespace API
                 options.UseSqlServer(connectionString));
 
             builder.Services.AddCors(
-                x=>x.AddPolicy(
+                x => x.AddPolicy(
                     Configuration.CorsPolicyName,
                     police => police
                     .WithOrigins([
