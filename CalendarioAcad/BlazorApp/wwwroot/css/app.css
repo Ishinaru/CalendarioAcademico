@@ -132,3 +132,32 @@ code {
     color: #6c757d !important;
     cursor: not-allowed;
 }
+
+
+
+
+
+
+
+
+
+
+.calendario-table {
+    border-collapse: collapse;
+    width: 100%;
+    text-align: center;
+}
+
+    .calendario-table th, .calendario-table td {
+        padding: 10px;
+        border: 1px solid #ddd;
+    }
+
+.outro-mes {
+    color: #999; /* Cor para dias de outros meses */
+}
+
+button {
+    margin: 10px;
+    padding: 5px 15px;
+}

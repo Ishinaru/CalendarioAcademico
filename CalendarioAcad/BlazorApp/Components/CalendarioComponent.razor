@@ -1,0 +1,355 @@
+﻿@using System.Globalization
+
+@inject IEventoInterface EventoService
+
+<div class="calendar-container">
+    <div class="calendar-header">
+        <h3 class="calendar-title">@CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(MesAtual.Month).ToUpper() @MesAtual.Year</h3>
+        <div class="navigation-buttons">
+            <button class="icon-button" @onclick="MudarParaMesAnterior">
+                <i class="bi bi-chevron-left"></i>
+            </button>
+            <button class="icon-button" @onclick="MudarParaProximoMes">
+                <i class="bi bi-chevron-right"></i>
+            </button>
+        </div>
+    </div>
+
+    <div class="calendar-grid">
+        <div class="weekdays">
+            @foreach (var dia in DiasDaSemana)
+            {
+                <div class="weekday">@dia</div>
+            }
+        </div>
+        @foreach (var semana in Semanas)
+        {
+            <div class="week">
+                @foreach (var data in semana)
+                {
+                    var eventosDoDia = GetEventosNoDia(data);
+                    var isDomingo = data.DayOfWeek == DayOfWeek.Sunday;
+                    var isUescFechado = eventosDoDia?.Any(e => !e.UescFunciona) ?? false;
+
+                    <div class="@GetDayClasses(data, isDomingo, isUescFechado)">
+                        <div class="day-number">@data.Day</div>
+
+                        <div class="event-indicators">
+                            @if (eventosDoDia?.Any(e => e.Importante) == true)
+                            {
+                                <div class="event-indicator importante"></div>
+                            }
+                            @if (isUescFechado)
+                            {
+                                <div class="event-indicator nao-funciona"></div>
+                            }
+                        </div>
+                    </div>
+                }
+            </div>
+        }
+
+    <div class="events-container">
+        <h4>Eventos deste mês</h4>
+        @foreach (var evento in eventos.OrderBy(e => e.DataInicio))
+        {
+            <div class="event-item @(evento.Importante ? "importante" : "") @(!evento.UescFunciona ? "nao-funciona" : "")">
+                <div class="event-dates">
+                    @evento.DataInicio.ToString("dd/MM") - @evento.DataFinal.ToString("dd/MM")
+                </div>
+                <div class="event-desc">@evento.Descricao</div>
+            </div>
+        }
+    </div>
+    </div>
+</div>
+
+@code {
+    [Parameter]
+    public DateTime MesAtual { get; set; } = DateTime.Today;
+
+    [Parameter]
+    public int IdCalendario { get; set; }
+
+    private string[] DiasDaSemana = { "Dom", "Seg", "Ter", "Qua", "Qui", "Sex", "Sáb" };
+    private List<List<DateTime>> Semanas = new();
+    private List<Evento> eventos = new();
+
+    protected override async Task OnParametersSetAsync()
+    {
+        await CarregarEventos();
+        CarregarCalendario();
+    }
+
+   private string GetDayClasses(DateTime data, bool isDomingo, bool isUescFechado)
+        {
+            var classes = new List<string> { "day" };
+
+            if (data.Month != MesAtual.Month) classes.Add("other-month");
+            if (isDomingo || isUescFechado) classes.Add("non-working-day");
+            if (DiaAtual(data)) classes.Add("current-day");
+
+            return string.Join(" ", classes);
+        }
+    private void CarregarCalendario()
+    {
+        Semanas.Clear();
+
+        var primeiroDiaDoMes = new DateTime(MesAtual.Year, MesAtual.Month, 1);
+        var inicioDaPrimeiraSemana = primeiroDiaDoMes.AddDays(-(int)primeiroDiaDoMes.DayOfWeek);
+
+        var dataAtual = inicioDaPrimeiraSemana;
+        for (int i = 0; i < 6; i++)
+        {
+            var semana = new List<DateTime>();
+            for (int j = 0; j < 7; j++)
+            {
+                semana.Add(dataAtual);
+                dataAtual = dataAtual.AddDays(1);
+            }
+            Semanas.Add(semana);
+        }
+    }
+
+    private async Task CarregarEventos()
+    {
+        if (IdCalendario == 0) return;
+        eventos = await EventoService.GetEventoPorCalendario(IdCalendario);
+    }
+
+    private List<Evento> GetEventosNoDia(DateTime data)
+    {
+        var date = DateOnly.FromDateTime(data);
+        return eventos.Where(e => date >= e.DataInicio && date <= e.DataFinal).ToList();
+    }
+
+    private bool DiaAtual(DateTime data)
+    {
+        return data.Date == DateTime.Today;
+    }
+
+    private void MudarParaMesAnterior()
+    {
+        MesAtual = MesAtual.AddMonths(-1);
+        CarregarCalendario();
+    }
+
+    private void MudarParaProximoMes()
+    {
+        MesAtual = MesAtual.AddMonths(1);
+        CarregarCalendario();
+    }
+}
+
+<style>
+    .calendar-container {
+        max-width: 800px;
+        margin: 2rem auto;
+        padding: 2rem;
+        background: #fff;
+        border-radius: 16px;
+        box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+        font-family: 'Segoe UI', system-ui, sans-serif;
+    }
+
+    .calendar-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 2rem;
+        padding: 0 1rem;
+    }
+
+    .calendar-title {
+        margin: 0;
+        font-size: 2rem;
+        font-weight: 600;
+        color: #2d3436;
+        letter-spacing: -0.5px;
+    }
+
+    .navigation-buttons {
+        display: flex;
+        gap: 0.5rem;
+    }
+
+    .icon-button {
+        width: 40px;
+        height: 40px;
+        border: none;
+        border-radius: 50%;
+        background: #f8f9fa;
+        color: #2d3436;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+        .icon-button:hover {
+            background: #e3f2fd;
+            color: #2196f3;
+            transform: scale(1.1);
+        }
+
+    .calendar-grid {
+        display: grid;
+        grid-template-rows: auto;
+        gap: 4px;
+    }
+
+    .weekdays {
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        gap: 4px;
+        margin-bottom: 8px;
+    }
+
+    .weekday {
+        text-align: center;
+        padding: 12px;
+        font-weight: 500;
+        color: #636e72;
+        text-transform: uppercase;
+        font-size: 0.85rem;
+        letter-spacing: 0.5px;
+    }
+
+    .week {
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        gap: 4px;
+    }
+
+    .day {
+        box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
+        aspect-ratio: 1;
+        background: #f8f9fa;
+        border-radius: 20px;
+        padding: 8px;
+        transition: all 0.2s ease;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+        .day:hover:not(.other-month) {
+            background: #e3f2fd;
+            transform: translateY(-2px);
+        }
+
+    .day-number {
+        font-weight: 500;
+        color: #2d3436;
+    }
+
+    .other-month .day-number {
+        color: #b2bec3;
+        opacity: 0.7;
+    }
+
+    .current-day {
+        background: #2196f3 !important;
+        position: relative;
+        overflow: hidden;
+    }
+
+        .current-day .day-number {
+            color: white;
+            font-weight: 600;
+        }
+
+        .current-day::after {
+            content: '';
+            position: absolute;
+            bottom: 6px;
+            width: 12px;
+            height: 12px;
+            background: rgba(255,255,255,0.8);
+            border-radius: 50%;
+        }
+
+    @@media (max-width: 768px) {
+        .calendar-container {
+            margin: 1rem;
+            padding: 1rem;
+        }
+
+        .calendar-title {
+            font-size: 1.5rem;
+        }
+
+        .day-number {
+            font-size: 0.9rem;
+        }
+    }
+
+    .non-working-day {
+        background: #ffebee !important;
+        position: relative;
+    }
+
+    .event-indicators {
+        position: absolute;
+        bottom: 8px;
+        display: flex;
+        gap: 3px;
+        width: 100%;
+        justify-content: center;
+    }
+
+    .event-indicator {
+        width: 20px;
+        height: 4px;
+        border-radius: 2px;
+    }
+
+        .event-indicator.importante {
+            background: #2196F3;
+        }
+
+        .event-indicator.nao-funciona {
+            background: #ff5252;
+        }
+
+    .events-container {
+        margin-top: 2rem;
+        padding: 1.5rem;
+        background: #f8f9fa;
+        border-radius: 12px;
+    }
+
+    .event-item {
+        padding: 1rem;
+        margin: 0.5rem 0;
+        background: white;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        border-left: 4px solid transparent;
+    }
+
+        .event-item.importante {
+            border-left-color: #2196F3;
+        }
+
+        .event-item.nao-funciona {
+            border-left-color: #ff5252;
+        }
+
+    .event-dates {
+        font-size: 0.85rem;
+        color: #636e72;
+        margin-bottom: 4px;
+    }
+
+    .event-desc {
+        color: #2d3436;
+        font-weight: 500;
+    }
+
+    .current-day {
+        background: #eed202 !important; /* Alterado para amarelo */
+    }
+</style>

@@ -1,38 +1,64 @@
-﻿@inject ICalendarioInterface CalendarioService
-
-@if (calendarios == null)
-{
-    <p><em>Carregando calendários...</em></p>
-}
-else
-{
-    <InputSelect class="form-select form-select-lg mb-4" @bind-Value="selectedCalendarioId" @onchange="OnChangeCalendario">
-        <option value="0" disabled selected>Selecione um calendário</option>
-        @foreach (var calendario in calendarios)
+﻿<div class="ano-selecionado">
+    <label for="ano-dropdown">Selecione o Ano</label>
+    <select id="ano-dropdown" value="AnoSelecionado" @onchange="UpdateCalendario">
+        @if(AnosCalendarios != null && AnosCalendarios.Any())
         {
-            <option value="@calendario.IdCalendario">@calendario.Ano</option>
+            @foreach(var ano in AnosCalendarios)
+            {
+                <option value="@ano" selected="@(ano == AnoSelecionado)">@ano</option>
+            }
         }
-    </InputSelect>
-}
 
-@code {
-    [Parameter] public int? idCalendario { get; set; }
-    private List<Calendario> ?calendarios;
-    private int selectedCalendarioId;
+        else
+        {
+            <option value="">Nenhum Calendário Disponível</option>
+        }
+    </select>
+</div>
 
-    protected override async Task OnInitializedAsync()
+@code
+{
+    [Parameter]
+    public int AnoSelecionado { get; set; }
+
+    [Parameter]
+    public EventCallback<int> OnAnoSelecionado { get; set; }
+
+    [Parameter]
+    public List<int> AnosCalendarios { get; set; } = new();
+
+    private async Task UpdateCalendario(ChangeEventArgs e)
     {
-        calendarios = await CalendarioService.GetAllCalendarios();
-        if(idCalendario.HasValue && idCalendario > 0)
-        {
-            selectedCalendarioId = idCalendario.Value;
-        }
+        AnoSelecionado = Convert.ToInt32(e.Value);
+        await OnAnoSelecionado.InvokeAsync(AnoSelecionado);
+    }
+}
+
+<style>
+    .ano-selecionado {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 20px;
     }
 
-    private async Task OnChangeCalendario(ChangeEventArgs e)
-    {
-        selectedCalendarioId = Convert.ToInt32(e.Value);
-        StateHasChanged();
-    }
-    
-}
+        .ano-selecionado label {
+            font-size: 16px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .ano-selecionado select {
+            padding: 8px 12px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #fff;
+            transition: border-color 0.3s ease;
+        }
+
+            .ano-selecionado select:focus {
+                border-color: #007bff;
+                outline: none;
+            }
+</style>
