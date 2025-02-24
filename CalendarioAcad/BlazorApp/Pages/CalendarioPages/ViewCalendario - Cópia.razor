@@ -1,0 +1,545 @@
+﻿<!--
+@page "/Calendario/ViewCalendario"
+@inject ICalendarioInterface CalendarioService
+
+<div class="selector-container">
+    @if (calendarios == null)
+    {
+        <div class="loading-container">
+            <div class="spinner"></div>
+            <div>Carregando...</div>
+        </div>
+    }
+    else if (!calendarios.Any())
+    {
+        <div class="empty-state">
+            <i class="bi bi-calendar-event"></i>
+            <h3>Nenhum calendário disponível</h3>
+        </div>
+    }
+    else
+    {
+        <div class="year-selector">
+            @foreach (var calendario in calendarios)
+            {
+                <button class="year-button @(selectedYear == calendario.Ano ? "selected" : "")"
+                        @onclick="() => ToggleYear(calendario.Ano)">
+                    @calendario.Ano
+                    @if (calendario.Ano == DateTime.Now.Year)
+                    {
+                        <span class="current-badge">Atual</span>
+                    }
+                </button>
+            }
+        </div>
+
+        @if (selectedYear.HasValue)
+        {
+            var calendarioSelecionado = calendarios.First(c => c.Ano == selectedYear);
+            <div class="calendar-section">
+                <CalendarioComponent MesAtual="startDate"
+                                     IdCalendario="@calendarioSelecionado.IdCalendario" />
+            </div>
+        }
+    }
+</div>
+
+@code {
+    private List<Calendario> calendarios;
+    private int? selectedYear;
+    private DateTime startDate = DateTime.Today;
+
+    protected override async Task OnInitializedAsync()
+    {
+        calendarios = await CalendarioService.GetAllCalendarios();
+        var currentYear = DateTime.Today.Year;
+        if (calendarios.Any(c => c.Ano == currentYear))
+        {
+            selectedYear = currentYear;
+            startDate = DateTime.Today;
+        }
+    }
+
+    private void ToggleYear(int year)
+    {
+        selectedYear = selectedYear == year ? null : year;
+        startDate = selectedYear == DateTime.Today.Year
+            ? DateTime.Today
+            : new DateTime(year, 1, 1);
+    }
+}
+
+<style>
+    .selector-container {
+        max-width: 1200px;
+        margin: 2rem auto;
+        padding: 2rem;
+        background: #ffffff;
+        border-radius: 16px;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    }
+
+    .year-selector {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+        gap: 1rem;
+        margin-bottom: 2rem;
+    }
+
+    .year-button {
+        padding: 1rem;
+        border: 2px solid #e0e0e0;
+        border-radius: 12px;
+        background: #f8f9fa;
+        color: #2d3436;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        position: relative;
+        cursor: pointer;
+    }
+
+        .year-button:hover {
+            transform: translateY(-2px);
+            border-color: #2196f3;
+        }
+
+        .year-button.selected {
+            background: #2196f3;
+            color: white;
+            border-color: transparent;
+            box-shadow: 0 4px 12px rgba(33,150,243,0.3);
+        }
+
+    .current-badge {
+        position: absolute;
+        top: -8px;
+        right: -8px;
+        background: #4caf50;
+        color: white;
+        font-size: 0.75rem;
+        padding: 2px 8px;
+        border-radius: 12px;
+    }
+
+    .calendar-section {
+        margin-top: 2rem;
+        animation: fadeIn 0.3s ease;
+    }
+
+    .loading-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+        padding: 2rem;
+    }
+
+    .spinner {
+        width: 24px;
+        height: 24px;
+        border: 3px solid #f3f3f3;
+        border-top: 3px solid #2196f3;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+    }
+
+    .empty-state {
+        text-align: center;
+        padding: 2rem;
+        color: #636e72;
+    }
+
+        .empty-state i {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+    @@keyframes spin {
+        to {
+            transform: rotate(360deg);
+        }
+    }
+
+    @@keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(10px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @@media (max-width: 768px) {
+        .selector-container {
+            margin: 1rem;
+            padding: 1rem;
+        }
+
+        .year-selector {
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+</style>
+-->
+
+
+
+@inject ICalendarioInterface CalendarioService
+@inject NavigationManager Navigation
+
+<div class="selector-container">
+    <!-- Ação global para criar um novo calendário -->
+    <div class="global-actions">
+        <button class="btn btn-primary" @onclick="CriarCalendario">
+            <i class="bi bi-plus-circle"></i> Criar Calendário
+        </button>
+    </div>
+
+    @if (calendarios == null)
+    {
+        <div class="loading-container">
+            <div class="spinner"></div>
+            <div>Carregando...</div>
+        </div>
+    }
+    else if (!calendarios.Any())
+    {
+        <div class="empty-state">
+            <i class="bi bi-calendar-event"></i>
+            <h3>Nenhum calendário disponível</h3>
+        </div>
+    }
+    else
+    {
+        <div class="year-selector">
+            @foreach (var calendario in calendarios)
+            {
+                <button class="year-button @(selectedYear == calendario.Ano ? "selected" : "")"
+                        @onclick="() => ToggleYear(calendario.Ano)">
+                    @calendario.Ano
+                    @if (calendario.Ano == DateTime.Now.Year)
+                    {
+                        <span class="current-badge">Atual</span>
+                    }
+                </button>
+            }
+        </div>
+        @if (selectedYear.HasValue)
+        {
+            var calendarioSelecionado = calendarios.First(c => c.Ano == selectedYear);
+            <div class="calendar-section">
+                <!-- Botões de ações do calendário selecionado -->
+                <div class="action-buttons">
+                    <button class="btn btn-secondary" @onclick="IrParaEventos">
+                        <i class="bi bi-list-check"></i> Eventos
+                    </button>
+                    <button class="btn btn-danger" @onclick="ExcluirCalendario">
+                        <i class="bi bi-trash"></i> Excluir
+                    </button>
+                    @if (calendarioSelecionado.Status == Status.Aguardando_Aprovação)
+                    {
+                        <button class="btn btn-warning" @onclick="EditarCalendario">
+                            <i class="bi bi-pencil"></i> Editar
+                        </button>
+                        <button class="btn btn-info" @onclick="CriarEvento">
+                            <i class="bi bi-calendar-plus"></i> Criar Evento
+                        </button>
+                    }
+                    else if (calendarioSelecionado.Status == Status.Aprovado)
+                    {
+                        <button class="btn btn-success" @onclick="CriarPortaria">
+                            <i class="bi bi-door-open"></i> Criar Portaria
+                        </button>
+                    }
+                </div>
+
+                <!-- Componente do calendário -->
+                <CalendarioComponent MesAtual="startDate"
+                                     IdCalendario="@calendarioSelecionado.IdCalendario" />
+            </div>
+        }
+    }
+</div>
+
+@code {
+    private List<Calendario> calendarios;
+    private int? selectedYear;
+    private DateTime startDate = DateTime.Today;
+
+    protected override async Task OnInitializedAsync()
+    {
+        calendarios = await CalendarioService.GetAllCalendarios();
+        var currentYear = DateTime.Today.Year;
+        if (calendarios.Any(c => c.Ano == currentYear))
+        {
+            selectedYear = currentYear;
+            startDate = DateTime.Today;
+        }
+    }
+
+    private void ToggleYear(int year)
+    {
+        selectedYear = selectedYear == year ? null : year;
+        startDate = selectedYear == DateTime.Today.Year
+            ? DateTime.Today
+            : new DateTime(year, 1, 1);
+    }
+
+    private void CriarCalendario()
+    {
+        // Redireciona para a página de criação de calendário
+        Navigation.NavigateTo("/Calendario/CreateCalendario");
+    }
+
+    private void IrParaEventos()
+    {
+        // Redireciona para a página de eventos do calendário selecionado
+        if (selectedYear.HasValue)
+        {
+            var calendarioSelecionado = calendarios.First(c => c.Ano == selectedYear);
+            Navigation.NavigateTo($"/Eventos/ViewEventos/{calendarioSelecionado.IdCalendario}");
+        }
+    }
+
+    private void ExcluirCalendario()
+    {
+        // Redireciona para a página de desativação do calendário (exclusão lógica)
+        if (selectedYear.HasValue)
+        {
+            var calendarioSelecionado = calendarios.First(c => c.Ano == selectedYear);
+            Navigation.NavigateTo($"/Calendario/Excluir/{calendarioSelecionado.IdCalendario}");
+        }
+    }
+
+    private void EditarCalendario()
+    {
+        // Redireciona para a página de edição do calendário
+        if (selectedYear.HasValue)
+        {
+            var calendarioSelecionado = calendarios.First(c => c.Ano == selectedYear);
+            Navigation.NavigateTo($"/Calendario/Editar/{calendarioSelecionado.IdCalendario}");
+        }
+    }
+
+    private void CriarEvento()
+    {
+        // Redireciona para a página de criação de evento
+        if (selectedYear.HasValue)
+        {
+            var calendarioSelecionado = calendarios.First(c => c.Ano == selectedYear);
+            Navigation.NavigateTo($"/Eventos/CriarEvento/{calendarioSelecionado.IdCalendario}");
+        }
+    }
+
+    private void CriarPortaria()
+    {
+        // Redireciona para a página de criação de portaria
+        if (selectedYear.HasValue)
+        {
+            var calendarioSelecionado = calendarios.First(c => c.Ano == selectedYear);
+            Navigation.NavigateTo($"/Portaria/CriarPortaria");
+        }
+    }
+}
+<style>
+    .selector-container {
+        max-width: 1200px;
+        margin: 2rem auto;
+        padding: 2rem;
+        background: #ffffff;
+        border-radius: 16px;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    }
+
+    .global-actions {
+        display: flex;
+        justify-content: flex-end;
+        margin-bottom: 1.5rem;
+    }
+
+        .global-actions .btn {
+            margin-left: 1rem;
+            padding: 0.5rem 1rem;
+            font-size: 1rem;
+        }
+
+    .year-selector {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+        gap: 1rem;
+        margin-bottom: 2rem;
+    }
+
+    .year-button {
+        padding: 1rem;
+        border: 2px solid #e0e0e0;
+        border-radius: 12px;
+        background: #f8f9fa;
+        color: #2d3436;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        position: relative;
+        cursor: pointer;
+    }
+
+        .year-button:hover {
+            transform: translateY(-2px);
+            border-color: #2196f3;
+        }
+
+        .year-button.selected {
+            background: #2196f3;
+            color: white;
+            border-color: transparent;
+            box-shadow: 0 4px 12px rgba(33,150,243,0.3);
+        }
+
+    .current-badge {
+        position: absolute;
+        top: -8px;
+        right: -8px;
+        background: #4caf50;
+        color: white;
+        font-size: 0.75rem;
+        padding: 2px 8px;
+        border-radius: 12px;
+    }
+
+    .calendar-section {
+        margin-top: 2rem;
+        animation: fadeIn 0.3s ease;
+    }
+
+    .action-buttons {
+        display: flex;
+        gap: 1rem;
+        margin-bottom: 1rem;
+    }
+
+        .action-buttons .btn {
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+    .btn-primary {
+        background: #2196f3;
+        color: #fff;
+    }
+
+        .btn-primary:hover {
+            background: #1976d2;
+        }
+
+    .btn-secondary {
+        background: #6c757d;
+        color: #fff;
+    }
+
+        .btn-secondary:hover {
+            background: #5a6268;
+        }
+
+    .btn-danger {
+        background: #dc3545;
+        color: #fff;
+    }
+
+        .btn-danger:hover {
+            background: #c82333;
+        }
+
+    .btn-warning {
+        background: #ffc107;
+        color: #212529;
+    }
+
+        .btn-warning:hover {
+            background: #e0a800;
+        }
+
+    .btn-info {
+        background: #17a2b8;
+        color: #fff;
+    }
+
+        .btn-info:hover {
+            background: #138496;
+        }
+
+    .btn-success {
+        background: #28a745;
+        color: #fff;
+    }
+
+        .btn-success:hover {
+            background: #218838;
+        }
+
+    .loading-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+        padding: 2rem;
+    }
+
+    .spinner {
+        width: 24px;
+        height: 24px;
+        border: 3px solid #f3f3f3;
+        border-top: 3px solid #2196f3;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+    }
+
+    .empty-state {
+        text-align: center;
+        padding: 2rem;
+        color: #636e72;
+    }
+
+        .empty-state i {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+    @@keyframes spin {
+        to {
+            transform: rotate(360deg);
+        }
+    }
+
+    @@keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(10px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @@media (max-width: 768px) {
+        .selector-container {
+            margin: 1rem;
+            padding: 1rem;
+        }
+
+        .year-selector {
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+
+</style>

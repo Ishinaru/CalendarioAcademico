@@ -31,36 +31,31 @@
                     var isDomingo = data.DayOfWeek == DayOfWeek.Sunday;
                     var isUescFechado = eventosDoDia?.Any(e => !e.UescFunciona) ?? false;
 
-                    <div class="@GetDayClasses(data, isDomingo, isUescFechado)">
-                        <div class="day-number">@data.Day</div>
-
-                        <div class="event-indicators">
-                            @if (eventosDoDia?.Any(e => e.Importante) == true)
-                            {
-                                <div class="event-indicator importante"></div>
-                            }
-                            @if (isUescFechado)
-                            {
-                                <div class="event-indicator nao-funciona"></div>
-                            }
-                        </div>
+                    <div class="@GetDayClasses(data, isDomingo, isUescFechado, eventosDoDia)">
+                        <div class="day-number">@data.Day</div>  
+                        @if(eventosDoDia?.Any(e=>e.Importante) ?? false)
+                        {
+                            <div class="event-indicator importante"></div>
+                        }
                     </div>
                 }
             </div>
         }
+    </div>
 
     <div class="events-container">
         <h4>Eventos deste mês</h4>
-        @foreach (var evento in eventos.OrderBy(e => e.DataInicio))
+        @foreach (var evento in GetEventosDoMes().OrderBy(e=>e.DataInicio))
         {
-            <div class="event-item @(evento.Importante ? "importante" : "") @(!evento.UescFunciona ? "nao-funciona" : "")">
+            <div class="event-item @(evento.Importante ? "importante" : "")
+                                   @(!evento.UescFunciona ? "nao-funciona" : "")"
+            @onclick="() => OnEventoSelecionadoHandler(evento.IdEvento)">
                 <div class="event-dates">
                     @evento.DataInicio.ToString("dd/MM") - @evento.DataFinal.ToString("dd/MM")
                 </div>
                 <div class="event-desc">@evento.Descricao</div>
             </div>
         }
-    </div>
     </div>
 </div>
 
@@ -70,6 +65,9 @@
 
     [Parameter]
     public int IdCalendario { get; set; }
+
+    [Parameter]
+    public EventCallback<int> OnEventoSelecionado { get; set; }
 
     private string[] DiasDaSemana = { "Dom", "Seg", "Ter", "Qua", "Qui", "Sex", "Sáb" };
     private List<List<DateTime>> Semanas = new();
@@ -81,16 +79,48 @@
         CarregarCalendario();
     }
 
-   private string GetDayClasses(DateTime data, bool isDomingo, bool isUescFechado)
+    private IEnumerable<Evento> GetEventosDoMes()
+    {
+        var firstDayOfMonth = new DateOnly(MesAtual.Year, MesAtual.Month, 1);
+        var lastDayOfMonth = firstDayOfMonth.AddMonths(1).AddDays(-1);
+        return eventos.Where(e=>e.DataInicio <= lastDayOfMonth && e.DataFinal >= firstDayOfMonth);
+    }
+
+    private string GetDayClasses(DateTime data, bool isDomingo, bool isUescFechado, List<Evento> eventosDoDia)
+    {
+        var classes = new List<string> { "day" };
+
+        if (data.Month != MesAtual.Month)
+            classes.Add("other-month");
+
+        bool isNonWorking = isDomingo || isUescFechado;
+
+        if (isNonWorking)
         {
-            var classes = new List<string> { "day" };
-
-            if (data.Month != MesAtual.Month) classes.Add("other-month");
-            if (isDomingo || isUescFechado) classes.Add("non-working-day");
-            if (DiaAtual(data)) classes.Add("current-day");
-
-            return string.Join(" ", classes);
+            classes.Add("non-working-day");
         }
+        else
+        {
+            bool hasImportant = eventosDoDia?.Any(e => e.Importante) ?? false;
+            bool hasEvent = eventosDoDia?.Any() ?? false;
+            bool isInEventRange = eventos.Any(e => data >= e.DataInicio.ToDateTime(TimeOnly.MinValue) && data <= e.DataFinal.ToDateTime(TimeOnly.MaxValue));
+
+            if (hasImportant)
+            {
+                classes.Add("important-event");
+            }
+            else if (hasEvent||isInEventRange)
+            {
+                classes.Add("event-day");
+            }
+        }
+
+        if (DiaAtual(data))
+            classes.Add("current-day");
+
+        return string.Join(" ", classes);
+    }
+
     private void CarregarCalendario()
     {
         Semanas.Clear();
@@ -121,6 +151,7 @@
     {
         var date = DateOnly.FromDateTime(data);
         return eventos.Where(e => date >= e.DataInicio && date <= e.DataFinal).ToList();
+
     }
 
     private bool DiaAtual(DateTime data)
@@ -132,12 +163,18 @@
     {
         MesAtual = MesAtual.AddMonths(-1);
         CarregarCalendario();
+        
     }
 
     private void MudarParaProximoMes()
     {
         MesAtual = MesAtual.AddMonths(1);
         CarregarCalendario();
+    }
+
+    private async Task OnEventoSelecionadoHandler(int idEvento)
+    {
+        await OnEventoSelecionado.InvokeAsync(idEvento);
     }
 }
 
@@ -251,7 +288,7 @@
     }
 
     .current-day {
-        background: #2196f3 !important;
+        background: #794dc7 !important;
         position: relative;
         overflow: hidden;
     }
@@ -287,23 +324,22 @@
     }
 
     .non-working-day {
-        background: #ffebee !important;
-        position: relative;
+        background: #ffebee;
     }
 
     .event-indicators {
-        position: absolute;
         bottom: 8px;
         display: flex;
         gap: 3px;
-        width: 100%;
         justify-content: center;
     }
 
     .event-indicator {
-        width: 20px;
-        height: 4px;
-        border-radius: 2px;
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: #2196F3;
+        margin-top: 4px;
     }
 
         .event-indicator.importante {
@@ -313,6 +349,11 @@
         .event-indicator.nao-funciona {
             background: #ff5252;
         }
+
+
+    .event-day {
+        background: #f3e5f5;
+    }
 
     .events-container {
         margin-top: 2rem;
@@ -348,8 +389,5 @@
         color: #2d3436;
         font-weight: 500;
     }
-
-    .current-day {
-        background: #eed202 !important; /* Alterado para amarelo */
-    }
+  
 </style>
