@@ -2,6 +2,18 @@
 @inject ICalendarioInterface CalendarioService
 @inject NavigationManager Navigation
 
+<div class="alert-fixed-container"> 
+    @if (alertMessage != string.Empty)
+    {
+        <div class="alert-container">
+            <Alert Color="@alertColorMessage" class="d-flex align-items-center">
+                <Icon Name="@alertIconMessage" class="me-2" />
+                @alertMessage
+            </Alert>
+        </div>
+    }
+</div>
+
 <div class="selector-container">
     <div class="header-actions">
         <button class="btn btn-primary" @onclick="ToCreateCalendario">
@@ -46,37 +58,45 @@
 
         @if (selectedYear.HasValue)
         {
-            var calendarioSelecionado = calendarios.First(c => c.Ano == selectedYear);
+            var calendarioSelecionado = calendarios.FirstOrDefault(c => c.Ano == selectedYear);
             <div class="calendar-section">
-                <CalendarioComponent MesAtual="startDate" IdCalendario="@calendarioSelecionado.IdCalendario" OnEventoSelecionado="OnEventoSelecionado" @rendermode="RenderMode.InteractiveServer"/>
-
-                <div class="action-buttons">
-                    <button class="btn btn-secondary">
-                        <i class="bi bi-calendar2-event"></i> Eventos
-                    </button>
-
-                    @if (calendarioSelecionado.Status == Status.Aguardando_Aprovação)
-                    {
-                        <button class="btn btn-primary"
-                        @onclick="() => NavigateToEditEvento(calendarioSelecionado.IdCalendario)">
-                            <i class="bi bi-pencil"></i> Editar Evento
+                @if(calendarioSelecionado != null)
+                {
+                    <CalendarioComponent MesAtual="startDate" IdCalendario="@calendarioSelecionado.IdCalendario" OnEventoSelecionado="OnEventoSelecionado" SelectedEventoId="@selectedEventoId" OnAnoMudou="HandleAnoMudou" />
+                    <div class="action-buttons">
+                        <button class="btn btn-secondary">
+                            <i class="bi bi-calendar2-event"></i> Eventos
                         </button>
-                        <button class="btn btn-primary"
-                        @onclick="() => NavigateToCreateEvento(calendarioSelecionado.IdCalendario)">
-                            <i class="bi bi-plus-circle"></i> Criar Evento
-                        </button>
-                    }
-                    else if (calendarioSelecionado.Status == Status.Aprovado)
-                    {
-                        <button class="btn btn-success"
-                        @onclick="() => NavigateToCreatePortaria(calendarioSelecionado.IdCalendario)">
-                            <i class="bi bi-file-earmark-text"></i> Criar Portaria
-                        </button>
-                    }
 
-                    <button class="btn btn-danger"
-                    @onclick="() => ToDesativateCalendario()">
-                        <i class="bi bi-trash"></i> Desativar Calendário
+                        @if (calendarioSelecionado.Status == Status.Aguardando_Aprovação)
+                        {
+                            <button class="btn btn-primary"
+                                    @onclick="() => NavigateToEditEvento(selectedEventoId??0)" disabled="@(selectedEventoId == null)">
+                                <i class="bi bi-pencil"></i> Editar Evento
+                            </button>
+                            <button class="btn btn-primary"
+                                    @onclick="() => NavigateToCreateEvento(calendarioSelecionado.IdCalendario)">
+                                <i class="bi bi-plus-circle"></i> Criar Evento
+                            </button>
+                        }
+                        else if (calendarioSelecionado.Status == Status.Aprovado)
+                        {
+                            <button class="btn btn-success"
+                                    @onclick="() => NavigateToCreatePortaria(calendarioSelecionado.IdCalendario)">
+                                <i class="bi bi-file-earmark-text"></i> Criar Portaria
+                            </button>
+                        }
+
+                        <ConfirmDialog @ref="cancelDialog" />
+                        <Button Color="ButtonColor.Danger" @onclick="()=>ShowConfirmationAsync(calendarioSelecionado.IdCalendario)"><Icon Name="IconName.Ban" />Desativar Calendário</Button>
+                    </div>
+                }
+
+                <div class="empty-calendar-state">
+                    <i class="bi bi-calendar-plus"></i>
+                    <h3>Nenhum calendário cadastrado para @selectedYear</h3>
+                    <button class="btn btn-primary" @onclick="() => ToCreateCalendario(selectedYear.Value)">
+                        Criar Novo Calendário
                     </button>
                 </div>
             </div>
@@ -85,10 +105,15 @@
 </div>
 
 @code {
-    private List<Calendario> calendarios;
+    private Evento ? eventoCalendario;
+    private List<Calendario> ?calendarios;
     private int? selectedYear;
     private DateTime startDate = DateTime.Today;
     private int? selectedEventoId;
+    private ConfirmDialog cancelDialog = default!;
+    private string alertMessage = string.Empty;
+    private AlertColor alertColorMessage = AlertColor.None;
+    private IconName alertIconMessage = IconName.None;
 
     protected override async Task OnInitializedAsync()
     {
@@ -108,10 +133,28 @@
 
     private void ToggleYear(int year)
     {
-        selectedYear = selectedYear == year ? null : year;
-        startDate = selectedYear == DateTime.Today.Year
-            ? DateTime.Today
-            : new DateTime(year, 1, 1);
+        if(!calendarios.Any(c=>c.Ano == year)){
+            
+        }
+        if(selectedYear != year){
+            selectedYear = selectedYear == year ? null : year;
+            startDate = selectedYear == DateTime.Today.Year
+                ? DateTime.Today
+                : new DateTime(year, 1, 1);
+            selectedEventoId = null;
+            CarregarEventosParaAno(year);
+        }
+    }
+
+    private async Task HandleAnoMudou(int novoAno)
+    {
+        selectedYear = novoAno;
+        var calendarioSelecionado = calendarios.FirstOrDefault(c => c.Ano == novoAno);
+        if(calendarioSelecionado != null)
+        {
+            startDate = new DateTime(novoAno, startDate.Month, 1);
+            await CarregarEventosParaAno(novoAno);
+        }
     }
 
     private void ToCreateCalendario()
@@ -119,9 +162,53 @@
         Navigation.NavigateTo("Calendario/CreateCalendario/");
     }
 
-    private void ToDesativateCalendario()
+    private void ToCreateCalendario(int anoCalendario)
     {
-        Navigation.NavigateTo("Calendario/DesativarCalendario");
+        Navigation.NavigateTo($"Calendario/CreateCalendario/{anoCalendario}");
+    }
+
+    private async Task ShowConfirmationAsync(int idCalendario)
+    {
+        var options = new ConfirmDialogOptions
+            {
+                YesButtonText = "Deletar",
+                YesButtonColor = ButtonColor.Danger,
+                NoButtonColor = ButtonColor.Secondary,
+                NoButtonText = "Cancelar",                
+            };
+        var confirmation = await cancelDialog.ShowAsync(
+            title: "Tem certeza que deseja desativar esse calendário?",
+            message1:"Esse processo irá desativar o calendário do sistema.",
+            message2:"Tem certeza que irá prosseguir?",
+            confirmDialogOptions: options
+        );
+
+        if (confirmation)
+        {
+            await CalendarioService.DesativarCalendario(idCalendario);
+            alertColorMessage = AlertColor.Success;
+            alertMessage = "Calendário Desativado com sucesso";
+            alertIconMessage = IconName.CheckCircleFill;
+            StateHasChanged();
+
+            await Task.Delay(3000);
+            alertColorMessage = AlertColor.None;
+            alertMessage = string.Empty;
+            alertIconMessage = IconName.None;
+
+            await CarregarCalendarios();
+            StateHasChanged();
+        }
+    }
+
+    private async Task CarregarEventosParaAno(int ano)
+    {
+        var calendarioSelecionado = calendarios.FirstOrDefault(c=>c.Ano == ano);
+        if(calendarioSelecionado != null)
+        {
+            calendarioSelecionado.IdCalendario = calendarioSelecionado.IdCalendario;
+            await InvokeAsync(StateHasChanged);
+        }
     }
 
     private void NavigateToEditEvento(int idEvento)
@@ -142,6 +229,7 @@
     private void OnEventoSelecionado(int idEvento)
     {
         selectedEventoId = idEvento;
+        StateHasChanged();
     }
 }
 
@@ -329,5 +417,43 @@
         .action-buttons {
             flex-direction: column;
         }
+    }
+
+    .alert-fixed-container {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        z-index: 9999;
+        min-width: 300px;
+        animation: alertSlideIn 0.3s ease-out;
+    }
+
+    .global-alert {
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        border-left: 4px solid;
+        backdrop-filter: blur(5px);
+        transition: all 0.3s ease;
+    }
+
+    @@keyframes alertSlideIn {
+        from
+
+    {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    }
+
+    /* Estilo específico para sucesso */
+    .alert-success {
+        border-left-color: #2ecc71 !important;
+        background: rgba(46, 204, 113, 0.95) !important;
+        color: white !important;
     }
 </style>

@@ -1,4 +1,4 @@
-﻿@page "/Calendario/CreateCalendario"
+﻿@page "/Calendario/CreateCalendario/anoCalendario:int"
 @inject ICalendarioInterface Service
 @inject NavigationManager NavigationManager
 
@@ -26,6 +26,10 @@
 
     <div class="mb-3">
         <label for="ano" class="form-label">Ano do Calendário</label>
+        @if(anoCalendario != null)
+        {
+            <InputNumber id="ano" class="form-control" @bind-Value="anoCalendario" />
+        }
         <InputNumber id="ano" class="form-control" @bind-Value="calendario.Ano" />
     </div>
 
@@ -45,6 +49,8 @@
 </EditForm>
 
 @code {
+    [Parameter]
+    public int anoCalendario { get; set; }
     private CriarCalendarioDTO calendario = new();
     private bool isSubmitting = false;
     private bool showSuccessMessage = false;

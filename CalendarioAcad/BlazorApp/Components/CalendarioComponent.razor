@@ -39,16 +39,18 @@
                         }
                     </div>
                 }
+
             </div>
         }
     </div>
 
     <div class="events-container">
-        <h4>Eventos deste mês</h4>
+        <h4 class="pb-3">Eventos deste mês</h4>
         @foreach (var evento in GetEventosDoMes().OrderBy(e=>e.DataInicio))
         {
-            <div class="event-item @(evento.Importante ? "importante" : "")
-                                   @(!evento.UescFunciona ? "nao-funciona" : "")"
+            <div class="event-item  @(evento.IdEvento == SelectedEventoId? "selected":"")
+                                    @(evento.Importante ? "importante" : "")
+                                    @(!evento.UescFunciona ? "nao-funciona" : "")"
             @onclick="() => OnEventoSelecionadoHandler(evento.IdEvento)">
                 <div class="event-dates">
                     @evento.DataInicio.ToString("dd/MM") - @evento.DataFinal.ToString("dd/MM")
@@ -65,6 +67,12 @@
 
     [Parameter]
     public int IdCalendario { get; set; }
+
+    [Parameter]
+    public int? SelectedEventoId { get; set; }
+
+    [Parameter]
+    public EventCallback<int> OnAnoMudou { get; set; }
 
     [Parameter]
     public EventCallback<int> OnEventoSelecionado { get; set; }
@@ -118,6 +126,17 @@
         if (DiaAtual(data))
             classes.Add("current-day");
 
+
+        if(SelectedEventoId != null && eventos.Any(e=>e.IdEvento == SelectedEventoId))
+        {
+            var selectedEvent = eventos.First(e => e.IdEvento == SelectedEventoId);
+            if(data >= selectedEvent.DataInicio.ToDateTime(TimeOnly.MinValue) && data <= selectedEvent.DataFinal.ToDateTime(TimeOnly.MaxValue))
+            {
+                classes.Add("selected-event-day");
+            }
+
+        }
+
         return string.Join(" ", classes);
     }
 
@@ -159,16 +178,25 @@
         return data.Date == DateTime.Today;
     }
 
-    private void MudarParaMesAnterior()
+    private async Task MudarParaMesAnterior()
     {
-        MesAtual = MesAtual.AddMonths(-1);
+        var novoMes = MesAtual.AddMonths(-1);
+        if(novoMes.Year != MesAtual.Year)
+        {
+            await OnAnoMudou.InvokeAsync(novoMes.Year);
+        }
+        MesAtual = novoMes;
         CarregarCalendario();
-        
     }
 
-    private void MudarParaProximoMes()
+    private async Task MudarParaProximoMes()
     {
-        MesAtual = MesAtual.AddMonths(1);
+        var novoMes = MesAtual.AddMonths(1);
+        if (novoMes.Year != MesAtual.Year)
+        {
+            await OnAnoMudou.InvokeAsync(novoMes.Year);
+        }
+        MesAtual = novoMes;
         CarregarCalendario();
     }
 
@@ -350,7 +378,6 @@
             background: #ff5252;
         }
 
-
     .event-day {
         background: #f3e5f5;
     }
@@ -388,6 +415,16 @@
     .event-desc {
         color: #2d3436;
         font-weight: 500;
+    }
+
+    .selected{
+        border: 2px solid #2196f3;
+        background-color: #e3f2fd;
+    }
+
+    .select-event-day 
+    {
+        background-color: #d1e8ff;
     }
   
 </style>
